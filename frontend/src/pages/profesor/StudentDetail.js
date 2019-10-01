@@ -10,13 +10,13 @@ export default class StudentDetail extends Component {
 
     componentDidMount = async () => {
         const { id } = this.props.match.params
-    
         const {data: {student}} = await axios.get(`http://localhost:3000/api/students/${id}`)
         this.setState({
             student
         })
-        
       }
+
+      
 
     render() {
         const { student } = this.state;

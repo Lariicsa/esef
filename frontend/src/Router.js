@@ -15,7 +15,7 @@ const Router = () => (
       <Route exact path="/" component={HomePage} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/profesor/addstudent" component={AddStudent} />
-      <Route exact path="/profesor/viewstudent" component={AllStudents} />
+      <Route exact path="/profesor/viewstudents" component={AllStudents} />
       <Route exact path="/profesor/students/:id" component={StudentDetail} />
     </Switch>
   </BrowserRouter>

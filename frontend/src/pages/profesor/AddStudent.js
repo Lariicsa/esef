@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import AUTH_SERVICE from '../../services/auth';
+import Sidebar from '../../components/Sidebar';
 
 export default class AddStudent extends Component {
 
@@ -39,10 +40,13 @@ export default class AddStudent extends Component {
   }
 
   render() {
-    const { student} = this.state
+    const { student } = this.state
     return (
       <div className="columns is-centered">
-        <div className="column box is-10">
+        <div className="column">
+          <Sidebar />
+        </div>
+        <div className="column box is-12">
           <h1 className="title is-1">Agregar alumno</h1>
           <div className="columns">
             <div className="column is-6">
@@ -124,7 +128,7 @@ export default class AddStudent extends Component {
                 </div>
 
                 <div className="field">
-                  <button className="button is-fullwidth is-info" type='submit'>Add student</button>
+                  <button className="button is-fullwidth is-primary" type='submit'>Add student</button>
                 </div>
               </form>
             </div>
