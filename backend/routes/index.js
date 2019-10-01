@@ -53,8 +53,8 @@ router.get('/viewstudents', async(req,res, next) => {
 router.get('/students/:id', async(req,res, next) => {
   try {
     const {id} = req.params
-    const students = await Student.findById(id)
-    res.status(200).json({ students })
+    const student = await Student.findById(id)
+    res.status(200).json({ student })
   }
   catch {
     (err) => res.status(500).json({ err })
