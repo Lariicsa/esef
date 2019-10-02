@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const User = require('../models/User');
-const Student = require('../models/Student');
-const passport = require('../config/passport');
+const express = require('express')
+const router = express.Router()
+const User = require('../models/User')
+const Student = require('../models/Student')
+const passport = require('../config/passport')
+const { home } =require('../controllers/index')
 
 router.post('/signup', (req, res, next) => {
   User.register(req.body, req.body.password)
@@ -21,11 +22,14 @@ router.get('/logout', (req, res, next) =>{
   res.status(200).json({msg: 'Logged out'})
 });
 
-router.get('/', (req,res, next) => {
-  User.findById(req.user._id)
-  .then((user) => res.status(200).json({ user }))
-  .catch((err) => res.status(500).json({ err }))
-});
+
+router.get('/', home)
+
+// router.get('/', (req,res, next) => {
+//   User.findById(req.user._id)
+//   .then((user) => res.status(200).json({ user }))
+//   .catch((err) => res.status(500).json({ err }))
+// });
 
 router.get('/dashboard', (req,res, next) => {
   User.findById(req.user._id)
