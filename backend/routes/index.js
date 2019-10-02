@@ -33,7 +33,7 @@ router.get('/profile', (req,res, next) => {
   .catch((err) => res.status(500).json({ err }))
 });
 
-router.post(('/addstudent'), (req, res,next) => {
+router.post('/addstudent', (req, res,next) => {
   const height = req.body.height 
   const weight = req.body.weight
   const hip = req.body.hip
@@ -46,7 +46,8 @@ router.post(('/addstudent'), (req, res,next) => {
   let pot = height*2
   let imc = weight/pot
   let gabd = hip / height
-  let ica = (fcrep + fce + fcrec)/meters
+  let ica = (fcrep + fce + fcrec)/meters 
+  ica = 20
 
   Student.create({...req.body, pot, imc, hip, gabd, ica})
   .then((student) => res.status(201).json({ student, msg: 'Student added' }) )

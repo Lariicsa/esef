@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const PLM = require('passport-local-mongoose');
 
 const studentSchema = new Schema(
   {
@@ -56,6 +55,5 @@ const studentSchema = new Schema(
   }
 );
 
-studentSchema.plugin(PLM);
 
 module.exports = model('Student', studentSchema);
