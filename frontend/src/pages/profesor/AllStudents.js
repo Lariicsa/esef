@@ -10,7 +10,7 @@ export default class AllStudents extends Component {
         students: undefined
     }
 
-    getStudent = async () => {
+    getStudents = async () => {
         const response = await axios.get('http://localhost:3000/api/viewstudents')
         this.setState({
             students: response.data.students
@@ -18,7 +18,7 @@ export default class AllStudents extends Component {
     }
 
     componentDidMount() {
-        this.getStudent()
+        this.getStudents()
     }
 
     render() {

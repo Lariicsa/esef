@@ -64,7 +64,7 @@ export default class AddStudent extends Component {
         <div className="column">
           <Sidebar />
         </div>
-        <div className="column box is-12">
+        <div className="column box is-10">
           <h1 className="title is-1">Agregar alumno</h1>
           <div className="columns">
             <div className="column is-6">
@@ -139,13 +139,13 @@ export default class AddStudent extends Component {
 
                 <div className="field">
                   <label className="label">Género:</label>
-                  <input className="input"
-                    required
-                    onChange={this.handleInput}
-                    value={student.gender}
-                    type='text'
-                    name='gender'
-                  />
+                  <div className="select">
+                  <select name="gender" value={student.gender} onChange={this.handleInput} >
+                    <option disabled ></option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Masculino">Masculino</option>
+                  </select>
+                </div>
                 </div>
                 <div className="field">
                   <label className="label">Peso:</label>
