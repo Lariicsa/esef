@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
+import { Link } from 'react-router-dom'
 
 export default class AllStudents extends Component {
 
@@ -22,30 +23,63 @@ export default class AllStudents extends Component {
 
     render() {
         const { students } = this.state;
+        console.log(this.state);
+        
         return (
             <div className="columns is-centered">
                 <div className="column">
                     <Sidebar />
                 </div>
                 <div className="column is-12">
-                    <table className="table is-fullwidth">
+                    <table className="table is-fullwidth table-wrapper">
                         <thead>
                             <tr>
+                                <th>Grado</th>
                                 <th>Nombre</th>
                                 <th>Edad</th>
                                 <th>Estatura</th>
                                 <th>Peso</th>
+                                <th>Género</th>
+                                <th>Cintura</th>
                                 <th>Potencia</th>
+                                <th>IMC</th>
+                                <th>% Grasa Abdominal</th>
+                                <th>Velocidad</th>
+                                <th>Flexibilidad</th>
+                                <th>M.Inferiores</th>
+                                <th>Abdomen</th>
+                                <th>M.Superiores</th>
+                                <th>FCREP</th>
+                                <th>FCE</th>
+                                <th>FCREC</th>
+                                <th>Metros</th>
+                                <th>ICA</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             {students && students.map((student, i) =>
                                 <tr key={i}>
+                                    <td>{student.level}</td>
                                     <td>{student.name} {student.lastname1} {student.name2}</td>
                                     <td>{student.age}</td>
-                                    <td>{student.weight}</td>
                                     <td>{student.height}</td>
-                                    <td></td>
+                                    <td>{student.weight}</td>
+                                    <td>{student.gender}</td>
+                                    <td>{student.hip}</td>
+                                    <td>{student.pot}</td>
+                                    <td>{student.imc}</td>
+                                    <td>{student.gabd}</td>
+                                    <td>{student.vel}</td>
+                                    <td>{student.minf}</td>
+                                    <td>{student.abd}</td>
+                                    <td>{student.msup}</td>
+                                    <td>{student.fcrep}</td>
+                                    <td>{student.fce}</td>
+                                    <td>{student.fcrec}</td>
+                                    <td>{student.meters}</td>
+                                    <td>{student.ica}</td>
+                                    <td><Link to={`/profesor/students/${student._id}`}>Ver</Link></td>
                                 </tr>
                             )}
                         </tbody>

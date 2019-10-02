@@ -32,3 +32,15 @@
 .section {
     padding: 0;
 }
+
+.table {
+  &-wrapper {
+    display: block;
+    max-width: 100%;
+    overflow: scroll;
+  }
+}
+
+.columns.profile {
+  flex-wrap: wrap;
+}

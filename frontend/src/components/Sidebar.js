@@ -20,7 +20,7 @@ export default function Sidebar() {
                 <li><Link to={'/'} >Algo</Link></li>
             </ul>
 
-            <li><Link to={'/'} >Cerrar sesión</Link></li>
+            <li><Link to={'/logout'} >Cerrar sesión</Link></li>
         </aside>
     )
 }

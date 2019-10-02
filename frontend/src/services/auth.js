@@ -12,10 +12,6 @@ const AUTH_SERVICE = {
     return await SERVICE.post('/addstudent', student);
   },
 
-  viewstudents: async (students) => {
-    return await SERVICE.get('/addstudent', students);
-  },
-
   login: async (user) => {
     return await SERVICE.post('/login', user);
   },

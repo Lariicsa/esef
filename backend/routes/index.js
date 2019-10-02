@@ -34,9 +34,24 @@ router.get('/profile', (req,res, next) => {
 });
 
 router.post(('/addstudent'), (req, res,next) => {
-  Student.create(req.body)
+  const height = req.body.height 
+  const weight = req.body.weight
+  // const hip = req.body.hip
+  // const fcrep = req.body.fcrep
+  // const fce = req.body.fce
+  // const fcrec = req.body.fcrec
+  // const meters = req.body.meters
+  
+
+  let pot = height*2
+  let imc = weight/pot
+  // let gabd = hip / height
+  // let ica = (fcrep + fce + fcrec)/meters
+
+  Student.create({...req.body, pot, imc})
   .then((student) => res.status(201).json({ student, msg: 'Student added' }) )
   .catch((err) => res.status(500).json({ err }));
+  
 })
 
 router.get('/viewstudents', async(req,res, next) => {
