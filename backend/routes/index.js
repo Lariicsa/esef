@@ -27,7 +27,7 @@ router.get('/', (req,res, next) => {
   .catch((err) => res.status(500).json({ err }))
 });
 
-router.get('/profile', (req,res, next) => {
+router.get('/dashboard', (req,res, next) => {
   User.findById(req.user._id)
   .then((user) => res.status(200).json({ user }))
   .catch((err) => res.status(500).json({ err }))
