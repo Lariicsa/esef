@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/User')
 const Student = require('../models/Student')
+const Group = require('../models/Group')
 const passport = require('../config/passport')
 const { home } =require('../controllers/index')
 
@@ -25,11 +26,6 @@ router.get('/logout', (req, res, next) =>{
 
 router.get('/', home)
 
-// router.get('/', (req,res, next) => {
-//   User.findById(req.user._id)
-//   .then((user) => res.status(200).json({ user }))
-//   .catch((err) => res.status(500).json({ err }))
-// });
 
 router.get('/dashboard', (req,res, next) => {
   User.findById(req.user._id)
@@ -59,6 +55,7 @@ router.post('/addstudent', (req, res,next) => {
   
 })
 
+
 router.get('/viewstudents', async(req,res, next) => {
   try {
     const students = await Student.find()
@@ -75,6 +72,38 @@ router.get('/students/:id', async(req,res, next) => {
     const {id} = req.params
     const student = await Student.findById(id)
     res.status(200).json({ student })
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
+});
+
+
+router.post('/addgroups', (req, res,next) => {
+
+  Group.create(req.body)
+  .then((group) => res.status(201).json({ group, msg: 'Group added' }) )
+  .catch((err) => res.status(500).json({ err }));
+  
+})
+
+router.get('/groups', async(req,res, next) => {
+  try {
+    const groups = await Group.find()
+
+    res.status(200).json({ groups })
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
+});
+
+
+router.get('/groups/:id', async(req,res, next) => {
+  try {
+    const {id} = req.params
+    const group = await Group.findById(id)
+    res.status(200).json({ group })
   }
   catch {
     (err) => res.status(500).json({ err })
