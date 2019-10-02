@@ -8,10 +8,6 @@ const AUTH_SERVICE = {
     return await SERVICE.post('/signup', user);
   },
 
-  addstudent: async (student) => {
-    return await SERVICE.post('/addstudent', student);
-  },
-
   login: async (user) => {
     return await SERVICE.post('/login', user);
   },

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
-import AUTH_SERVICE from '../../services/auth';
+import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
 
 export default class AddStudent extends Component {
@@ -30,17 +30,36 @@ export default class AddStudent extends Component {
     response: undefined
   }
 
-  addStudent = (e) => {
-    e.preventDefault();
-    AUTH_SERVICE.addstudent(this.state.student)
-      .then((response) => {
-        let studentMsg = response.data.msg
-        console.log(studentMsg);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  addStudent = async e => {
+    e.preventDefault()
+    const { student } = this.state
+    const response = await axios.post('http://localhost:3000/api/addstudent', student)
+    this.setState({
+        // student: {
+        //   level: '',
+        //   group: '',
+        //   name: '',
+        //   lastname1: '',
+        //   lastname2: '',
+        //   age: 0,
+        //   gender: '',
+        //   weight: 0,
+        //   height: 0,
+        //   hip: 0,
+        //   vel: 0,
+        //   flex: 0,
+        //   minf: 0,
+        //   abd: 0,
+        //   msup: 0,
+        //   fcrep: 0,
+        //   fce: 0,
+        //   fcrec: 0,
+        //   meters: 0
+        // },
+        response: response.data.msg        
+    })
+    console.log(response);
+}
 
   handleInput = e => {
     this.setState({
@@ -51,11 +70,11 @@ export default class AddStudent extends Component {
     })
   }
 
-  getInitialState = (e) => {
-    this.setState({
-      selectedOption: 'Femenino'
-    })
-  }
+  // getInitialState = (e) => {
+  //   this.setState({
+  //     selectedOption: 'Femenino'
+  //   })
+  // }
 
   render() {
     const { student } = this.state
@@ -64,7 +83,7 @@ export default class AddStudent extends Component {
         <div className="column">
           <Sidebar />
         </div>
-        <div className="column box is-10">
+        <div className="column box is-12">
           <h1 className="title is-1">Agregar alumno</h1>
           <div className="columns">
             <div className="column is-6">
@@ -147,10 +166,10 @@ export default class AddStudent extends Component {
                   </select>
                 </div>
                 </div>
+
                 <div className="field">
                   <label className="label">Peso:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.weight}
                     type='number'
@@ -161,7 +180,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Estatura:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.height}
                     type='number'
@@ -172,7 +190,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Cintura:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.hip}
                     type='number'
@@ -183,7 +200,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Velocidad:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.vel}
                     type='number'
@@ -194,7 +210,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">M. Inferiores:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.minf}
                     type='number'
@@ -205,7 +220,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Abdomen:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.abd}
                     type='number'
@@ -216,7 +230,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">M. superiores:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.msup}
                     type='number'
@@ -227,7 +240,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">FCREP:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.fcrep}
                     type='number'
@@ -238,7 +250,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">FCE:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.fce}
                     type='number'
@@ -249,7 +260,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">FCREC:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.fcrec}
                     type='number'
@@ -261,7 +271,6 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Metros:</label>
                   <input className="input"
-                    required
                     onChange={this.handleInput}
                     value={student.meters}
                     type='number'

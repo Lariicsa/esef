@@ -16,8 +16,8 @@ export default class HomePage extends Component {
             <div className="columns iron-height100">
               <div className="column is-7 iron-cover ironHome">
                 <div className="column">
-                  <h2 className="title is-4">El DASH</h2>
-                  <p>Need to add stuffs</p>
+                  <h2 className="title is-1">Hello Yellow</h2>
+
                 </div>
                 <div className="column ironHome">
                   <Link className="button is-primary" to={'/signup'}>Sign up</Link>
