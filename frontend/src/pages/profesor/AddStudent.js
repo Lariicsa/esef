@@ -7,13 +7,25 @@ export default class AddStudent extends Component {
 
   state = {
     student: {
-      name: '',
-      lastname1: '',
-      lastname2: '',
-      age: 0,
-      gender: '',
-      weight: 0,
-      height: 0
+      level: '',
+      group: '',
+      name: 'Timón',
+      lastname1: 'Avil',
+      lastname2: 'Gonzalez',
+      age: 2,
+      gender: 'masculino',
+      weight: 24,
+      height: 1.1,
+      hip: 100,
+      vel: 100,
+      flex: 10,
+      minf: 10,
+      abd: 20,
+      msup: 20,
+      fcrep: 20,
+      fce: 30,
+      fcrec: 10,
+      meters: 110,
     },
     response: undefined
   }
