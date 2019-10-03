@@ -10,13 +10,18 @@ export default class AddGroup extends Component {
             level: '',
             group: ''
         },
+        user: {},
         response: undefined
     }
 
+    componentDidMount() {
+        if (!this.context.state.loggedUser) return this.props.history.push('/login')
+      }
+
     addGroup = async e => {
         e.preventDefault()
-        const { group } = this.state
-        const response = await axios.post('http://localhost:3000/api/addgroups', group)
+        const body = this.state
+        const response = await axios.post('http://localhost:3000/api/addgroups', body)
         this.setState({
             response: response.data.msg
         })
@@ -28,7 +33,8 @@ export default class AddGroup extends Component {
             group: {
                 ...this.state.group,
                 [e.target.name]: e.target.value
-            }
+            },
+            user: this.context.state.loggedUser
         })
     }
 

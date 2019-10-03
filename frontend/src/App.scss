@@ -44,3 +44,33 @@
 .columns.profile {
   flex-wrap: wrap;
 }
+
+.lara {
+  &Container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2% auto;
+    list-style-type: none;
+    width: calc(100% - 40px);
+
+    li {
+      border: 1px dashed $brown;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 30%;
+      a {
+        padding: 2%;
+        width: 100%;
+        &:hover,
+        &:hover span {
+          background-color: $brown;
+          color: white;
+        }
+      }
+    }
+  }
+}

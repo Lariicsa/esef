@@ -5,7 +5,7 @@ import { MyContext } from '../context';
 
 class Login extends Component {
   state = {
-    user: {}
+    user: {username: "lara", password: "123"}
   }
 
   handleInput = (e) => {
@@ -20,7 +20,7 @@ class Login extends Component {
     AUTH_SERVICE.login(this.state.user)
       .then((response) => {
         this.context.logUser(response.data.user);
-        this.props.history.push('/dashboard');
+        this.props.history.push('/');
       })
       .catch((error) => {
         console.log(error);

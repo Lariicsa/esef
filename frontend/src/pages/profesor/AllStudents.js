@@ -30,7 +30,7 @@ export default class AllStudents extends Component {
                 <div className="column">
                     <Sidebar />
                 </div>
-                <div className="column is-12">
+                <div className="column is-10">
                     <table className="table is-fullwidth table-wrapper">
                         <thead>
                             <tr>

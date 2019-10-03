@@ -31,24 +31,25 @@ export default class AllGroups extends Component {
                     <Sidebar />
                 </div>
                 <div className="column box is-10">
-
-
+                    <h3 className="title is-3">Todos los grupos</h3>
+                    <ul className="laraContainer" >
                         {groups && groups.map((group, i) =>
-                            <ul key={i}>
-                                <li>
+
+                            <li key={i}>
+                                <Link to={`/groups/all/${group._id}`}>
                                     <h2 className="title is-1">
-                                    {group.level}
+                                        {group.level}
                                     </h2>
 
                                     <h2 className="subtitle is-3">
-                                    {group.group}
+                                        {group.group}
                                     </h2>
 
-                                <Link to={`/groups/all/${group._id}`}>Ver</Link>
-                                </li>
-                            </ul>
-                        )}
+                                </Link>
+                            </li>
 
+                        )}
+                    </ul>
 
                 </div>
             </div>
