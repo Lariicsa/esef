@@ -4,7 +4,7 @@ const User = require('../models/User')
 const Student = require('../models/Student')
 const Group = require('../models/Group')
 const passport = require('../config/passport')
-const { home } =require('../controllers/index')
+const { home, addGroup } =require('../controllers/index')
 
 router.post('/signup', (req, res, next) => {
   User.register(req.body, req.body.password)
@@ -28,10 +28,13 @@ router.get('/', home)
 
 
 router.get('/dashboard', (req,res, next) => {
-  User.findById(req.user._id)
+  User.findById(req.user._id).populate('group')
   .then((user) => res.status(200).json({ user }))
   .catch((err) => res.status(500).json({ err }))
 });
+
+
+
 
 router.post('/addstudent', (req, res,next) => {
   const height = req.body.height 
@@ -79,18 +82,15 @@ router.get('/students/:id', async(req,res, next) => {
 });
 
 
-router.post('/addgroups', (req, res,next) => {
+router.post('/addgroups', addGroup)
 
-  Group.create(req.body)
-  .then((group) => res.status(201).json({ group, msg: 'Group added' }) )
-  .catch((err) => res.status(500).json({ err }));
-  
-})
+
+
+
 
 router.get('/groups', async(req,res, next) => {
   try {
     const groups = await Group.find()
-
     res.status(200).json({ groups })
   }
   catch {
@@ -109,6 +109,16 @@ router.get('/groups/:id', async(req,res, next) => {
     (err) => res.status(500).json({ err })
   }
 });
+
+router.get('/users/:id', async(req, res, next) => {
+  try {
+    const { id } = req.params
+    const user = await User.findById(id).populate('groups')
+    res.status(200).json({ user })
+  } catch {
+    (err) => res.status(500).json({ err })
+  }
+})
 
 
 function isAuth(req, res, next) {

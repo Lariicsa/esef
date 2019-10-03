@@ -6,7 +6,13 @@ const userSchema = new Schema(
     name: String,
     lastname1: String,
     lastname2: String,
-    email: String
+    email: String,
+    groups: [
+      {
+        ref: 'Group',
+        type: Schema.Types.ObjectId
+      }
+    ]
   },
   {
     timestamps: true,
