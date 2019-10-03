@@ -31,11 +31,11 @@ class Signup extends Component {
   render() {
     const {userMsg} = this.state.user
     return (
-      <div className="columns is-centered">
-        <div className="column box is-10">
+      <div className="columns is-centered is-vcentered hv">
+        <div className="column box is-6">
           <p className="mesaage is-success">{userMsg}</p>
           <form className="columns" onSubmit={this.onSubmit}>
-            <div className="column is-7 iron-cover">
+            <div className="column is-12 iron-cover">
               <h1 className="title is-2">Sign up</h1>
               <div className="field">
                 <label className="label">Name:</label>
@@ -61,16 +61,9 @@ class Signup extends Component {
                 <label className="label">Password:</label>
                 <input className="input" onChange={this.handleInput} type="password" name="password" />
               </div>
-            </div>
-            <div className="column iron-cover">
-              <div className="column iron-between">
-                <div className="columns ironForms ironForms-buttons">
-                  <h2 className="title is-4">Hello</h2>
-                  <h3>ESEF</h3>
-                </div>
-                <div className="columns">
-                  <input className="button is-primary is-fullwidth" type="submit" value="Signup" />
-                </div>
+
+              <div className="field">
+              <input className="button is-primary is-fullwidth" type="submit" value="Signup" />
               </div>
             </div>
           </form>

@@ -45,6 +45,10 @@
   flex-wrap: wrap;
 }
 
+.is-vcentered.hv {
+  height: 100vh;
+}
+
 .lara {
   &Container {
     display: flex;

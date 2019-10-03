@@ -29,33 +29,26 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="columns is-centered">
-        <div className="column box ironBox is-10">
+      <div className="columns is-centered is-vcentered hv">
+        <div className="column box is-6">
           <p className="mesaage is-success"></p>
-          <form className="columns iron-height100" onSubmit={this.onSubmit}>
-            <div className="column is-7 iron-cover ironHome">
-              <h1 className="title is-2">Log in</h1>
+          <form className="columns" onSubmit={this.onSubmit}>
+            <div className="column is-12 iron-cover">
+              <h1 className="title is-2">Ingresar</h1>
               <div className="field">
-                <label className="label">Name:</label>
+                <label className="label">Nombre de usuario:</label>
                 <input className="input ironInput" onChange={this.handleInput} type="text" name="username" />
               </div>
               <div className="field">
-                <label className="label">Password:</label>
+                <label className="label">Contraseña:</label>
                 <input className="input ironInput" onChange={this.handleInput} type="password" name="password" />
               </div>
               <div className="field">
-                <p>If you don't have an account yet, you can crete your account <Link to={"/signup"}>here</Link></p>
+                <p>Si aún no tiene registro de cuenta en el sistema, puede hacerlo <Link to={"/signup"}>aquí</Link></p>
               </div>
-            </div>
-            <div className="column iron-cover">
-              <div className="column iron-between">
-                <div className="columns ironForms ironForms-buttons">
-                  <h2 className="title is-4">Hello</h2>
-                  <h3>Awesome to have an IronProfile again!</h3>
-                </div>
-                <div className="columns">
-                  <input className="button is-primary is-fullwidth" type="submit" value="Login" />
-                </div>
+
+              <div className="field">
+              <input className="button is-primary is-fullwidth" type="submit" value="Login" />
               </div>
             </div>
           </form>

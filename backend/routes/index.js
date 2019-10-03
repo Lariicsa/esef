@@ -4,7 +4,7 @@ const User = require('../models/User')
 const Student = require('../models/Student')
 const Group = require('../models/Group')
 const passport = require('../config/passport')
-const { home, addGroup } =require('../controllers/index')
+const { home, addGroup, addNewStudent } =require('../controllers/index')
 
 router.post('/signup', (req, res, next) => {
   User.register(req.body, req.body.password)
@@ -57,6 +57,8 @@ router.post('/addstudent', (req, res,next) => {
   .catch((err) => res.status(500).json({ err }));
   
 })
+
+router.post('/addnewstudent', addNewStudent)
 
 
 router.get('/viewstudents', async(req,res, next) => {
