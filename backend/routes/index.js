@@ -81,11 +81,7 @@ router.get('/students/:id', async(req,res, next) => {
   }
 });
 
-
 router.post('/addgroups', addGroup)
-
-
-
 
 
 router.get('/groups', async(req,res, next) => {
@@ -99,16 +95,29 @@ router.get('/groups', async(req,res, next) => {
 });
 
 
+// router.get('/groups/:id', async(req,res, next) => {
+//   try {
+//     const {id} = req.params
+//     const group = await Group.findById(id)
+//     res.status(200).json({ group })
+//   }
+//   catch {
+//     (err) => res.status(500).json({ err })
+//   }
+// });
+
+
 router.get('/groups/:id', async(req,res, next) => {
   try {
     const {id} = req.params
-    const group = await Group.findById(id)
+    const group = await Group.findById(id).populate('students')
     res.status(200).json({ group })
   }
   catch {
     (err) => res.status(500).json({ err })
   }
 });
+
 
 router.get('/users/:id', async(req, res, next) => {
   try {

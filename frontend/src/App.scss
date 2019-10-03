@@ -53,10 +53,11 @@
     margin: 2% auto;
     list-style-type: none;
     width: calc(100% - 40px);
-
+    flex-wrap: wrap;
     li {
       border: 1px dashed $brown;
       border-radius: 2px;
+      margin: 4% 0;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;

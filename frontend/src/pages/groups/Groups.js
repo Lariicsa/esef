@@ -38,13 +38,8 @@ export default class AllGroups extends Component {
                             <li key={i}>
                                 <Link to={`/groups/all/${group._id}`}>
                                     <h2 className="title is-1">
-                                        {group.level}
+                                        {group.level} <span className="subtitle is-2">{group.group}</span>
                                     </h2>
-
-                                    <h2 className="subtitle is-3">
-                                        {group.group}
-                                    </h2>
-
                                 </Link>
                             </li>
 

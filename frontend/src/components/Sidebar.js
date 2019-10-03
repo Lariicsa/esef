@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Sidebar() {
+export default function Sidebar(someFunc) {
     return (
         <aside className="menu">
             <p  className="menu-label">Inicio</p>
@@ -20,7 +20,7 @@ export default function Sidebar() {
                 <li><Link to={'/profesor/addstudent'} >Agregar Alumno</Link></li>
             </ul>
 
-            <li><Link to={'/logout'} >Cerrar sesión</Link></li>
+            <li> <Link to={'/logout'} >Cerrar sesión</Link></li>
         </aside>
     )
 }
