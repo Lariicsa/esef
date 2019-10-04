@@ -34,7 +34,7 @@ export default class AddStudent extends Component {
     e.preventDefault()
     const { student } = this.state
     try {
-      const response = await axios.post('http://localhost:3000/api/addstudent', student)
+      const response = await axios.post('http://localhost:3000/api/students', student)
       this.setState({
         // student: {
         //   level: '',

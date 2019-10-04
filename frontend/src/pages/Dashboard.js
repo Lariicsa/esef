@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
   getUser = async () => {
     const userData = this.context.state.loggedUser
     const id = userData._id
-    const response = await axios.get(`http://localhost:3000/api/users/${id}`)
+    const response = await axios.get(`http://localhost:3000/api/user/${id}`)
     this.setState(
       { user: response.data.user }
     )

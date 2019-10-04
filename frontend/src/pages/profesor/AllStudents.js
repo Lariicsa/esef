@@ -11,7 +11,7 @@ export default class AllStudents extends Component {
     }
 
     getStudents = async () => {
-        const response = await axios.get('http://localhost:3000/api/viewstudents')
+        const response = await axios.get('http://localhost:3000/api/students')
         this.setState({
             students: response.data.students
         })

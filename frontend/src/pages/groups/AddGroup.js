@@ -21,7 +21,7 @@ export default class AddGroup extends Component {
     addGroup = async e => {
         e.preventDefault()
         const body = this.state
-        const response = await axios.post('http://localhost:3000/api/addgroups', body)
+        const response = await axios.post('http://localhost:3000/api/groups', body)
         this.setState({
             response: response.data.msg
         })
