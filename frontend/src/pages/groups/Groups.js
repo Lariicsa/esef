@@ -7,23 +7,26 @@ import { Link } from 'react-router-dom'
 export default class AllGroups extends Component {
 
     state = {
-        groups: undefined
-    }
-
-    getGroups = async () => {
-        const response = await axios.get('http://localhost:3000/api/groups')
-        this.setState({
-            groups: response.data.groups
-        })
-    }
-
-    componentDidMount() {
-        this.getGroups()
-    }
+        user: {}
+      }
+    
+      getUser = async () => {
+        const userData = this.context.state.loggedUser
+        const id = userData._id
+        const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+        this.setState(
+          { user: response.data.user }
+        )
+      }
+    
+      componentDidMount() {
+        if (!this.context.state.loggedUser) return this.props.history.push('/login')
+        this.getUser()
+      }
 
     render() {
-        const { groups } = this.state;
-        console.log(this.state);
+        const groups = this.state.user.groups
+        console.log(this.groups);
 
         return (
             <div className="columns is-centered">
