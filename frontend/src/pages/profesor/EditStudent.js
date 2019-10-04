@@ -33,7 +33,7 @@ export default class EditStudent extends Component {
             const response = await MAIN_SERVICE.update(this.state.student)
             this.setState({ student: this.state.student })
             console.log(response.status)
-            this.props.history.push('/profesor/all')
+            this.props.history.push('/students/all')
 
         } catch (error) {
             console.log(error);

@@ -96,7 +96,7 @@ export default class AllStudents extends Component {
                                     <td>{student.meters}</td>
                                     <td>{student.ica}</td>
                                     <td>
-                                        <Link to={`/profesor/students/${student._id}`}>Ver</Link>
+                                        <Link to={`/students/students/${student._id}`}>Ver</Link>
                                         <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
                                     </td>
                                 </tr>

@@ -31,14 +31,16 @@ export default class Sidebar extends Component {
 
                 <p className="menu-label">Estudiantes</p>
                 <ul className="menu-list">
-                    <li><Link to={'/profesor/all'} >Alumnos</Link></li>
-                    <li><Link to={'/profesor/addstudent'} >Agregar Alumno</Link></li>
+                    <li><Link to={'/students/all'} >Alumnos</Link></li>
+                    <li><Link to={'/students/addstudent'} >Agregar Alumno</Link></li>
                 </ul>
 
                 <ul className="menu-list">
+                    <li>
                     <form>
                         <input onClick={this.context.logOut} type="submit" value="Cerrar sesión" />
                     </form>
+                    </li>
                 </ul>
             </aside>
         );

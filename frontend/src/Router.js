@@ -6,9 +6,9 @@ import AllStudents from './pages/profesor/AllStudents'
 import StudentDetail from './pages/profesor/StudentDetail'
 import Login from './components/Login'
 import Dashboard from './pages/Dashboard'
-import AllGroups from './pages/groups/Groups'
-import AddGroup from './pages/groups/AddGroup'
-import GroupDetail from './pages/groups/GroupDetail'
+import AllGroups from './pages/students/Groups'
+import AddGroup from './pages/students/AddGroup'
+import GroupDetail from './pages/students/GroupDetail'
 import EditStudent from './pages/profesor/EditStudent'
 
 const Router = () => (
@@ -22,10 +22,10 @@ const Router = () => (
       <Route exact path="/groups/all" component={AllGroups} />
       <Route exact path="/groups/addgroup" component={AddGroup} />
       <Route exact path="/groups/all/:id" component={GroupDetail} />
-      <Route exact path="/profesor/addstudent" component={AddStudent} />
-      <Route exact path="/profesor/all" component={AllStudents} />
-      <Route exact path="/profesor/students/:id" component={StudentDetail} />
-      <Route exact path="/profesor/students/edit/:id" component={EditStudent} />
+      <Route exact path="/students/addstudent" component={AddStudent} />
+      <Route exact path="/students/all" component={AllStudents} />
+      <Route exact path="/students/students/:id" component={StudentDetail} />
+      <Route exact path="/students/students/edit/:id" component={EditStudent} />
     </Switch>
   </BrowserRouter>
     </div>

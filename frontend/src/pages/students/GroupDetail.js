@@ -61,7 +61,7 @@ export default class GroupDetail extends Component {
                                             <td>{student.height}</td>
                                             <td>{student.weight}</td>
                                             <td>{student.gender}</td>
-                                            <td><Link to={`/profesor/students/edit/${student._id}`}>edit</Link></td>
+                                            <td><Link to={`/students/students/edit/${student._id}`}>edit</Link></td>
                                         </tr>
                                     )}
                                 </tbody>
