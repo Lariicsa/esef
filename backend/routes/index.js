@@ -10,6 +10,7 @@ const { home,
   getStudentDetail,
   addStudent,
   editStudent,
+  deleteStudent,
   getGroups,
   getGroupDetail,
   addGroup
@@ -37,6 +38,7 @@ router.get('/user/:id', getUserDetail)
 router.get('/students', getStudents)
 router.post('/students', addStudent)
 router.get('/students/:id', getStudentDetail)
+router.delete('/students/:id', deleteStudent)
 router.post('/groups', addGroup)
 router.put('/editstudent/:id', editStudent)
 router.get('/groups', getGroups)

@@ -17,8 +17,24 @@ export default class AllStudents extends Component {
         })
     }
 
+    deleteStudent = (id) => {
+        axios.delete(`http://localhost:3000/api/students/${id}`)
+        .then(({data}) => {
+            this.setState(prevState => {
+                return {
+                    ...prevState,
+                }
+            })
+        })
+        .catch(err => console.log(err))
+      }
+
     componentDidMount() {
         this.getStudents()
+    }
+
+    componentDidUpdate() {
+        this.deleteStudent()
     }
 
     render() {
@@ -79,7 +95,10 @@ export default class AllStudents extends Component {
                                     <td>{student.fcrec}</td>
                                     <td>{student.meters}</td>
                                     <td>{student.ica}</td>
-                                    <td><Link to={`/profesor/students/${student._id}`}>Ver</Link></td>
+                                    <td>
+                                        <Link to={`/profesor/students/${student._id}`}>Ver</Link>
+                                        <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
+                                    </td>
                                 </tr>
                             )}
                         </tbody>

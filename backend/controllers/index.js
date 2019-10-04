@@ -1,7 +1,6 @@
 const User = require('../models/User')
 const Student = require('../models/Student')
 const Group = require('../models/Group')
-const passport = require('../config/passport');
 
 exports.home = async (req, res) => {
   User.findById(req.user._id)
@@ -9,7 +8,7 @@ exports.home = async (req, res) => {
     .catch((err) => res.status(500).json({ err }))
 }
 
-exports.getUserDetail = async (req,res) => {
+exports.getUserDetail = async (req, res) => {
   try {
     const { id } = req.params
     const user = await User.findById(id).populate({
@@ -25,7 +24,7 @@ exports.getUserDetail = async (req,res) => {
   }
 }
 
-exports.getStudents = async (req,res) =>{
+exports.getStudents = async (req, res) => {
   try {
     const students = await Student.find()
 
@@ -36,7 +35,7 @@ exports.getStudents = async (req,res) =>{
   }
 }
 
-exports.getStudentDetail = async (req,res) =>{
+exports.getStudentDetail = async (req, res) => {
   try {
     const { id } = req.params
     const student = await Student.findById(id)
@@ -83,7 +82,19 @@ exports.addStudent = async (req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 }
 
-exports.getGroups = async (req,res) => {
+exports.deleteStudent = async (req, res, next) => {
+  try {
+    const { id } = req.params
+    const student = await Student.findByIdAndDelete(id)
+    res.status(200).json({ student, msg: 'Student deleted' })
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
+
+}
+
+exports.getGroups = async (req, res) => {
   try {
     const groups = await Group.find()
     res.status(200).json({ groups })
@@ -93,7 +104,7 @@ exports.getGroups = async (req,res) => {
   }
 }
 
-exports.getGroupDetail = async (req,res) => {
+exports.getGroupDetail = async (req, res) => {
   try {
     const { id } = req.params
     const group = await Group.findById(id).populate('students')

@@ -84,7 +84,7 @@ export default class AddStudent extends Component {
         <div className="column">
           <Sidebar />
         </div>
-        <div className="column box is-12">
+        <div className="column box is-10">
           <h1 className="title is-1">Agregar alumno</h1>
           <div className="columns">
             <div className="column is-6">

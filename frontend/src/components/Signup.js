@@ -6,7 +6,7 @@ class Signup extends Component {
     user: {
       userMsg: ''
     }
-  };
+  }
 
   handleInput = (e) => {
     const { user } = this.state;
@@ -26,7 +26,7 @@ class Signup extends Component {
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
   render() {
     const {userMsg} = this.state.user

@@ -12,7 +12,7 @@ import GroupDetail from './pages/groups/GroupDetail'
 import EditStudent from './pages/profesor/EditStudent'
 
 const Router = () => (
-  <section className="section ironSection">
+  <section className="section">
     <div className="container">
     <BrowserRouter>
     <Switch>

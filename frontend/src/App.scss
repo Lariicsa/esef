@@ -1,36 +1,18 @@
 .container {
   margin: 0 auto;
   position: relative;
-  max-width: $container-main;
-  width: calc(100% - 60px);
-
-  &.wide {
-    max-width: 100%;
-
-    @include desktop {
-      max-width: 93%;
-    }
-  }
-
-  @include desktop {
-    width: calc(100% - 70px) !important;
-  }
-
-  @include tablet {
-    width: calc(100% - 50px) !important;
-  }
-
-  @include mobile {
-    width: calc(100% - 36px) !important;
-  }
-
-  &.full {
-    width: 100%;
-  }
+  width: 100%;
+  max-width: inherit;
 }
 
 .section {
     padding: 0;
+}
+
+aside {
+  &.menu {
+    padding: 4%;
+  }
 }
 
 .table {

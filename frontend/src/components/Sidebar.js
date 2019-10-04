@@ -13,8 +13,10 @@ export default class Sidebar extends Component {
         this.setState(userData)
     }
 
+    
+
     render() {
-        
+
         return (
             <aside className="menu">
                 <p className="menu-label">Inicio</p>
