@@ -22,14 +22,3 @@ exports.addGroup = async (req, res) => {
 }
 
 
-exports.addNewStudent = async (req, res) => {
-  try {
-    const { student, group } = req.body
-    const newStudent = await Student.create(student)
-    await Group.findByIdAndUpdate(group._id, { $push: { students: newStudent } })
-    .then((students) => res.status(201).json({ students, group, msg: 'Student added' }) )
-  } catch (error) {
-    console.log(error)
-  }
-}
-

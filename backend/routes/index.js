@@ -34,9 +34,9 @@ router.get('/dashboard', (req,res, next) => {
 });
 
 
-
-
-router.post('/addstudent', (req, res,next) => {
+router.post('/addstudent', async (req, res,next) => {
+  
+  const group = await Group.findOne({ $and: [{ level: req.body.level}, {group: req.body.group}]  })
   const height = req.body.height 
   const weight = req.body.weight
   const hip = req.body.hip
@@ -44,21 +44,25 @@ router.post('/addstudent', (req, res,next) => {
   const fce = req.body.fce
   const fcrec = req.body.fcrec
   const meters = req.body.meters
-  
-
   let pot = height*2
   let imc = weight/pot
   let gabd = hip / height
   let ica = (fcrep + fce + fcrec)/meters 
   ica = 20
 
-  Student.create({...req.body, pot, imc, hip, gabd, ica})
-  .then((student) => res.status(201).json({ student, msg: 'Student added' }) )
+  Student.create({ ...req.body, pot, imc, hip, gabd, ica, group: group._id, level: group._id })
+  .then((student) => {
+    Group.findByIdAndUpdate(group._id, { $push: { students: student._id } }, { new: true })
+    .then(groupUpdated => {
+      res.status(201).json({ student, msg: 'Student added and group updated', groupUpdated  }) 
+    })
+    .catch((err) => res.status(500).json({ err }))
+  })
   .catch((err) => res.status(500).json({ err }));
+
+  
   
 })
-
-router.post('/addnewstudent', addNewStudent)
 
 
 router.get('/viewstudents', async(req,res, next) => {
@@ -83,6 +87,17 @@ router.get('/students/:id', async(req,res, next) => {
   }
 });
 
+router.put('/students/:id', async(req,res, next) => {
+  try {
+    const {id} = req.params
+    const student = await Student.findByIdAndUpdate(id, {...req.body}, {new: true})
+    res.status(200).json({ student })
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
+});
+
 router.post('/addgroups', addGroup)
 
 
@@ -97,17 +112,21 @@ router.get('/groups', async(req,res, next) => {
 });
 
 
-// router.get('/groups/:id', async(req,res, next) => {
-//   try {
-//     const {id} = req.params
-//     const group = await Group.findById(id)
-//     res.status(200).json({ group })
-//   }
-//   catch {
-//     (err) => res.status(500).json({ err })
-//   }
-// });
-
+router.get('/users/:id', async(req, res, next) => {
+  try {
+    const { id } = req.params
+    const user = await User.findById(id).populate({
+      path: 'groups',
+      populate: {
+        path: 'students',
+        model: 'Student'
+      } 
+    })
+    res.status(200).json({ user })
+  } catch {
+    (err) => res.status(500).json({ err })
+  }
+})
 
 router.get('/groups/:id', async(req,res, next) => {
   try {
@@ -119,17 +138,6 @@ router.get('/groups/:id', async(req,res, next) => {
     (err) => res.status(500).json({ err })
   }
 });
-
-
-router.get('/users/:id', async(req, res, next) => {
-  try {
-    const { id } = req.params
-    const user = await User.findById(id).populate('groups')
-    res.status(200).json({ user })
-  } catch {
-    (err) => res.status(500).json({ err })
-  }
-})
 
 
 function isAuth(req, res, next) {

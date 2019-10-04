@@ -20,7 +20,13 @@ const groupSchema = new Schema(
           'B',
           'C'
         ]
-      }
+      },
+      students: [
+        {
+          ref: 'Student',
+          type: Schema.Types.ObjectId
+        }
+      ]
   },
   {
     timestamps: true,

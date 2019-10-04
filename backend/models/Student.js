@@ -30,24 +30,13 @@ const studentSchema = new Schema(
     meters: Number,
     ica: Number,
     level: {
-      type: String,
-      enum: [
-        '1ro',
-        '2do',
-        '3ro',
-        '4to',
-        '5to',
-        '6to'
-      ]
-    },
+        ref: 'Group',
+        type: Schema.Types.ObjectId
+      },
     group: {
-      type: String,
-      enum: [
-        'A',
-        'B',
-        'C'
-      ]
-    }
+        ref: 'Group',
+        type: Schema.Types.ObjectId
+      }
   },
   {
     timestamps: true,

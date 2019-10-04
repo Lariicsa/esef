@@ -7,7 +7,7 @@ import Sidebar from '../../components/Sidebar';
 export default class GroupDetail extends Component {
 
     state = {
-        group: undefined
+        group: {}
     }
 
     componentDidMount = async () => {
@@ -20,18 +20,50 @@ export default class GroupDetail extends Component {
 
     render() {
         const { group } = this.state;
+        const students = this.state.group.students
+
+        console.log('jei', this.state.group.students);
 
         return (
             <div className="columns is-centered">
                 <div className="column">
                     <Sidebar />
                 </div>
-                {group &&
-                    <div className="column box is-10">
-                        <p className="title is-1">{group.level}</p>
-                    <p className="title is-1">{group.group}</p>
+                <div className="column box is-10">
+                    {group &&
+
+                        <p className="title is-1">{group.level}{group.group}</p>
+
+                    }
+                    <hr />
+
+                    <div className="columns is-centered">
+                        <div className="column is-12">
+                            <table className="table is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Edad</th>
+                                        <th>Estatura</th>
+                                        <th>Peso</th>
+                                        <th>Género</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {students && students.map((student, i) =>
+                                        <tr key={i}>
+                                            <td>{student.name} {student.lastname1} {student.name2}</td>
+                                            <td>{student.age}</td>
+                                            <td>{student.height}</td>
+                                            <td>{student.weight}</td>
+                                            <td>{student.gender}</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                }
+                </div>
             </div>
         );
     }

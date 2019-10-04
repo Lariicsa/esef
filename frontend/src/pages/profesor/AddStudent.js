@@ -33,8 +33,9 @@ export default class AddStudent extends Component {
   addStudent = async e => {
     e.preventDefault()
     const { student } = this.state
-    const response = await axios.post('http://localhost:3000/api/addstudent', student)
-    this.setState({
+    try {
+      const response = await axios.post('http://localhost:3000/api/addstudent', student)
+      this.setState({
         // student: {
         //   level: '',
         //   group: '',
@@ -58,7 +59,13 @@ export default class AddStudent extends Component {
         // },
         response: response.data.msg        
     })
-    console.log(response);
+    console.log(response)
+    }
+    catch(e){
+      console.log(e, e.response);
+    } 
+
+    
 }
 
   handleInput = e => {
@@ -69,12 +76,6 @@ export default class AddStudent extends Component {
       }
     })
   }
-
-  // getInitialState = (e) => {
-  //   this.setState({
-  //     selectedOption: 'Femenino'
-  //   })
-  // }
 
   render() {
     const { student } = this.state
@@ -124,7 +125,7 @@ export default class AddStudent extends Component {
                   />
                 </div>
                 <div className="field">
-                  <label className="label">Appellido paterno:</label>
+                  <label className="label">Apellido paterno:</label>
                   <input className="input"
                     required
                     onChange={this.handleInput}
@@ -135,7 +136,7 @@ export default class AddStudent extends Component {
                 </div>
 
                 <div className="field">
-                  <label className="label">Appellido materno:</label>
+                  <label className="label">Apellido materno:</label>
                   <input className="input"
                     required
                     onChange={this.handleInput}

@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import AllGroups from './pages/groups/Groups'
 import AddGroup from './pages/groups/AddGroup'
 import GroupDetail from './pages/groups/GroupDetail'
+import EditStudent from './pages/profesor/EditStudent'
 
 const Router = () => (
   <section className="section ironSection">
@@ -24,6 +25,7 @@ const Router = () => (
       <Route exact path="/profesor/addstudent" component={AddStudent} />
       <Route exact path="/profesor/all" component={AllStudents} />
       <Route exact path="/profesor/students/:id" component={StudentDetail} />
+      <Route exact path="/profesor/students/edit/:id" component={EditStudent} />
     </Switch>
   </BrowserRouter>
     </div>
