@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
@@ -12,6 +12,8 @@ export default class GroupDetail extends Component {
 
     componentDidMount = async () => {
         const { id } = this.props.match.params
+        console.log('dimount0',this.props.match.params);
+        
         const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
         this.setState({
             group
@@ -21,6 +23,7 @@ export default class GroupDetail extends Component {
     render() {
         const { group } = this.state;
         const students = this.state.group.students
+        console.log('dimount0',this.state.group.students);
 
         console.log('jei', this.state.group.students);
 
@@ -47,6 +50,7 @@ export default class GroupDetail extends Component {
                                         <th>Estatura</th>
                                         <th>Peso</th>
                                         <th>Género</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,6 +61,7 @@ export default class GroupDetail extends Component {
                                             <td>{student.height}</td>
                                             <td>{student.weight}</td>
                                             <td>{student.gender}</td>
+                                            <td><Link to={`/profesor/students/edit/${student._id}`}>edit</Link></td>
                                         </tr>
                                     )}
                                 </tbody>

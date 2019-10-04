@@ -280,7 +280,7 @@ export default class AddStudent extends Component {
                 </div>
 
                 <div className="field">
-                  <button className="button is-fullwidth is-primary" type='submit'>Add student</button>
+                  <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
                 </div>
               </form>
             </div>

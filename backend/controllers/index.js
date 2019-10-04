@@ -21,4 +21,19 @@ exports.addGroup = async (req, res) => {
   }
 }
 
-
+exports.editStudent = async(req, res) => {
+  try{
+    
+    const { id } = req.params
+    console.log(req.params);
+    
+    
+    const student = await	Student.findByIdAndUpdate(id, {...req.body})
+    console.log(student);
+      res.status(200).json({student})
+  } catch (err){
+    console.log(err);
+    
+      res.status(500).json({err})
+  }
+}

@@ -4,14 +4,11 @@ const baseURL = 'http://localhost:3000/api';
 const SERVICE = axios.create({ withCredentials: true, baseURL });
 
 const MAIN_SERVICE = {
-  signup: async (user) => {
-    return await SERVICE.post('/signup', user);
-  },
-  login: async (user) => {
-    return await SERVICE.post('/login', user);
-  },
-  logOut: async () => {
-    return await SERVICE.get('/logout');
+  update: async (student) => {
+    console.log(student);
+    const id = student._id
+    
+    return await SERVICE.put(`/editstudent/${id}`, student);
   }
 };
 

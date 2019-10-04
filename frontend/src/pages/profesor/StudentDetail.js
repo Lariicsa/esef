@@ -17,8 +17,6 @@ export default class StudentDetail extends Component {
         })
     }
 
-
-
     render() {
         const { student } = this.state;
 
