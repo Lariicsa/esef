@@ -57,16 +57,14 @@ export default class AddStudent extends Component {
         //   fcrec: 0,
         //   meters: 0
         // },
-        response: response.data.msg        
-    })
-    console.log(response)
+        response: response.data.msg
+      })
+      console.log(response)
     }
-    catch(e){
+    catch (e) {
       console.log(e, e.response);
-    } 
-
-    
-}
+    }
+  }
 
   handleInput = e => {
     this.setState({
@@ -77,12 +75,16 @@ export default class AddStudent extends Component {
     })
   }
 
+  componentDidMount() {
+    if (!this.context.state.loggedUser) return this.props.history.push('/login')
+  }
+
   render() {
     const { student } = this.state
     return (
       <div className="columns is-centered">
         <div className="column">
-        <Sidebar history={this.props.history} />
+          <Sidebar history={this.props.history} />
         </div>
         <div className="column box is-10">
           <h1 className="title is-1">Agregar alumno</h1>
@@ -90,29 +92,29 @@ export default class AddStudent extends Component {
             <div className="column is-6">
               <form onSubmit={this.addStudent}>
 
-              <div className="field">
-                <label className="label">Grado</label>
-                <div className="select">
-                  <select name="level" value={student.level} onChange={this.handleInput} >
-                    <option disabled ></option>
-                    <option value="1ro">1ro</option>
-                    <option value="2do">2do</option>
-                    <option value="3ro">3ro</option>
-                    <option value="4to">4to</option>
-                    <option value="5to">5to</option>
-                    <option value="6to">6to</option>
-                  </select>
-                </div>
+                <div className="field">
+                  <label className="label">Grado</label>
+                  <div className="select">
+                    <select name="level" value={student.level} onChange={this.handleInput} >
+                      <option disabled ></option>
+                      <option value="1ro">1ro</option>
+                      <option value="2do">2do</option>
+                      <option value="3ro">3ro</option>
+                      <option value="4to">4to</option>
+                      <option value="5to">5to</option>
+                      <option value="6to">6to</option>
+                    </select>
+                  </div>
 
-                <div className="select">
-                  <select name="group" value={student.group} onChange={this.handleInput} >
-                    <option disabled ></option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                  </select>
+                  <div className="select">
+                    <select name="group" value={student.group} onChange={this.handleInput} >
+                      <option disabled ></option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
                 <div className="field">
                   <label className="label">Nombre(s):</label>
@@ -160,12 +162,12 @@ export default class AddStudent extends Component {
                 <div className="field">
                   <label className="label">Género:</label>
                   <div className="select">
-                  <select name="gender" value={student.gender} onChange={this.handleInput} >
-                    <option disabled ></option>
-                    <option value="Femenino">Femenino</option>
-                    <option value="Masculino">Masculino</option>
-                  </select>
-                </div>
+                    <select name="gender" value={student.gender} onChange={this.handleInput} >
+                      <option disabled ></option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="field">

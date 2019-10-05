@@ -30,9 +30,9 @@ export default class AllStudents extends Component {
       }
 
     componentDidMount() {
+        if (!this.context.state.loggedUser) return this.props.history.push('/login')
         this.getStudents()
     }
-
     componentDidUpdate() {
         this.deleteStudent()
     }

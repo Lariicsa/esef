@@ -37,8 +37,6 @@ export default class AddGroup extends Component {
             user: this.context.state.loggedUser
         })
     }
-
-
     render() {
         const { group } = this.state
 

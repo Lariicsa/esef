@@ -11,14 +11,6 @@ export default class EditStudent extends Component {
 
     }
 
-    componentDidMount = async () => {
-        const { id } = this.props.match.params
-        const { data: { student } } = await axios.get(`http://localhost:3000/api/students/${id}`)
-        this.setState({
-            student
-        })
-    }
-
     handleInput = e => {
         const { student } = this.state;
         const key = e.target.name;
@@ -38,7 +30,15 @@ export default class EditStudent extends Component {
         } catch (error) {
             console.log(error);
         }
+    }
 
+    componentDidMount = async () => {
+        if (!this.context.state.loggedUser) return this.props.history.push('/login')
+        const { id } = this.props.match.params
+        const { data: { student } } = await axios.get(`http://localhost:3000/api/students/${id}`)
+        this.setState({
+            student
+        })
     }
 
     render() {
@@ -48,7 +48,7 @@ export default class EditStudent extends Component {
         return (
             <div className="columns is-centered">
                 <div className="column">
-                <Sidebar history={this.props.history} />
+                    <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-12">
                     <h1 className="title is-1">Editar alumno</h1>

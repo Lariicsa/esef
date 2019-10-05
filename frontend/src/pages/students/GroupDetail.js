@@ -11,9 +11,10 @@ export default class GroupDetail extends Component {
     }
 
     componentDidMount = async () => {
+        if (!this.context.state.loggedUser) return this.props.history.push('/login')
         const { id } = this.props.match.params
-        console.log('dimount0',this.props.match.params);
-        
+        console.log('dimount0', this.props.match.params);
+
         const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
         this.setState({
             group
@@ -23,14 +24,14 @@ export default class GroupDetail extends Component {
     render() {
         const { group } = this.state;
         const students = this.state.group.students
-        console.log('dimount0',this.state.group.students);
+        console.log('dimount0', this.state.group.students);
 
         console.log('jei', this.state.group.students);
 
         return (
             <div className="columns is-centered">
                 <div className="column">
-                <Sidebar history={this.props.history} />
+                    <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-10">
                     {group &&
