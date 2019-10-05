@@ -25,8 +25,8 @@ export default class Dashboard extends Component {
     this.getUser()
   }
 
-  toggle() {
-    this.setState({addClass: !this.state.addClass});
+  toggleMenu = () => { 
+    this.setState(prevState => ({ addClass: !prevState.addClass}));
   }
 
   render() {
@@ -44,7 +44,7 @@ export default class Dashboard extends Component {
             <Sidebar history={this.props.history} />
           </div>
           <div className="column box is-10">
-          <p onClick={this.toggle.bind(this)}> abre</p>
+          <p onClick={this.toggleMenu}> abre</p>
             <div className="columns">
               <div className="column is-12">
                 <div className="column">
