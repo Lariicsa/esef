@@ -60,4 +60,31 @@ aside {
       }
     }
   }
+
+  &Bar {
+    
+  }
+
+}
+
+
+@media screen and (max-width: 1199px) {
+
+  .laraBar.open {
+    display: flex;
+    transition: transform 0.5s;
+    transform: translate(0px, 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: beige;
+    width: 240px;
+  }
+  
+  .laraBar {
+    display: none;
+    transition: transform 0.5s;
+    transform: translate(-250px, 0);
+  }
 }

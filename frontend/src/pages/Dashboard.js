@@ -7,7 +7,8 @@ import Sidebar from '../components/Sidebar';
 export default class Dashboard extends Component {
 
   state = {
-    user: {}
+    user: {},
+    addClass: false
   }
 
   getUser = async () => {
@@ -24,18 +25,26 @@ export default class Dashboard extends Component {
     this.getUser()
   }
 
+  toggle() {
+    this.setState({addClass: !this.state.addClass});
+  }
+
   render() {
     const user = this.state.user
     const groups = this.state.user.groups
-    console.log('user', user)
-    console.log('groups', groups)
+
+    let openClass = ["column laraBar"];
+    if(this.state.addClass) {
+      openClass.push('open');
+    }
     return (
       <>
         <div className="columns is-centered">
-          <div className="column">
-            <Sidebar />
+          <div className={openClass.join(' ')}>
+            <Sidebar history={this.props.history} />
           </div>
           <div className="column box is-10">
+          <p onClick={this.toggle.bind(this)}> abre</p>
             <div className="columns">
               <div className="column is-12">
                 <div className="column">

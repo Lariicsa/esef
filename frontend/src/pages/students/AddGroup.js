@@ -45,7 +45,7 @@ export default class AddGroup extends Component {
         return (
             <div className="columns is-centered">
                 <div className="column">
-                    <Sidebar />
+                <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-10">
                     <h1 className="title is-1">Añadir nuevo grupo</h1>

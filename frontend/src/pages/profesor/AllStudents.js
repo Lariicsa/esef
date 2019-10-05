@@ -44,7 +44,7 @@ export default class AllStudents extends Component {
         return (
             <div className="columns is-centered">
                 <div className="column">
-                    <Sidebar />
+                <Sidebar history={this.props.history} />
                 </div>
                 <div className="column is-10">
                     <table className="table is-fullwidth table-wrapper">

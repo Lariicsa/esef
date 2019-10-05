@@ -48,7 +48,7 @@ export default class EditStudent extends Component {
         return (
             <div className="columns is-centered">
                 <div className="column">
-                    <Sidebar />
+                <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-12">
                     <h1 className="title is-1">Editar alumno</h1>

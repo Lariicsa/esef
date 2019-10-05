@@ -26,12 +26,12 @@ export default class AllGroups extends Component {
 
     render() {
         const groups = this.state.user.groups
-        console.log(this.groups);
+        console.log(groups);
 
         return (
             <div className="columns is-centered">
                 <div className="column">
-                    <Sidebar />
+                <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-10">
                     <h3 className="title is-3">Todos los grupos</h3>

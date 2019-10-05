@@ -20,7 +20,7 @@ class Login extends Component {
     AUTH_SERVICE.login(this.state.user)
       .then((response) => {
         this.context.logUser(response.data.user);
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
       })
       .catch((error) => {
         console.log(error);
