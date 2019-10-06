@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar';
 export default class AddMeasure extends Component {
 
   state = {
+   studentId: undefined,
     measurement: {
         weight: undefined, // peso
         height: undefined, // estatura
@@ -30,9 +31,10 @@ export default class AddMeasure extends Component {
 
   addMeasurement = async e => {
     e.preventDefault()
-    const { measurement } = this.state
+    const { measurement, studentId } = this.state
+    const body1 = { measurement, studentId }
     try {
-      const response = await axios.post('http://localhost:3000/api/measures', measurement)
+      const response = await axios.post('http://localhost:3000/api/measures', body1)
       this.setState({
         response: response.data.msg
       })
@@ -41,6 +43,27 @@ export default class AddMeasure extends Component {
     catch (e) {
       console.log(e, e.response);
     }
+  }
+  calculateValues = () => {
+    const { measurement } = this.state
+    const { weight, height, hip } = measurement
+    const { restingHeartRate, stressHeartRate, heartRateRecovery, meters } = measurement
+
+    let power = height ? height * height: undefined
+    let imc = (weight && power) ? weight / power : undefined
+    let abdominalFat = (height && hip) ? hip / height : undefined
+    
+    let ica = (restingHeartRate && stressHeartRate && heartRateRecovery && meters) ? (restingHeartRate+stressHeartRate+heartRateRecovery) / meters : undefined
+    
+    this.setState({
+      measurement: {
+        ...this.state.measurement, 
+        'power': power,
+        'imc': imc,
+        'abdominalFat': abdominalFat,
+        'ica':ica
+      }
+    })
   }
 
 
@@ -55,12 +78,16 @@ export default class AddMeasure extends Component {
 
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login')
-    console.log('context', this.context)
+    if (!this.context.state.studentId) return this.props.history.goBack() // maybe nunca se ocupa, revisar documentación
+    this.setState({
+      studentId: this.context.state.studentId
+    })
   }
 
   render() {
+
+    console.log(this.state)
     const { measurement } = this.state
-    console.log(this.state);
 
     return (
       <div className="columns is-centered">
@@ -93,6 +120,8 @@ export default class AddMeasure extends Component {
                     type='number'
                     name='height'
                   />
+                  <label className="label">Potencia: {measurement.power}</label>
+                  <label className="label">IMC: {measurement.imc}</label>
                 </div>
 
                 <div className="field">
@@ -104,6 +133,7 @@ export default class AddMeasure extends Component {
                     type='number'
                     name='hip'
                   />
+                  <label className="label">% Grasa abdominal: {measurement.abdominalFat}</label>
                 </div>
 
                 <div className="field">
@@ -206,6 +236,10 @@ export default class AddMeasure extends Component {
                     type='number'
                     name='meters'
                   />
+                  <label className="label">ICA: {measurement.ica}</label>
+                </div>
+                <div className="field">
+                  <p className="button is-fullwidth" onClick={() => this.calculateValues()}>Calcular resultados</p>
                 </div>
 
                 <div className="field">

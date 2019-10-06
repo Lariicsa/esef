@@ -10,6 +10,10 @@ export default class GroupDetail extends Component {
         group: {}
     }
 
+    getStudentId = (studentId) => {
+        this.context.setStudentId(studentId);
+    }
+
     componentDidMount = async () => {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         const { id } = this.props.match.params
@@ -69,7 +73,9 @@ export default class GroupDetail extends Component {
                                                 <td>{student.weight}</td>
                                                 <td>{student.gender}</td>
                                                 <td><Link to={`/students/students/edit/${student._id}`}>edit</Link></td>
-                                                <td><Link to={'/students/addmeasurement'}>Agregar mediciones</Link></td>
+                                                <td>
+                                                    <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones
+                                                    </Link></td>
                                             </tr>
                                         )}
                                     </tbody>

@@ -5,7 +5,8 @@ export const MyContext = createContext();
 
 class MyProvider extends Component {
   state = {
-    loggedUser: null
+    loggedUser: null,
+    studentId: undefined
   };
 
   logUser = (loggedUser) => {
@@ -21,10 +22,14 @@ class MyProvider extends Component {
       .catch((err) => console.log(err));
   };
 
+  setStudentId = (studentId) => {
+    this.setState({ studentId })
+  }
+
   render() {
-    const { state, logUser, logOut } = this;
+    const { state, logUser, logOut, setStudentId } = this;
     return (
-      <MyContext.Provider value={{ state, logUser, logOut }}>
+      <MyContext.Provider value={{ state, logUser, logOut, setStudentId }}>
         {this.props.children}
       </MyContext.Provider>
     );

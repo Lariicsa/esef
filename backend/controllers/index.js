@@ -2,6 +2,7 @@ const User = require('../models/User')
 const Student = require('../models/Student')
 const Group = require('../models/Group')
 const School = require('../models/School')
+const Measure = require('../models/Measure')
 
 exports.home = async (req, res) => {
   User.findById(req.user._id)
@@ -139,10 +140,11 @@ exports.getGroupDetail = async (req, res) => {
 
 exports.addMeasure = async (req, res, next) => {
   try {
+    console.log(req.body)
     const studentId = req.body.studentId
     const student = await Student.findById(studentId)
-    const { measure } = req.body
-    Measure.create(measure)
+    const { measurement } = req.body
+    Measure.create({...measurement, student: student._id})
     .then((measure) => res.status(201).json({ measure, student, msg: 'Measure added' }))
   } catch {
     (err) => res.status(500).json({ err })
