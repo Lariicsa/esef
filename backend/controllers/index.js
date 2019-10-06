@@ -1,11 +1,23 @@
 const User = require('../models/User')
 const Student = require('../models/Student')
 const Group = require('../models/Group')
+const School = require('../models/School')
 
 exports.home = async (req, res) => {
   User.findById(req.user._id)
     .then((user) => res.status(200).json({ user }))
     .catch((err) => res.status(500).json({ err }))
+}
+
+exports.getUsers = async (req, res) => {
+  try {
+    const users = await User.find()
+
+    res.status(200).json({ users })
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
 }
 
 exports.getUserDetail = async (req, res) => {
@@ -59,6 +71,7 @@ exports.editStudent = async (req, res) => {
 
 exports.addStudent = async (req, res, next) => {
   const group = await Group.findOne({ $and: [{ level: req.body.level }, { group: req.body.group }] })
+
   const height = req.body.height
   const weight = req.body.weight
   const hip = req.body.hip
@@ -72,6 +85,7 @@ exports.addStudent = async (req, res, next) => {
   let ica = (fcrep + fce + fcrec) / meters
   ica = 20
   Student.create({ ...req.body, pot, imc, hip, gabd, ica, group: group._id, level: group._id })
+    //Student.create({ ...req.body, pot, imc, hip, gabd, ica, group: group._id, level: group._id, groupx: group.group, levelx: group.level })
     .then((student) => {
       Group.findByIdAndUpdate(group._id, { $push: { students: student._id } }, { new: true })
         .then(groupUpdated => {
@@ -94,6 +108,28 @@ exports.deleteStudent = async (req, res, next) => {
 
 }
 
+exports.addGroup = async (req, res) => {
+  try {
+    const { group, user } = req.body
+    const newGroup = await Group.create(group)
+    await User.findByIdAndUpdate(user._id, { $push: { groups: newGroup } })
+      .then((group) => res.status(201).json({ group, user, msg: 'Group added' }))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.addSchool = async (req, res) => {
+  try {
+    const { school, user } = req.body
+    const newSchool = await School.create(school)
+    await User.findByIdAndUpdate(user._id, { $push: { schools: newSchool } })
+      .then((school) => res.status(201).json({ school, user, msg: 'School added' }))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 exports.getGroups = async (req, res) => {
   try {
     const groups = await Group.find()
@@ -112,16 +148,5 @@ exports.getGroupDetail = async (req, res) => {
   }
   catch {
     (err) => res.status(500).json({ err })
-  }
-}
-
-exports.addGroup = async (req, res) => {
-  try {
-    const { group, user } = req.body
-    const newGroup = await Group.create(group)
-    await User.findByIdAndUpdate(user._id, { $push: { groups: newGroup } })
-      .then((group) => res.status(201).json({ group, user, msg: 'Group added' }))
-  } catch (error) {
-    console.log(error)
   }
 }

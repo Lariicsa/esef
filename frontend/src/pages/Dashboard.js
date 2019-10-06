@@ -32,6 +32,9 @@ export default class Dashboard extends Component {
   render() {
     const user = this.state.user
     const groups = this.state.user.groups
+    console.log(user);
+    console.log(this.state);
+    
 
     let openClass = ["column laraBar"];
     if(this.state.addClass) {

@@ -7,6 +7,11 @@ const userSchema = new Schema(
     lastname1: String,
     lastname2: String,
     email: String,
+    role: {
+			type: String,
+      enum: ['INSPECTOR', 'DIRECTOR', 'PROFESOR'],
+      default: 'PROFESOR'
+		},
     groups: [
       {
         ref: 'Group',

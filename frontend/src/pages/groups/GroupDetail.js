@@ -24,9 +24,9 @@ export default class GroupDetail extends Component {
     render() {
         const { group } = this.state;
         const students = this.state.group.students
-        console.log('dimount0', this.state.group.students);
+        console.log('group', this.state.group);
 
-        console.log('jei', this.state.group.students);
+        console.log('students in group', this.state.group.students);
 
         return (
             <div className="columns is-centered">
@@ -40,6 +40,11 @@ export default class GroupDetail extends Component {
 
                     }
                     <hr />
+                    <div className="columns">
+                        <div className="column is-12">
+                            <Link to={'/students/addstudent'}>Añadir Alumnos</Link>
+                        </div>
+                    </div>
 
                     <div className="columns is-centered">
                         <div className="column is-12">

@@ -19,11 +19,13 @@ export default class StudentDetail extends Component {
 
     render() {
         const { student } = this.state;
+        console.log(student);
+        
 
         return (
             <div className="columns is-centered">
                 <div className="column">
-                    <Sidebar />
+                <Sidebar history={this.props.history} />
                 </div>
                 {student &&
                     <div className="section">
@@ -33,8 +35,8 @@ export default class StudentDetail extends Component {
                                     <h1 className="title is-1">{student.name} {student.lastname1} {student.lastname2}</h1>
                                 </div>
                                 <div className="column">
-                                    <p className="title is-1">{student.level}</p>
-                                    <p className="title is-1">{student.group}</p>
+                                    <p className="title is-3">{student.level}</p>
+                                    <p className="title is-3">{student.group}</p>
                                 </div>
                             </div>
                             <div className="columns profile is-centered">

@@ -29,10 +29,6 @@ const studentSchema = new Schema(
     fcrec: Number,
     meters: Number,
     ica: Number,
-    level: {
-        ref: 'Group',
-        type: Schema.Types.ObjectId
-      },
     group: {
         ref: 'Group',
         type: Schema.Types.ObjectId

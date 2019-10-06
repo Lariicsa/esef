@@ -27,6 +27,7 @@ export default class AddStudent extends Component {
       fcrec: 0,
       meters: 0,
     },
+    user: {},
     response: undefined
   }
 
@@ -66,6 +67,16 @@ export default class AddStudent extends Component {
     }
   }
 
+
+  getGroup = async () => {
+    const userData = this.context.state.loggedUser
+    const id = userData._id
+    const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+    this.setState(
+      { user: response.data.user }
+    )
+  }
+
   handleInput = e => {
     this.setState({
       student: {
@@ -77,10 +88,16 @@ export default class AddStudent extends Component {
 
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login')
+    this.getGroup()
   }
 
   render() {
     const { student } = this.state
+    console.log(this.state);
+    const currentGroups = this.state.user.groups
+
+    console.log('grouf', currentGroups );
+    
     return (
       <div className="columns is-centered">
         <div className="column">
@@ -97,21 +114,17 @@ export default class AddStudent extends Component {
                   <div className="select">
                     <select name="level" value={student.level} onChange={this.handleInput} >
                       <option disabled ></option>
-                      <option value="1ro">1ro</option>
-                      <option value="2do">2do</option>
-                      <option value="3ro">3ro</option>
-                      <option value="4to">4to</option>
-                      <option value="5to">5to</option>
-                      <option value="6to">6to</option>
+                      {currentGroups && currentGroups.map((group, i) =>
+                      <option key={i} value={group.level}>{group.level}</option>
+                      )}
                     </select>
                   </div>
-
                   <div className="select">
                     <select name="group" value={student.group} onChange={this.handleInput} >
                       <option disabled ></option>
-                      <option value="A">A</option>
-                      <option value="B">B</option>
-                      <option value="C">C</option>
+                      {currentGroups && currentGroups.map((group, i) =>
+                      <option key={i} value={group.group}>{group.group}</option>
+                      )}
                     </select>
                   </div>
                 </div>
