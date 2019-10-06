@@ -100,7 +100,7 @@ export default class AddStudent extends Component {
 
     return (
       <div className="columns is-centered">
-        <div className="column column laraBar laraSide">
+        <div className="column laraBar laraSide">
           <Sidebar history={this.props.history} />
         </div>
         <div className="column box lara is-10">

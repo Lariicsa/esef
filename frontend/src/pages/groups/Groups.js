@@ -34,9 +34,10 @@ export default class AllGroups extends Component {
                     <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-10">
-                    <div className="columns laraContent">
-                        <div className="column is-12">
+                    <div className="columns is-centered laraContent">
+                        <div className="column  is-10">
                             <h3 className="title is-3">Todos los grupos</h3>
+                            <hr />
                             <ul className="laraContainer" >
                                 {groups && groups.map((group, i) =>
 

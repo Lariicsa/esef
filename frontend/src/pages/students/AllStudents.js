@@ -53,6 +53,7 @@ export default class AllStudents extends Component {
                            <table className="table is-fullwidth ">
                                 <thead>
                                     <tr>
+                                    <th></th>
                                         <th>Grado</th>
                                         <th>Nombre</th>
                                         <th>Edad</th>
@@ -73,13 +74,17 @@ export default class AllStudents extends Component {
                                         <th>FCREC</th>
                                         <th>Metros</th>
                                         <th>ICA</th>
-                                        <th></th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {students && students.map((student, i) =>
                                         <tr key={i}>
-                                            <td>{student.level}</td>
+                                            <td>
+                                                <Link to={`/students/students/${student._id}`}>Ver</Link>
+                                                <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
+                                            </td>
+                                            <td>{i}</td>
                                             <td>{student.name} {student.lastname1} {student.name2}</td>
                                             <td>{student.age}</td>
                                             <td>{student.height}</td>
@@ -98,10 +103,7 @@ export default class AllStudents extends Component {
                                             <td>{student.fcrec}</td>
                                             <td>{student.meters}</td>
                                             <td>{student.ica}</td>
-                                            <td>
-                                                <Link to={`/students/students/${student._id}`}>Ver</Link>
-                                                <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
-                                            </td>
+                                            
                                         </tr>
                                     )}
                                 </tbody>

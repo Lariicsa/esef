@@ -48,7 +48,7 @@ export default class GroupDetail extends Component {
                                 </div>
                             </div>
                             <div className="table-wrapper">
-                                <table className="table is-fullwidth">
+                                <table className="table is-striped is-fullwidth">
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
