@@ -29,7 +29,7 @@ export default class AllTeachers extends Component {
         
         return (
             <div className="columns is-centered">
-                <div className="column">
+                <div className="column laraBar laraSide">
                 <Sidebar history={this.props.history} />
                 </div>
                 <div className="column is-10">

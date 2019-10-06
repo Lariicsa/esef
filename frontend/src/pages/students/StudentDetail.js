@@ -24,7 +24,7 @@ export default class StudentDetail extends Component {
 
         return (
             <div className="columns is-centered">
-                <div className="column">
+                <div className="column laraBar laraSide">
                 <Sidebar history={this.props.history} />
                 </div>
                 {student &&

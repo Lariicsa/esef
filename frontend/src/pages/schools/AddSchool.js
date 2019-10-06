@@ -43,7 +43,7 @@ export default class AddSchool extends Component {
 
             return (
                 <div className="columns is-centered">
-                    <div className="column">
+                    <div className="column laraBar laraSide">
                         <Sidebar history={this.props.history} />
                     </div>
                     <div className="column box is-10">

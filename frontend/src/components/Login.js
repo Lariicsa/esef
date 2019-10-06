@@ -30,10 +30,10 @@ class Login extends Component {
   render() {
     return (
       <div className="columns is-centered is-vcentered hv">
-        <div className="column box is-6">
+        <div className="column box animated is-6">
           <p className="mesaage is-success"></p>
           <form className="columns" onSubmit={this.onSubmit}>
-            <div className="column is-12 iron-cover">
+            <div className="column is-12">
               <h1 className="title is-2">Ingresar</h1>
               <div className="field">
                 <label className="label">Nombre de usuario:</label>

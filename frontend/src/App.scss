@@ -1,4 +1,81 @@
+html {
+  background-color: $sky;
+}
+
+.lara {
+  &Circle {
+    background-color: $lite-orange;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4% auto;
+    height: 18vh;
+    width: 18vh;
+    p {
+      font-size: 40px;
+      font-weight: bold;
+      color: $deep-orange;
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+  &Container {
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 2% auto;
+    list-style-type: none;
+    width: calc(100% - 40px);
+    flex-wrap: wrap;
+    li {
+      background-color: white;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+      border-radius: 2px;
+      margin: 4% 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 30%;
+      position: relative;
+      &:hover{
+        box-shadow: 0 1px 1px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+      }
+      a {
+        padding: 2%;
+        width: 100%;
+      }
+    }
+  }
+
+  &Content {
+    background-color: $sky;
+    padding-top: 4%;
+    min-height: 100vh;
+  }
+
+  &Side {
+    background-color: white;
+    padding-right: 0;
+  }
+}
+
+//BS
+
+hr {
+  background-color: #E4E9EB;
+}
+
+.box {
+  box-shadow: 0 0 0 0;
+}
+
 .container {
+  background-color: $sky;
   margin: 0 auto;
   position: relative;
   width: 100%;
@@ -6,17 +83,13 @@
 }
 
 .section {
-    padding: 0;
-}
-
-aside {
-  &.menu {
-    padding: 4%;
-  }
+  padding: 0;
 }
 
 .table {
   &-wrapper {
+    padding: 0;
+    border-radius: 4px;
     display: block;
     max-width: 100%;
     overflow: scroll;
@@ -31,45 +104,40 @@ aside {
   height: 100vh;
 }
 
-.lara {
-  &Container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 2% auto;
-    list-style-type: none;
-    width: calc(100% - 40px);
-    flex-wrap: wrap;
-    li {
-      border: 1px dashed $brown;
-      border-radius: 2px;
-      margin: 4% 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 30%;
-      a {
-        padding: 2%;
-        width: 100%;
-        &:hover,
-        &:hover span {
-          background-color: $brown;
-          color: white;
-        }
+.animated {
+  animation: fade-in-down 0.8s;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu {
+  padding: 8% 0 8% 8%;
+  &-list {
+    padding: 4% 0;
+    a {
+      font-size: $font-text-size-md;
+      &.is-active {
+        background-color: $sky;
+        color: $link;
+        font-weight: bold;
       }
     }
   }
-
-  &Bar {
-    
-  }
-
 }
 
-
 @media screen and (max-width: 1199px) {
-
   .laraBar.open {
     display: flex;
     transition: transform 0.5s;
@@ -81,7 +149,7 @@ aside {
     background-color: beige;
     width: 240px;
   }
-  
+
   .laraBar {
     display: none;
     transition: transform 0.5s;

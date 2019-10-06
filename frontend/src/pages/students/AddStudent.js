@@ -96,17 +96,17 @@ export default class AddStudent extends Component {
     console.log(this.state);
     const currentGroups = this.state.user.groups
 
-    console.log('grouf', currentGroups );
-    
+    console.log('grouf', currentGroups);
+
     return (
       <div className="columns is-centered">
-        <div className="column">
+        <div className="column column laraBar laraSide">
           <Sidebar history={this.props.history} />
         </div>
-        <div className="column box is-10">
-          <h1 className="title is-1">Agregar alumno</h1>
-          <div className="columns">
-            <div className="column is-6">
+        <div className="column box lara is-10">
+          <div className="columns laraContent">
+            <div className="column is-offset-1 box is-6">
+              <h1 className="title is-1">Agregar alumno</h1>
               <form onSubmit={this.addStudent}>
 
                 <div className="field">
@@ -115,7 +115,7 @@ export default class AddStudent extends Component {
                     <select name="level" value={student.level} onChange={this.handleInput} >
                       <option disabled ></option>
                       {currentGroups && currentGroups.map((group, i) =>
-                      <option key={i} value={group.level}>{group.level}</option>
+                        <option key={i} value={group.level}>{group.level}</option>
                       )}
                     </select>
                   </div>
@@ -123,7 +123,7 @@ export default class AddStudent extends Component {
                     <select name="group" value={student.group} onChange={this.handleInput} >
                       <option disabled ></option>
                       {currentGroups && currentGroups.map((group, i) =>
-                      <option key={i} value={group.group}>{group.group}</option>
+                        <option key={i} value={group.group}>{group.group}</option>
                       )}
                     </select>
                   </div>

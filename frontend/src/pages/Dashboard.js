@@ -36,7 +36,7 @@ export default class Dashboard extends Component {
     console.log(this.state);
     
 
-    let openClass = ["column laraBar"];
+    let openClass = ["column laraBar laraSide"];
     if(this.state.addClass) {
       openClass.push('open');
     }
@@ -47,32 +47,23 @@ export default class Dashboard extends Component {
             <Sidebar history={this.props.history} />
           </div>
           <div className="column box is-10">
-          <p onClick={this.toggleMenu}> abre</p>
-            <div className="columns">
-              <div className="column is-12">
+          {/* <p onClick={this.toggleMenu}> abre</p> */}
+            <div className="columns is-centered  laraContent">
+              <div className="column is-10">
                 <div className="column">
-                  <h2 className="title is-2">{user.username} {user.lastname1}</h2>
+                  <h2 className="subtitle is-4">Hola, <span className="title is-3">{user.username} {user.lastname1}</span></h2>
 
                   <hr />
 
                   <h3 className="title is-3"> Tus grupos</h3>
                   <ul className="laraContainer">
-                    {groups && groups.map((group, i) =>
-                      <li key={i}>
-                        <Link to={`/groups/all/${group._id}`}>
-                          <h2 className="title is-1">
-                            {group.level} <span className="subtitle is-2">{group.group}</span>
-                          </h2>
-                        </Link>
-                      </li>
-
-                    )}
                     <li>
-                      <Link to={'/groups/addgroup'}>
-                        Agregar grupo nuevo
-                      <em className="is-size-1">+</em>
-                      </Link>
+                      <h4>Tus grupos</h4>
                     </li>
+                    <li><h4>Total de Alumnos</h4>
+
+                    </li>
+                    <li>Últimos bla</li>
                   </ul>
                 </div>
               </div>

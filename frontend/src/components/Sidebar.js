@@ -17,8 +17,9 @@ export default class Sidebar extends Component {
         //console.log(this.props.history.location.pathname)
         return (
             <aside className="menu">
-                <p className="menu-label">Inicio</p>
+                
                 <ul className="menu-list">
+                <p className="menu-label">Inicio</p>
                     <li><NavLink to={'/dashboard'} activeClassName="is-active">Resumen</NavLink></li>
                 </ul>
 

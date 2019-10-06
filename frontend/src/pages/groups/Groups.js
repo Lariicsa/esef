@@ -8,21 +8,21 @@ export default class AllGroups extends Component {
 
     state = {
         user: {}
-      }
-    
-      getUser = async () => {
+    }
+
+    getUser = async () => {
         const userData = this.context.state.loggedUser
         const id = userData._id
         const response = await axios.get(`http://localhost:3000/api/user/${id}`)
         this.setState(
-          { user: response.data.user }
+            { user: response.data.user }
         )
-      }
-    
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         this.getUser()
-      }
+    }
 
     render() {
         const groups = this.state.user.groups
@@ -30,25 +30,31 @@ export default class AllGroups extends Component {
 
         return (
             <div className="columns is-centered">
-                <div className="column">
-                <Sidebar history={this.props.history} />
+                <div className="column laraBar laraSide">
+                    <Sidebar history={this.props.history} />
                 </div>
                 <div className="column box is-10">
-                    <h3 className="title is-3">Todos los grupos</h3>
-                    <ul className="laraContainer" >
-                        {groups && groups.map((group, i) =>
+                    <div className="columns laraContent">
+                        <div className="column is-12">
+                            <h3 className="title is-3">Todos los grupos</h3>
+                            <ul className="laraContainer" >
+                                {groups && groups.map((group, i) =>
 
-                            <li key={i}>
-                                <Link to={`/groups/all/${group._id}`}>
-                                    <h2 className="title is-1">
-                                        {group.level} <span className="subtitle is-2">{group.group}</span>
-                                    </h2>
-                                </Link>
-                            </li>
+                                    <li key={i} className="animated">
+                                        <Link to={`/groups/all/${group._id}`}>
+                                            <div className="laraCircle">
+                                                <p>
+                                                    {group.level} <span>{group.group}</span>
+                                                </p>
+                                            </div>
+                                            <em className="has-text-grey">18 alumnos</em>
+                                        </Link>
+                                    </li>
 
-                        )}
-                    </ul>
-
+                                )}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
