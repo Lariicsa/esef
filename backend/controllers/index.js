@@ -71,21 +71,7 @@ exports.editStudent = async (req, res) => {
 
 exports.addStudent = async (req, res, next) => {
   const group = await Group.findOne({ $and: [{ level: req.body.level }, { group: req.body.group }] })
-
-  const height = req.body.height
-  const weight = req.body.weight
-  const hip = req.body.hip
-  const fcrep = req.body.fcrep
-  const fce = req.body.fce
-  const fcrec = req.body.fcrec
-  const meters = req.body.meters
-  let pot = height * 2
-  let imc = weight / pot
-  let gabd = hip / height
-  let ica = (fcrep + fce + fcrec) / meters
-  ica = 20
-  Student.create({ ...req.body, pot, imc, hip, gabd, ica, group: group._id, level: group._id })
-    //Student.create({ ...req.body, pot, imc, hip, gabd, ica, group: group._id, level: group._id, groupx: group.group, levelx: group.level })
+  Student.create({ ...req.body, group: group._id, level: group._id })
     .then((student) => {
       Group.findByIdAndUpdate(group._id, { $push: { students: student._id } }, { new: true })
         .then(groupUpdated => {
@@ -149,4 +135,17 @@ exports.getGroupDetail = async (req, res) => {
   catch {
     (err) => res.status(500).json({ err })
   }
+}
+
+exports.addMeasure = async (req, res, next) => {
+  try {
+    const studentId = req.body.studentId
+    const student = await Student.findById(studentId)
+    const { measure } = req.body
+    Measure.create(measure)
+    .then((measure) => res.status(201).json({ measure, student, msg: 'Measure added' }))
+  } catch {
+    (err) => res.status(500).json({ err })
+  }
+  
 }

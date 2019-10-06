@@ -17,7 +17,8 @@ const { home,
   getGroups,
   getGroupDetail,
   addGroup,
-  addSchool
+  addSchool,
+  addMeasure
 } = require('../controllers/index')
 
 router.post('/signup', (req, res, next) => {
@@ -50,6 +51,7 @@ router.put('/editstudent/:id', editStudent)
 router.get('/groups', getGroups)
 router.get('/groups/:id', getGroupDetail)
 router.post('/schools', addSchool)
+router.post('/measures', addMeasure)
 
 function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });

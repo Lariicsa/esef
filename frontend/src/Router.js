@@ -11,6 +11,7 @@ import AddGroup from './pages/groups/AddGroup'
 import GroupDetail from './pages/groups/GroupDetail'
 import EditStudent from './pages/students/EditStudent'
 import AddSchool from './pages/schools/AddSchool'
+import AddMeasure from './pages/students/AddMeassure'
 // import AllTeachers from './pages/teacher/AllTeachers'
 
 const Router = () => (
@@ -30,6 +31,7 @@ const Router = () => (
       <Route exact path="/students/students/:id" component={StudentDetail} />
       <Route exact path="/students/students/edit/:id" component={EditStudent} />
       <Route exact path="/schools/addschool" component={AddSchool} />
+      <Route exact path="/students/addmeasurement" component={AddMeasure} />
     </Switch>
   </BrowserRouter>
     </div>

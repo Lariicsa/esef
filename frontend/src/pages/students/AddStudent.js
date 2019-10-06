@@ -14,18 +14,6 @@ export default class AddStudent extends Component {
       lastname2: '',
       age: 0,
       gender: '',
-      weight: 0,
-      height: 0,
-      hip: 0,
-      vel: 0,
-      flex: 0,
-      minf: 0,
-      abd: 0,
-      msup: 0,
-      fcrep: 0,
-      fce: 0,
-      fcrec: 0,
-      meters: 0,
     },
     user: {},
     response: undefined
@@ -37,27 +25,6 @@ export default class AddStudent extends Component {
     try {
       const response = await axios.post('http://localhost:3000/api/students', student)
       this.setState({
-        // student: {
-        //   level: '',
-        //   group: '',
-        //   name: '',
-        //   lastname1: '',
-        //   lastname2: '',
-        //   age: 0,
-        //   gender: '',
-        //   weight: 0,
-        //   height: 0,
-        //   hip: 0,
-        //   vel: 0,
-        //   flex: 0,
-        //   minf: 0,
-        //   abd: 0,
-        //   msup: 0,
-        //   fcrep: 0,
-        //   fce: 0,
-        //   fcrec: 0,
-        //   meters: 0
-        // },
         response: response.data.msg
       })
       console.log(response)
@@ -182,118 +149,6 @@ export default class AddStudent extends Component {
                     </select>
                   </div>
                 </div>
-
-                <div className="field">
-                  <label className="label">Peso:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.weight}
-                    type='number'
-                    name='weight'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">Estatura:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.height}
-                    type='number'
-                    name='height'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">Cintura:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.hip}
-                    type='number'
-                    name='hip'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">Velocidad:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.vel}
-                    type='number'
-                    name='vel'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">M. Inferiores:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.minf}
-                    type='number'
-                    name='minf'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">Abdomen:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.abd}
-                    type='number'
-                    name='abd'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">M. superiores:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.msup}
-                    type='number'
-                    name='msup'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">FCREP:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.fcrep}
-                    type='number'
-                    name='fcrep'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">FCE:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.fce}
-                    type='number'
-                    name='fce'
-                  />
-                </div>
-
-                <div className="field">
-                  <label className="label">FCREC:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.fcrec}
-                    type='number'
-                    name='fcrec'
-                  />
-                </div>
-
-
-                <div className="field">
-                  <label className="label">Metros:</label>
-                  <input className="input"
-                    onChange={this.handleInput}
-                    value={student.meters}
-                    type='number'
-                    name='meters'
-                  />
-                </div>
-
                 <div className="field">
                   <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
                 </div>

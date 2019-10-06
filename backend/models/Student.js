@@ -13,22 +13,6 @@ const studentSchema = new Schema(
         'Femenino'
       ]
     },
-    weight: Number,
-    height: Number,
-    pot: Number,
-    imc: Number,
-    hip: Number,
-    gabd: Number,
-    vel: Number,
-    flex: Number,
-    minf: Number,
-    abd: Number,
-    msup: Number,
-    fcrep: Number,
-    fce: Number,
-    fcrec: Number,
-    meters: Number,
-    ica: Number,
     group: {
         ref: 'Group',
         type: Schema.Types.ObjectId

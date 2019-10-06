@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import { MyContext } from '../context/index';
 import axios from 'axios';
@@ -31,7 +30,7 @@ export default class Dashboard extends Component {
 
   render() {
     const user = this.state.user
-    const groups = this.state.user.groups
+    //const groups = this.state.user.groups
     console.log(user);
     console.log(this.state);
     
