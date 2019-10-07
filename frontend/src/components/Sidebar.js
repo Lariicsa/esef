@@ -23,12 +23,6 @@ export default class Sidebar extends Component {
                     <li><NavLink to={'/dashboard'} activeClassName="is-active">Resumen</NavLink></li>
                 </ul>
 
-                <p className="menu-label">Test</p>
-                <ul className="menu-list">
-                    <li><NavLink to={'/schools/addschool'} activeClassName="is-active">Add School</NavLink></li>
-                    
-                </ul>
-
                 <p className="menu-label">Grupos</p>
                 <ul className="menu-list">
                     <li><NavLink to={'/groups/all'} activeClassName="is-active">Todos</NavLink></li>
