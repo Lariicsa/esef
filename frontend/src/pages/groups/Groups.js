@@ -25,7 +25,7 @@ export default class AllGroups extends Component {
     }
 
     render() {
-        //console.log(this.state.user.groups.measurements);
+        console.log(this.state.user.groups);
         const groups = this.state.user.groups
 
 
@@ -49,7 +49,7 @@ export default class AllGroups extends Component {
                                                     {group.level} <span>{group.group}</span>
                                                 </p>
                                             </div>
-                                            <em className="has-text-grey">18 alumnos</em>
+                                            <em className="has-text-grey">{group.students.length} alumnos</em>
                                         </Link>
                                     </li>
 
