@@ -18,13 +18,14 @@ export default class AllStudents extends Component {
     }
 
     deleteStudent = (id) => {
-        axios.delete(`http://localhost:3000/api/students/${id}`)
+        axios.delete(`http://localhost:3000/api/students/${id}`, {data : {id}})
             .then(({ data }) => {
                 this.setState(prevState => {
                     return {
                         ...prevState,
                     }
                 })
+                this.componentDidMount()
             })
             .catch(err => console.log(err))
     }
