@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { MyContext } from '../context/index';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
@@ -30,9 +31,8 @@ export default class Dashboard extends Component {
 
   render() {
     const user = this.state.user
-    //const groups = this.state.user.groups
+    const groups = this.state.user.groups
     console.log(user);
-    console.log(this.state);
     
 
     let openClass = ["column laraBar laraSide"];
@@ -46,24 +46,40 @@ export default class Dashboard extends Component {
             <Sidebar history={this.props.history} />
           </div>
           <div className="column box is-10">
-          {/* <p onClick={this.toggleMenu}> abre</p> */}
             <div className="columns is-centered  laraContent">
               <div className="column is-12">
+              <p className="button is-text" onClick={this.toggleMenu}> abre</p>
                 <div className="column">
                   <h2 className="subtitle is-4">Hola, <span className="title is-3">{user.username} {user.lastname1}</span></h2>
 
                   <hr />
 
-                  <h3 className="title is-3"> Tus grupos</h3>
-                  <ul className="laraContainer">
-                    <li>
-                      <h4>Tus grupos</h4>
-                    </li>
-                    <li><h4>Total de Alumnos</h4>
+                  <h3 className="title is-3">Resumen de tu información</h3>
 
-                    </li>
-                    <li>Últimos bla</li>
-                  </ul>
+                      <h4 className="subtitle is-4">Tus grupos</h4>
+                      <ul className="laraContainer">
+                                {groups && groups.map((group, i) =>
+
+                                    <li key={i} className="x">
+                                        <Link to={`/groups/all/${group._id}`}>
+                                            <div className="x">
+                                                <p>
+                                                    {group.level} <span>{group.group}</span>
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    </li>
+
+                                )}
+                            </ul>
+                            <hr />
+                            <h4 className="subtitle is-4">Total de Alumnos</h4>
+                    <hr />
+                
+                    <h4 className="subtitle is-4">Próxima medición</h4>
+                    <strong>Agosto 21 2020</strong>
+                    <hr />
+                  
                 </div>
               </div>
             </div>

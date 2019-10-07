@@ -40,7 +40,6 @@ exports.getUserDetail = async (req, res) => {
 exports.getStudents = async (req, res) => {
   try {
     const students = await Student.find()
-
     res.status(200).json({ students })
   }
   catch {

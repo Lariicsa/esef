@@ -25,8 +25,9 @@ export default class AllGroups extends Component {
     }
 
     render() {
+        //console.log(this.state.user.groups.measurements);
         const groups = this.state.user.groups
-        console.log(groups);
+
 
         return (
             <div className="columns is-centered">

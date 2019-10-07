@@ -53,57 +53,24 @@ export default class AllStudents extends Component {
                            <table className="table is-fullwidth ">
                                 <thead>
                                     <tr>
-                                    <th></th>
-                                        <th>Grado</th>
+                                        <th></th>
                                         <th>Nombre</th>
                                         <th>Edad</th>
-                                        <th>Estatura</th>
-                                        <th>Peso</th>
                                         <th>Género</th>
-                                        <th>Cintura</th>
-                                        <th>Potencia</th>
-                                        <th>IMC</th>
-                                        <th>% Grasa Abdominal</th>
-                                        <th>Velocidad</th>
-                                        <th>Flexibilidad</th>
-                                        <th>M.Inferiores</th>
-                                        <th>Abdomen</th>
-                                        <th>M.Superiores</th>
-                                        <th>FCREP</th>
-                                        <th>FCE</th>
-                                        <th>FCREC</th>
-                                        <th>Metros</th>
-                                        <th>ICA</th>
-                                        
+                                        <th><span className="button"> Editar </span></th>                                   
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {students && students.map((student, i) =>
                                         <tr key={i}>
+                                            <td>{i}</td>
+                                            <td>{student.name} {student.lastname1} {student.name2}</td>
+                                            <td>{student.age}</td>
+                                            <td>{student.gender}</td>
                                             <td>
                                                 <Link to={`/students/students/${student._id}`}>Ver</Link>
                                                 <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
                                             </td>
-                                            <td>{i}</td>
-                                            <td>{student.name} {student.lastname1} {student.name2}</td>
-                                            <td>{student.age}</td>
-                                            <td>{student.height}</td>
-                                            <td>{student.weight}</td>
-                                            <td>{student.gender}</td>
-                                            <td>{student.hip}</td>
-                                            <td>{student.pot}</td>
-                                            <td>{student.imc}</td>
-                                            <td>{student.gabd}</td>
-                                            <td>{student.vel}</td>
-                                            <td>{student.minf}</td>
-                                            <td>{student.abd}</td>
-                                            <td>{student.msup}</td>
-                                            <td>{student.fcrep}</td>
-                                            <td>{student.fce}</td>
-                                            <td>{student.fcrec}</td>
-                                            <td>{student.meters}</td>
-                                            <td>{student.ica}</td>
-                                            
                                         </tr>
                                     )}
                                 </tbody>

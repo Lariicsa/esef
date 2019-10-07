@@ -35,7 +35,7 @@ app.use(
 app.use(
   session({
     secret: process.env.SECRET,
-    cookie: { maxAge: 1000 * 60 * 60 }
+    cookie: { maxAge: 3000 * 60 * 60 }
   })
 );
 

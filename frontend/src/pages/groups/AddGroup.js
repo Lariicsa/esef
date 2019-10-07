@@ -48,7 +48,7 @@ export default class AddGroup extends Component {
                 </div>
                 <div className="column box is-10">
                     <div className="columns is-centered laraContent">
-                        <div className="column is-offset-1  is-6">
+                        <div className="column is-8">
                             <div className="box">
                             <h1 className="title is-1">Añadir nuevo grupo</h1>
                             <form onSubmit={this.addGroup}>

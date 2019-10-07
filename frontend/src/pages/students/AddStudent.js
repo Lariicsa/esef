@@ -60,9 +60,7 @@ export default class AddStudent extends Component {
 
   render() {
     const { student } = this.state
-    console.log(this.state);
     const currentGroups = this.state.user.groups
-
     console.log('grouf', currentGroups);
 
     return (
@@ -71,10 +69,10 @@ export default class AddStudent extends Component {
           <Sidebar history={this.props.history} />
         </div>
         <div className="column box lara is-10">
-          <div className="columns laraContent">
-            <div className="column is-offset-1 box is-6">
+          <div className="columns laraContent is-centered">
+            <div className="column is-6">
               <h1 className="title is-1">Agregar alumno</h1>
-              <form onSubmit={this.addStudent}>
+              <form className="box" onSubmit={this.addStudent}>
 
                 <div className="field">
                   <label className="label">Grado</label>

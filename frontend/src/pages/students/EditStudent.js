@@ -43,14 +43,13 @@ export default class EditStudent extends Component {
 
     render() {
         const { student } = this.state
-        console.log(this.state);
 
         return (
             <div className="columns is-centered">
                 <div className="column laraBar laraSide">
                     <Sidebar history={this.props.history} />
                 </div>
-                <div className="column box is-12">
+                <div className="column box is-10">
                     <h1 className="title is-1">Editar alumno</h1>
                     <div className="columns">
                         <div className="column is-6">
@@ -131,117 +130,6 @@ export default class EditStudent extends Component {
                                             <option value="Masculino">Masculino</option>
                                         </select>
                                     </div>
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">Peso:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.weight}
-                                        type='number'
-                                        name='weight'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">Estatura:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.height}
-                                        type='number'
-                                        name='height'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">Cintura:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.hip}
-                                        type='number'
-                                        name='hip'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">Velocidad:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.vel}
-                                        type='number'
-                                        name='vel'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">M. Inferiores:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.minf}
-                                        type='number'
-                                        name='minf'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">Abdomen:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.abd}
-                                        type='number'
-                                        name='abd'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">M. superiores:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.msup}
-                                        type='number'
-                                        name='msup'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">FCREP:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.fcrep}
-                                        type='number'
-                                        name='fcrep'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">FCE:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.fce}
-                                        type='number'
-                                        name='fce'
-                                    />
-                                </div>
-
-                                <div className="field">
-                                    <label className="label">FCREC:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.fcrec}
-                                        type='number'
-                                        name='fcrec'
-                                    />
-                                </div>
-
-
-                                <div className="field">
-                                    <label className="label">Metros:</label>
-                                    <input className="input"
-                                        onChange={this.handleInput}
-                                        value={student.meters}
-                                        type='number'
-                                        name='meters'
-                                    />
                                 </div>
 
                                 <div className="field">

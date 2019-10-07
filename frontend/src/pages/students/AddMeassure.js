@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { MyContext } from '../../context';
 import axios from 'axios';
 import Sidebar from '../../components/Sidebar';
@@ -85,7 +86,6 @@ export default class AddMeasure extends Component {
   }
 
   render() {
-
     console.log(this.state)
     const { measurement } = this.state
 
@@ -94,11 +94,14 @@ export default class AddMeasure extends Component {
         <div className="column laraBar laraSide">
           <Sidebar history={this.props.history} />
         </div>
-        <div className="column box lara is-10">
+        <div className="column lara is-10">
           <div className="columns laraContent">
-            <div className="column is-offset-1 box is-6">
+            <div className="column is-offset-1 is-6">
+            <div className="columns is-left">
+            <Link to={'/dashboard'}>Regresar a Alumno id</Link>
+          </div>
               <h1 className="title is-1">Agregar mediciones de alumno</h1>
-              <form onSubmit={this.addMeasurement}>
+              <form className="box" onSubmit={this.addMeasurement}>
 
                 <div className="field">
                   <label className="label">Peso:</label>
