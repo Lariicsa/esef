@@ -14,9 +14,15 @@ const studentSchema = new Schema(
       ]
     },
     group: {
-        ref: 'Group',
+      ref: 'Group',
+      type: Schema.Types.ObjectId
+    },
+    measurements: [
+      {
+        ref: 'Measure',
         type: Schema.Types.ObjectId
       }
+    ]
   },
   {
     timestamps: true,

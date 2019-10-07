@@ -51,13 +51,27 @@ exports.getStudents = async (req, res) => {
 exports.getStudentDetail = async (req, res) => {
   try {
     const { id } = req.params
-    const student = await Student.findById(id)
+    const student = await Student.findById(id).populate('group')
     res.status(200).json({ student })
   }
   catch {
     (err) => res.status(500).json({ err })
   }
 }
+
+
+//ño
+// exports.getGroupDetail = async (req, res) => {
+//   try {
+//     const { id } = req.params
+//     const group = await Group.findById(id).populate('students')
+//     res.status(200).json({ group })
+//   }
+//   catch {
+//     (err) => res.status(500).json({ err })
+//   }
+// }
+
 
 exports.editStudent = async (req, res) => {
   try {
@@ -142,12 +156,17 @@ exports.addMeasure = async (req, res, next) => {
   try {
     console.log(req.body)
     const studentId = req.body.studentId
-    const student = await Student.findById(studentId)
+
     const { measurement } = req.body
-    Measure.create({...measurement, student: student._id})
-    .then((measure) => res.status(201).json({ measure, student, msg: 'Measure added' }))
+    const newMeasures = await Measure.create(measurement)
+    console.log(newMeasures);
+
+    await Student.findByIdAndUpdate(studentId, { $push: { measurements: newMeasures } })
+      .then((student) => res.status(201).json({ student, msg: 'Measure added' }))
+
   } catch {
     (err) => res.status(500).json({ err })
   }
-  
 }
+
+

@@ -18,10 +18,6 @@ const measureSchema = new Schema(
     imc: Number, // imc -> se calcula
     abdominalFat: Number, // % de grasa abdominal -> se calcula
     ica: Number, //indice de capacidad aerobica -> se calcula
-    student: {
-        ref: 'Student',
-        type: Schema.Types.ObjectId
-      }
   },
   {
     timestamps: true,

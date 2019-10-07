@@ -32,7 +32,7 @@ export default class StudentDetail extends Component {
                     <div className="column is-10">
                         <div className="columns is-centered laraContent">
                             <div className="column box is-10">
-                                <h1 className="title is-1">{student.name} {student.lastname1} {student.lastname2}</h1>
+                                <h1 className="title is-1">{student.name} {student.lastname1} {student.group.level}</h1>
                                 <p className="is-size-5 has-text-primary">Edad: {student.age}</p>
                                 <p className="is-size-5 has-text-primary">Sexo: {student.gender}</p>
                                 <p className="is-size-5 has-text-primary">Peso: {student.weight}</p>
