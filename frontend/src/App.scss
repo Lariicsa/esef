@@ -153,6 +153,10 @@ hr {
     padding: 4% 0;
     a {
       font-size: $font-text-size-md;
+      &:hover {
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+      }
       &.is-active {
         background-color: $sky;
         border-bottom-left-radius: 16px;
@@ -162,6 +166,14 @@ hr {
       }
     }
   }
+  &-label {
+    font-size: $font-text-size-lg;
+    font-weight: bold;
+  }
+}
+
+.burger {
+  display: none;
 }
 
 @media screen and (max-width: 1199px) {
@@ -175,6 +187,10 @@ hr {
     z-index: 1;
     background-color: beige;
     width: 240px;
+  }
+
+  .burger {
+    display: block;
   }
 
   .laraBar {

@@ -58,7 +58,8 @@ export default class AllStudents extends Component {
                                         <th>Nombre</th>
                                         <th>Edad</th>
                                         <th>Género</th>
-                                        <th><span className="button"> Editar </span></th>                                   
+                                        <th><span className="button"> Editar </span></th>
+                                        <th></th>                                
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,9 +70,9 @@ export default class AllStudents extends Component {
                                             <td>{student.age}</td>
                                             <td>{student.gender}</td>
                                             <td>
-                                                <Link to={`/students/students/${student._id}`}>Ver</Link>
-                                                <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
+                                            <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
                                             </td>
+                                            <td><Link className="button" to={`/students/students/${student._id}`}>Ver</Link></td>
                                         </tr>
                                     )}
                                 </tbody>

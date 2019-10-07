@@ -31,7 +31,7 @@ export default class Sidebar extends Component {
 
                 <p className="menu-label">Estudiantes</p>
                 <ul className="menu-list">
-                    <li><NavLink to={'/students/all'} activeClassName="is-active">Alumnos</NavLink></li>
+                    <li><NavLink to={'/students/all'} activeClassName="is-active">Todos</NavLink></li>
                     <li><NavLink to={'/students/addstudent'} activeClassName="is-active">Agregar Alumno</NavLink></li>
                 </ul>
                 
