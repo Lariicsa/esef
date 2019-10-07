@@ -19,6 +19,7 @@ export default class StudentDetail extends Component {
 
     render() {
         const { student } = this.state;
+        console.log(student);
         
         return (
             <div className="columns is-centered">
@@ -40,14 +41,14 @@ export default class StudentDetail extends Component {
                                 <li  className="is-size-5 has-text-primary">Peso: {ms.weight}</li>
                                 <li className="is-size-5 has-text-primary">Altura: {ms.height}</li>
                                 <li className="is-size-5 has-text-primary">Cadera: {ms.hip}</li>
-                                <li className="is-size-5 has-text-primary">Velocidad: {ms.vel}</li>
-                                <li className="is-size-5 has-text-primary">Flexibilidad: {ms.flex}</li>
-                                <li className="is-size-5 has-text-primary">M. Inferiores: {ms.minf}</li>
-                                <li className="is-size-5 has-text-primary">Abdomen: {ms.abd}</li>
-                                <li className="is-size-5 has-text-primary">M superiores: {ms.msup}</li>
-                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca en reposo{ms.fcrep}</li>
-                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca de esfuerzo{ms.fce}</li>
-                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca en recuperación: {ms.fcrec}</li>
+                                <li className="is-size-5 has-text-primary">Velocidad: {ms.velocity}</li>
+                                <li className="is-size-5 has-text-primary">Flexibilidad: {ms.flexibility}</li>
+                                <li className="is-size-5 has-text-primary">M. Inferiores: {ms.lowerMass}</li>
+                                <li className="is-size-5 has-text-primary">Abdomen: {ms.abdominalFlat}</li>
+                                <li className="is-size-5 has-text-primary">M superiores: {ms.upperMass}</li>
+                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca en reposo{ms.restingHeartRate}</li>
+                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca de esfuerzo{ms.stressHeartRate}</li>
+                                <li className="is-size-5 has-text-primary">Frecuencia cardiaca en recuperación: {ms.heartRateRecovery}</li>
                                 <li className="is-size-5 has-text-primary">Metros corridos: {ms.meters}</li>
                                 <li className="is-size-5 has-text-primary">Índice de capacidad aeróbica: {ms.ica}</li>
                                 </ul>
