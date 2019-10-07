@@ -51,27 +51,15 @@ exports.getStudents = async (req, res) => {
 exports.getStudentDetail = async (req, res) => {
   try {
     const { id } = req.params
-    const student = await Student.findById(id).populate('group')
+    const student = await Student.findById(id)
+    .populate('group')
+    .populate('measurements')
     res.status(200).json({ student })
   }
   catch {
     (err) => res.status(500).json({ err })
   }
 }
-
-
-//ño
-// exports.getGroupDetail = async (req, res) => {
-//   try {
-//     const { id } = req.params
-//     const group = await Group.findById(id).populate('students')
-//     res.status(200).json({ group })
-//   }
-//   catch {
-//     (err) => res.status(500).json({ err })
-//   }
-// }
-
 
 exports.editStudent = async (req, res) => {
   try {
