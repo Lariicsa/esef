@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { MyContext } from '../context/index';
 import MAIN_SERVICE from '../services/main';
 import Layout from '../components/Layout';
-import Groups from './groups/Groups';
 
 export default class Dashboard extends Component {
 
@@ -70,7 +69,7 @@ export default class Dashboard extends Component {
                       <h3 className="title is-">Resumen de tu información </h3>
 
                       <h4 className="subtitle is-4">Tus grupos</h4>
-                      <Groups />
+                   
                       <hr />
                       <h4 className="subtitle is-4">Total de Alumnos</h4>
                       <hr />
