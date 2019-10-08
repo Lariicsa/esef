@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
 import Layout from '../../components/Layout'
-//import MAIN_SERVICE from '../../services/main';
+import MAIN_SERVICE from '../../services/main';
 
 export default class GroupDetail extends Component {
 
@@ -17,20 +17,21 @@ export default class GroupDetail extends Component {
         this.context.setStudentId(studentId);
     }
 
-    // getGroupDetail = async () => {
-    //     const { data: { group } } = await MAIN_SERVICE.getGroup(this.state.group._id)
-    //     this.setState(
-    //         { group, isLoading: false }
-    //     )
-    // }
-
     getGroupDetail = async () => {
-        const { id } = this.props.match.params
-        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
-        this.setState({
-            group
-        })
-      }
+        const id = this.props.match.params
+        const { data: { group } } = await MAIN_SERVICE.getGroup(id)
+        this.setState(
+            { group }
+        )
+    }
+
+    // getGroupDetail = async () => {
+    //     const { id } = this.props.match.params
+    //     const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
+    //     this.setState({
+    //         group
+    //     })
+    //   }
 
 
     goToDetail = (id) => {

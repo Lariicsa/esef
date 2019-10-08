@@ -9,7 +9,7 @@ const MAIN_SERVICE = {
   },
 
   getGroup: async (group) => {
-    const id = group._id
+    const id = group.id
     return await SERVICE.get(`/groups/${id}`, group)
   },
 
