@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { MyContext } from '../context/index';
 import MAIN_SERVICE from '../services/main';
 import Layout from '../components/Layout';
@@ -40,7 +39,7 @@ export default class Dashboard extends Component {
 
   render() {
     const {user, isLoading} = this.state 
-    const {groups} = user
+    //const {groups} = user
     console.log(user);
 
 
