@@ -24,79 +24,79 @@ export default class StudentDetail extends Component {
         console.log(student);
 
         return (
-            <div className="columns is-centered">
-                <div className="column laraBar laraSide">
-                    <Sidebar history={this.props.history} />
-                </div>
-                {student &&
+            <>
+                <Sidebar history={this.props.history} />
+                <section className="section">
+                    <div className="container">
+                        <div className="columns is-centered">
+                            <div className="column is-12">
+                                <div className="columns is-centered laraContent">
+                                    {student &&
 
-                    <div className="column is-10">
-                        <div className="columns is-centered laraContent">
-                            <div className="column box is-10">
-                                <h1 className="title is-1">{student.name} {student.lastname1}</h1>
-                                <h2 className="subtitle is-2">{student.group.level}{student.group.group}</h2>
-                                <strong>{student.measurements.weight}</strong>
-                                <p className="is-size-5 has-text-primary">Edad: {student.age}</p>
-                                <p className="is-size-5 has-text-primary">Sexo: {student.gender}</p>
+                                        <div className="column box is-10">
+                                            <h1 className="title is-1">{student.name} {student.lastname1}</h1>
+                                            <h2 className="subtitle is-2">{student.group.level}{student.group.group}</h2>
+                                            <strong>{student.measurements.weight}</strong>
+                                            <p className="is-size-5 has-text-primary">Edad: {student.age}</p>
+                                            <p className="is-size-5 has-text-primary">Sexo: {student.gender}</p>
 
-                                {student.measurements && student.measurements.map((ms, i) =>
-                                    <ul key={i}>
-                                        <li className="is-size-5 has-text-primary">Peso: {ms.weight}</li>
-                                        <li className="is-size-5 has-text-primary">Altura: {ms.height}</li>
-                                        <li className="is-size-5 has-text-primary">Cadera: {ms.hip}</li>
-                                        <li className="is-size-5 has-text-primary">Velocidad: {ms.velocity}</li>
-                                        <li className="is-size-5 has-text-primary">Flexibilidad: {ms.flexibility}</li>
-                                        <li className="is-size-5 has-text-primary">M. Inferiores: {ms.lowerMass}</li>
-                                        <li className="is-size-5 has-text-primary">Abdomen: {ms.abdominalFlat}</li>
-                                        <li className="is-size-5 has-text-primary">M superiores: {ms.upperMass}</li>
-                                        <li className="is-size-5 has-text-primary">Frecuencia cardiaca en reposo{ms.restingHeartRate}</li>
-                                        <li className="is-size-5 has-text-primary">Frecuencia cardiaca de esfuerzo{ms.stressHeartRate}</li>
-                                        <li className="is-size-5 has-text-primary">Frecuencia cardiaca en recuperación: {ms.heartRateRecovery}</li>
-                                        <li className="is-size-5 has-text-primary">Metros corridos: {ms.meters}</li>
-                                        <li className="is-size-5 has-text-primary">Índice de capacidad aeróbica: {ms.ica}</li>
-
-
-                                    </ul>
-
-                                )}
+                                            {student.measurements && student.measurements.map((ms, i) =>
+                                                <ul key={i}>
+                                                    <li className="is-size-5 has-text-primary">Peso: {ms.weight}</li>
+                                                    <li className="is-size-5 has-text-primary">Altura: {ms.height}</li>
+                                                    <li className="is-size-5 has-text-primary">Cadera: {ms.hip}</li>
+                                                    <li className="is-size-5 has-text-primary">Velocidad: {ms.velocity}</li>
+                                                    <li className="is-size-5 has-text-primary">Flexibilidad: {ms.flexibility}</li>
+                                                    <li className="is-size-5 has-text-primary">M. Inferiores: {ms.lowerMass}</li>
+                                                    <li className="is-size-5 has-text-primary">Abdomen: {ms.abdominalFlat}</li>
+                                                    <li className="is-size-5 has-text-primary">M superiores: {ms.upperMass}</li>
+                                                    <li className="is-size-5 has-text-primary">Frecuencia cardiaca en reposo{ms.restingHeartRate}</li>
+                                                    <li className="is-size-5 has-text-primary">Frecuencia cardiaca de esfuerzo{ms.stressHeartRate}</li>
+                                                    <li className="is-size-5 has-text-primary">Frecuencia cardiaca en recuperación: {ms.heartRateRecovery}</li>
+                                                    <li className="is-size-5 has-text-primary">Metros corridos: {ms.meters}</li>
+                                                    <li className="is-size-5 has-text-primary">Índice de capacidad aeróbica: {ms.ica}</li>
 
 
-                                <div>
-                                    <VictoryChart
-                                        domainPadding={10}
-                                        theme={VictoryTheme.material}
-                                    >
-                                        <VictoryAxis
-                                            tickValues={["Medición 1", "Medición2", "Medición3"]}
-                                        />
-                                        <VictoryAxis
-                                            dependentAxis
-                                        />
-                                        <VictoryStack
-                                            colorScale={"warm"}
-                                        >
+                                                </ul>
 
-                                            {student.measurements && student.measurements.map((ms, i) => (
+                                            )}
 
-                                                <VictoryBar key={i}
-                                                    data={[{ x: i+1, y: ms.ica }]}
 
-                                                />
+                                            <div>
+                                                <VictoryChart
+                                                    domainPadding={10}
+                                                    theme={VictoryTheme.material}
+                                                >
+                                                    <VictoryAxis
+                                                        tickValues={["Medición 1", "Medición2", "Medición3"]}
+                                                    />
+                                                    <VictoryAxis
+                                                        dependentAxis
+                                                    />
+                                                    <VictoryStack
+                                                        colorScale={"warm"}
+                                                    >
 
-                                            ))}
+                                                        {student.measurements && student.measurements.map((ms, i) => (
 
-                                        </VictoryStack>
-                                    </VictoryChart>
+                                                            <VictoryBar key={i}
+                                                                data={[{ x: i + 1, y: ms.ica }]}
+
+                                                            />
+
+                                                        ))}
+
+                                                    </VictoryStack>
+                                                </VictoryChart>
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-
-
-                }
-            </div>
+                </section>
+            </>
         );
     }
 }

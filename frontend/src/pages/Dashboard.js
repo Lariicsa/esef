@@ -49,11 +49,11 @@ export default class Dashboard extends Component {
             <div className={openClass.join(' ')}>
             </div>
             <div className="column box is-12">
-              <div className="columns is-centered  laraContent">
+              <div className="columns is-centered laraContent">
                 <div className="column is-12">
                   <p className="button is-text burger" onClick={this.toggleMenu}> abre</p>
                   <div className="column">
-                    <h2 className="subtitle is-4">Hola, <span className="title is-3">{user.username} {user.lastname1}</span></h2>
+                    <h2 className="subtitle is-4">Hola, Prof. <span className="title is-3">{user.username} {user.lastname1}</span></h2>
 
                     <hr />
 

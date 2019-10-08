@@ -49,13 +49,15 @@ export default class GroupDetail extends Component {
         console.log('render status', timesMeasure);
 
         return (
-            <div className="columns is-centered">
-                <div className="column laraBar laraSide">
-                    <Sidebar history={this.props.history} />
-                </div>
-                <div className="column box is-10">
+            <>
+      <Sidebar history={this.props.history} />
+      <section className="section">
+        <div className="container">
+          
+          <div className="columns is-centered">
+          <div className="column box is-12">
                     <div className="columns is-centered laraContent">
-                        <div className="column is-10">
+                        <div className="column is-12">
                             {group &&
                                 <p className="title is-3">{group.level}{group.group}</p>
                             }
@@ -103,7 +105,10 @@ export default class GroupDetail extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+          </div>
+        </div>
+      </section>
+      </>
         );
     }
 }

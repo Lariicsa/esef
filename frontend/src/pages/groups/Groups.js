@@ -28,37 +28,47 @@ export default class AllGroups extends Component {
         console.log(this.state.user.groups);
         const groups = this.state.user.groups
 
-
         return (
-            <div className="columns is-centered">
-                <div className="column laraBar laraSide">
-                    <Sidebar history={this.props.history} />
-                </div>
-                <div className="column box is-10">
-                    <div className="columns is-centered laraContent">
-                        <div className="column  is-10">
-                            <h3 className="title is-3">Todos los grupos</h3>
-                            <hr />
-                            <ul className="laraContainer" >
-                                {groups && groups.map((group, i) =>
-
-                                    <li key={i} className="animated">
-                                        <Link to={`/groups/all/${group._id}`}>
-                                            <div className="laraCircle">
-                                                <p>
-                                                    {group.level} <span>{group.group}</span>
-                                                </p>
-                                            </div>
-                                            <em className="has-text-grey">{group.students.length} alumnos</em>
-                                        </Link>
-                                    </li>
-
-                                )}
-                            </ul>
+            <>
+                <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+                <section className="section">
+                    <div className="container">
+                        <div className="columns is-centered">
+                            <div className="column is-12">
+                                <div className="columns is-centered laraContent">
+                                    <div className="column is-12">
+                                        <h3 className="title is-3">Todos los grupos</h3>
+                                        <ul className="laraContainer" >
+                                            {groups && groups.map((group, i) =>
+                                                <li key={i} className="animated">
+                                                    <Link to={`/groups/all/${group._id}`}>
+                                                        <div className="laraCircle">
+                                                            <p>
+                                                                {group.level} <span>{group.group}</span>
+                                                            </p>
+                                                        </div>
+                                                        <em className="has-text-grey">{group.students.length} alumnos</em>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                            <li className="animated">
+                                                <Link to={'/groups/addgroup'}>
+                                                    <div className="laraCircle">
+                                                        <p>
+                                                            Agregar grupo
+                                                    <span class="fa fa-plus-circle"></span>
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </>
         );
     }
 }
