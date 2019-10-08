@@ -148,6 +148,8 @@ exports.getGroups = async (req, res) => {
 exports.getGroupDetail = async (req, res) => {
   try {
     const { id } = req.params
+    console.log(req.params);
+    
     const group = await Group.findById(id).populate('students')
     res.status(200).json({ group })
   }

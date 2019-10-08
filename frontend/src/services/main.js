@@ -8,6 +8,15 @@ const MAIN_SERVICE = {
     return await SERVICE.get('/user/', user)
   },
 
+  getGroup: async (group) => {
+    const id = group._id
+    return await SERVICE.get(`/groups/${id}`, group)
+  },
+
+  addGroup: async (group) => {
+    return await SERVICE.post(`/groups`, group);
+  },
+
   update: async (student) => {
     const id = student._id
     return await SERVICE.put(`/editstudent/${id}`, student);

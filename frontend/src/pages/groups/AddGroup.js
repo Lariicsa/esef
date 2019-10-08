@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
-import axios from 'axios';
+import MAIN_SERVICE from '../../services/main';
 import Layout from '../../components/Layout';
 
 export default class AddGroup extends Component {
@@ -18,15 +18,25 @@ export default class AddGroup extends Component {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
     }
 
+    // addGroup = async e => {
+    //     e.preventDefault()
+    //     const body = this.state
+    //     const response = await axios.post('http://localhost:3000/api/groups', body)
+    //     this.setState({
+    //         response: response.data.msg
+    //     })
+    //     console.log(response.data.msg);
+    // }
+
     addGroup = async e => {
         e.preventDefault()
         const body = this.state
-        const response = await axios.post('http://localhost:3000/api/groups', body)
-        this.setState({
-            response: response.data.msg
-        })
+        const response = await MAIN_SERVICE.addGroup(body)
+        this.setState(
+          { group: response.data.msg }
+        )
         console.log(response.data.msg);
-    }
+      }
 
     handleInput = e => {
         this.setState({

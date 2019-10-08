@@ -13,6 +13,9 @@ const AUTH_SERVICE = {
   },
   logOut: async () => {
     return await SERVICE.get('/logout');
+  },
+  checkUser: async (user) => {
+    return await SERVICE.get('/user', user);
   }
 };
 

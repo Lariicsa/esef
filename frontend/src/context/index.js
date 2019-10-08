@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 import AUTH_SERVICE from '../services/auth';
-import axios from 'axios'
+//import axios from 'axios'
 export const MyContext = createContext();
 
 class MyProvider extends Component {
@@ -17,13 +17,24 @@ class MyProvider extends Component {
     this.setState({ loggedUser });
   };
 
-  checkUser = async () => {
-    const response = await axios.get('http://localhost:3000/api/user')
-    console.log('current user: ', response);
+  // checkUser = async () => {
+  //   const response = await axios.get('http://localhost:3000/api/user')
+  //   console.log('current user: ', response);
     
-    this.setState({
-      loggedUser: response
+  //   this.setState({
+  //     loggedUser: response
+  //   })
+  // }
+
+  checkUser = () => {
+    AUTH_SERVICE.checkUser()
+    .then((response) => {
+      console.log(response);
+      this.setState({
+        loggedUser: response
+      })
     })
+    .catch((err) => console.log(err));
   }
 
   logOut = () => {

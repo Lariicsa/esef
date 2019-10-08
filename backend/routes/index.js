@@ -41,7 +41,6 @@ router.get('/logout', (req, res, next) => {
 
 router.get('/', home)
 router.get('/user', currentUser)
-
 router.get('/users', getUsers)
 router.get('/user/:id', getUserDetail)
 router.get('/students', getStudents)

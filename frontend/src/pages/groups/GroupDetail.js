@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Layout from '../../components/Layout';
+import Layout from '../../components/Layout'
+//import MAIN_SERVICE from '../../services/main';
 
 export default class GroupDetail extends Component {
 
@@ -11,14 +12,31 @@ export default class GroupDetail extends Component {
         timesMeasure: undefined
     }
 
+
     getStudentId = (studentId) => {
         this.context.setStudentId(studentId);
     }
 
+    // getGroupDetail = async () => {
+    //     const { data: { group } } = await MAIN_SERVICE.getGroup(this.state.group._id)
+    //     this.setState(
+    //         { group, isLoading: false }
+    //     )
+    // }
+
+    getGroupDetail = async () => {
+        const { id } = this.props.match.params
+        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
+        this.setState({
+            group
+        })
+      }
+
+
     goToDetail = (id) => {
         this.props.history.push(`/students/students/${id}`)
         console.log('clic');
-        
+
     }
 
     getMeasurementsTimes = () => {
@@ -52,12 +70,7 @@ export default class GroupDetail extends Component {
 
     componentDidMount = async () => {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
-        const { id } = this.props.match.params
-        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
-        this.setState({
-            group
-        })
-        this.getMeasurementsTimes()
+        this.getGroupDetail()
     }
 
     componentDidUpdate() {
@@ -68,8 +81,8 @@ export default class GroupDetail extends Component {
 
         const { group } = this.state;
         const students = this.state.group.students
-        const timesMeasure = this.state.timesMeasure
-        console.log('render status', timesMeasure);
+
+        console.log('render status', this.state);
 
         return (
             <Layout>
