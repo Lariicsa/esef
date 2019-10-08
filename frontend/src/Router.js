@@ -14,7 +14,6 @@ import AddMeasure from './pages/students/AddMeassure'
 
 const Router = () => (
   <section className="section">
-    <div className="container">
     <BrowserRouter>
     <Switch>
     <Route exact path="/dashboard" component={Dashboard} />
@@ -30,7 +29,6 @@ const Router = () => (
       <Route exact path="/students/addmeasurement" component={AddMeasure} />
     </Switch>
   </BrowserRouter>
-    </div>
   </section>
 )
 

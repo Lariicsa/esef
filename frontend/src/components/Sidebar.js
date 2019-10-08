@@ -16,42 +16,49 @@ export default class Sidebar extends Component {
     render() {
         //console.log(this.props.history.location.pathname)
         return (
-            <aside className="menu">
-                <ul className="menu-list">
-                    <li activeClassName="is-active">
-                        <div className="profile">
-                        Hola, <strong>{this.props.profesorName}</strong>
-                        <span>Profesor</span>
+            <>
+                <div className="laraTop">
+                    <NavLink activeClassName="is-active" className="navbar-item" to={'/dashboard'}>MonitorEF</NavLink>
+                    <div className="navbar-item laraTop-user">
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <span className="navbar-link">
+                                <div className="laraTop-avatar fa fa-user-circle"></div>
+                                Hola, {this.props.profesorName}
+                            </span>
+
+                            <div className="navbar-dropdown">
+                                <div className="navbar-item">
+                                    <NavLink to={'/groups/all'} className="navbar-item">Perfil</NavLink>
+                                </div>
+                                <hr className="navbar-divider"></hr>
+                                <form className="navbar-item">
+                                    <input className="button is-text" onClick={this.context.logOut} type="submit" value="Cerrar sesión" />
+                                </form>
+
+                            </div>
                         </div>
-                    </li>
-                </ul>
-                
-                <ul className="menu-list">
-                <p className="menu-label">Inicio</p>
-                    <li><NavLink to={'/dashboard'} activeClassName="is-active">Resumen</NavLink></li>
-                </ul>
+                    </div>
+                </div>
+                <nav className="navbar" role="navigation" aria-label="main navigation">
 
-                <ul className="menu-list">
-                <p className="menu-label">Grupos</p>
-                    <li><NavLink to={'/groups/all'} activeClassName="is-active">Todos</NavLink></li>
-                    <li><NavLink to={'/groups/addgroup'} activeClassName="is-active">Añadir grupo</NavLink></li>
-                </ul>
+                    <div className="navbar-brand">
 
-                <ul className="menu-list">
-                <p className="menu-label">Estudiantes</p>
-                    <li><NavLink to={'/students/all'} activeClassName="is-active">Todos</NavLink></li>
-                    <li><NavLink to={'/students/addstudent'} activeClassName="is-active">Agregar Alumno</NavLink></li>
-                </ul>
-                
+                        <p role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </p>
+                    </div>
 
-                <ul className="menu-list">
-                    <li>
-                    <form>
-                        <input onClick={this.context.logOut} type="submit" value="Cerrar sesión" />
-                    </form>
-                    </li>
-                </ul>
-            </aside>
+                    <div id="navbarBasicExample" className="navbar-menu">
+                        <div className="navbar-end">
+                            <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
+                            <NavLink to={'/groups/all'} className="navbar-item" activeClassName="is-active">Grupos</NavLink>
+                            <NavLink to={'/students/all'} className="navbar-item" activeClassName="is-active">Alumnos</NavLink>
+                        </div>
+                    </div>
+                </nav>
+            </>
         );
     }
 }
