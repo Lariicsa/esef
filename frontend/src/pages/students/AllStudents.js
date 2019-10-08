@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
 import { Link } from 'react-router-dom'
+import Layout from '../../components/Layout';
 
 export default class AllStudents extends Component {
 
@@ -43,8 +43,7 @@ export default class AllStudents extends Component {
         console.log(this.state);
 
         return (
-            <>
-                <Sidebar history={this.props.history}/>
+            <Layout>
                 <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
@@ -85,7 +84,7 @@ export default class AllStudents extends Component {
                         </div>
                     </div>
                 </section>
-            </>
+            </Layout>
         );
     }
 }

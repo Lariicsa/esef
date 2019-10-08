@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { MyContext } from '../context/index';
 import axios from 'axios';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 
 export default class Dashboard extends Component {
 
@@ -40,11 +40,9 @@ export default class Dashboard extends Component {
       openClass.push('open');
     }
     return (
-      <>
-        <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+     <Layout>
         <section className="section">
           <div className="container">
-
             <div className="columns is-centered">
               <div className={openClass.join(' ')}>
               </div>
@@ -90,7 +88,7 @@ export default class Dashboard extends Component {
             </div>
           </div>
         </section>
-      </>
+        </Layout>
     );
   }
 }

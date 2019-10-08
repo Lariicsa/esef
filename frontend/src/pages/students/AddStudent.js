@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
 
 export default class AddStudent extends Component {
 
@@ -64,18 +64,14 @@ export default class AddStudent extends Component {
     console.log('grouf', currentGroups);
 
     return (
-      <>
-        <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+      <Layout>
         <section className="section">
           <div className="container">
-
             <div className="columns is-centered">
-
               <div className="column box is-12">
                 <div className="columns is-centered laraContent">
                   <div className="column is-8">
                     <form className="box" onSubmit={this.addStudent}>
-
                       <div className="field">
                         <label className="label">Grado</label>
                         <div className="select">
@@ -159,7 +155,7 @@ export default class AddStudent extends Component {
             </div>
           </div>
         </section>
-      </>
+      </Layout>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
 
 export default class AllTeachers extends Component {
 
@@ -26,12 +26,9 @@ export default class AllTeachers extends Component {
         const { users } = this.state;
         //const groups = this.state.user.groups
         console.log(users);
-        
+
         return (
-            <div className="columns is-centered">
-                <div className="column laraBar laraSide">
-                <Sidebar history={this.props.history} />
-                </div>
+            <Layout>
                 <div className="column is-10">
                     <table className="table is-fullwidth table-wrapper">
                         <thead>
@@ -50,7 +47,7 @@ export default class AllTeachers extends Component {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </Layout>
         );
     }
 }

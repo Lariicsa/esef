@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
 import { Link } from 'react-router-dom'
+import Layout from '../../components/Layout';
 
 export default class AllGroups extends Component {
 
@@ -29,8 +29,7 @@ export default class AllGroups extends Component {
         const groups = this.state.user.groups
 
         return (
-            <>
-                <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+            <Layout>
                 <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
@@ -68,7 +67,7 @@ export default class AllGroups extends Component {
                         </div>
                     </div>
                 </section>
-            </>
+            </Layout>
         );
     }
 }

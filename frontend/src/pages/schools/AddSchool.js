@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
+
 
 export default class AddSchool extends Component {
 
@@ -38,61 +39,58 @@ export default class AddSchool extends Component {
     }
 
     render() {
-            const { school } = this.state
-            console.log(school);
+        const { school } = this.state
+        console.log(school);
 
-            return (
-                <div className="columns is-centered">
-                    <div className="column laraBar laraSide">
-                        <Sidebar history={this.props.history} />
-                    </div>
-                    <div className="column box is-10">
-                        <h1 className="title is-1">Agregar escuela</h1>
-                        <div className="columns">
-                            <div className="column is-6">
-                                <form onSubmit={this.addSchool}>
+        return (
+            <Layout>
+                <div className="column box is-10">
+                    <h1 className="title is-1">Agregar escuela</h1>
+                    <div className="columns">
+                        <div className="column is-6">
+                            <form onSubmit={this.addSchool}>
 
-                                    <div className="field">
-                                        <label className="label">Nombre:</label>
-                                        <input className="input"
-                                            required
-                                            onChange={this.handleInput}
-                                            value={school.name}
-                                            type='text'
-                                            name='name'
-                                        />
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">Nombre del Director (a):</label>
-                                        <input className="input"
-                                            required
-                                            onChange={this.handleInput}
-                                            value={school.principal}
-                                            type='text'
-                                            name='principal'
-                                        />
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">Clave:</label>
-                                        <input className="input"
-                                            required
-                                            onChange={this.handleInput}
-                                            value={school.schoolId}
-                                            type='text'
-                                            name='schoolId'
-                                        />
-                                    </div>
+                                <div className="field">
+                                    <label className="label">Nombre:</label>
+                                    <input className="input"
+                                        required
+                                        onChange={this.handleInput}
+                                        value={school.name}
+                                        type='text'
+                                        name='name'
+                                    />
+                                </div>
+                                <div className="field">
+                                    <label className="label">Nombre del Director (a):</label>
+                                    <input className="input"
+                                        required
+                                        onChange={this.handleInput}
+                                        value={school.principal}
+                                        type='text'
+                                        name='principal'
+                                    />
+                                </div>
+                                <div className="field">
+                                    <label className="label">Clave:</label>
+                                    <input className="input"
+                                        required
+                                        onChange={this.handleInput}
+                                        value={school.schoolId}
+                                        type='text'
+                                        name='schoolId'
+                                    />
+                                </div>
 
-                                    <div className="field">
-                                        <button className="button is-fullwidth is-primary" type='submit'>Agregar Escuela</button>
-                                    </div>
-                                </form>
-                            </div>
+                                <div className="field">
+                                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Escuela</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            );
-        }
+            </Layout>
+        );
     }
+}
 
-    AddSchool.contextType = MyContext;
+AddSchool.contextType = MyContext;

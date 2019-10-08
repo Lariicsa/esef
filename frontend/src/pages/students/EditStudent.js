@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import MAIN_SERVICE from '../../services/main'
-import Sidebar from '../../components/Sidebar';
 import axios from 'axios';
+import Layout from '../../components/Layout';
 
 export default class EditStudent extends Component {
 
@@ -45,8 +45,7 @@ export default class EditStudent extends Component {
         const { student } = this.state
 
         return (
-            <>
-                <Sidebar history={this.props.history} />
+            <Layout>
                 <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
@@ -146,7 +145,7 @@ export default class EditStudent extends Component {
                         </div>
                     </div>
                 </section>
-            </>
+            </Layout>
         );
     }
 }

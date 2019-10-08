@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
 import { VictoryChart, VictoryTheme, VictoryStack, VictoryAxis, VictoryBar } from 'victory'
+import Layout from '../../components/Layout';
 
 export default class StudentDetail extends Component {
 
@@ -24,8 +24,7 @@ export default class StudentDetail extends Component {
         console.log(student);
 
         return (
-            <>
-                <Sidebar history={this.props.history} />
+            <Layout>
                 <section className="section">
                     <div className="container">
                         <div className="columns is-centered">
@@ -96,7 +95,7 @@ export default class StudentDetail extends Component {
                         </div>
                     </div>
                 </section>
-            </>
+            </Layout>
         );
     }
 }

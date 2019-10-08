@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
-import Sidebar from '../../components/Sidebar';
+import Layout from '../../components/Layout';
 
 export default class AddGroup extends Component {
 
@@ -42,8 +42,7 @@ export default class AddGroup extends Component {
         const { group } = this.state
 
         return (
-            <>
-                <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+            <Layout>
                 <section className="section">
                     <div className="container">
 
@@ -94,7 +93,7 @@ export default class AddGroup extends Component {
                         </div>
                     </div>
                 </section>
-            </>
+            </Layout>
         );
     }
 }
