@@ -43,7 +43,7 @@ export default class Dashboard extends Component {
       <>
         <div className="columns is-centered">
           <div className={openClass.join(' ')}>
-            <Sidebar history={this.props.history} />
+            <Sidebar history={this.props.history} profesorName={this.state.user.username} />
           </div>
           <div className="column box is-10">
             <div className="columns is-centered  laraContent">
@@ -54,11 +54,11 @@ export default class Dashboard extends Component {
 
                   <hr />
 
-                  <h3 className="title is-3">Resumen de tu información</h3>
+                  <h3 className="title is-">Resumen de tu información </h3>
 
                       <h4 className="subtitle is-4">Tus grupos</h4>
                       <ul className="laraContainer">
-                                {groups && groups.map((group, i) =>
+                                {groups &&  groups.map((group, i) =>
 
                                     <li key={i} className="x">
                                         <Link to={`/groups/all/${group._id}`}>

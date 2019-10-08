@@ -134,6 +134,13 @@ hr {
   animation-fill-mode: both;
 }
 
+.ex {
+    @include icon-set('fb', #3B5998);
+    -webkit-background-size: 17px 17px;
+    background-size: 17px 17px;
+    background-position: center;
+}
+
 @keyframes fade-in-down {
   0% {
     opacity: 0;

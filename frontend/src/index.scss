@@ -3,4 +3,6 @@
 
 // Import only what you need from Bulma
 @import '../node_modules/bulma';
+@import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+@import  "mixins";
 @import 'App.scss';
