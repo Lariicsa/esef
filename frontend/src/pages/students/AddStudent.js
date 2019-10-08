@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
 import axios from 'axios';
+import MAIN_SERVICE from '../../services/main';
 import Layout from '../../components/Layout';
 
 export default class AddStudent extends Component {
@@ -19,17 +20,32 @@ export default class AddStudent extends Component {
     response: undefined
   }
 
+  // addStudent = async e => {
+  //   e.preventDefault()
+  //   const { student } = this.state
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/api/students', student)
+  //     this.setState({
+  //       response: response.data.msg
+  //     })
+  //     console.log(response)
+  //   }
+  //   catch (e) {
+  //     console.log(e, e.response);
+  //   }
+  // }
+
+
   addStudent = async e => {
     e.preventDefault()
     const { student } = this.state
     try {
-      const response = await axios.post('http://localhost:3000/api/students', student)
-      this.setState({
-        response: response.data.msg
-      })
-      console.log(response)
-    }
-    catch (e) {
+      const response = await MAIN_SERVICE.addStudent(student)
+      this.setState(
+        { response: response.data.msg }
+      )
+      console.log(response.data.msg)
+    } catch (e) {
       console.log(e, e.response);
     }
   }

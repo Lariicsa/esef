@@ -13,6 +13,10 @@ const MAIN_SERVICE = {
     return await SERVICE.get(`/groups/${id}`, group)
   },
 
+  addStudent: async (student) => {
+    return await SERVICE.post(`/students`, student);
+  },
+
   addGroup: async (group) => {
     return await SERVICE.post(`/groups`, group);
   },

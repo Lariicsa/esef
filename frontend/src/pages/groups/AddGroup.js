@@ -33,10 +33,10 @@ export default class AddGroup extends Component {
         const body = this.state
         const response = await MAIN_SERVICE.addGroup(body)
         this.setState(
-          { group: response.data.msg }
+            { group: response.data.msg }
         )
         console.log(response.data.msg);
-      }
+    }
 
     handleInput = e => {
         this.setState({
