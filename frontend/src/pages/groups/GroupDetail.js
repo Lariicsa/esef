@@ -71,70 +71,67 @@ export default class GroupDetail extends Component {
                     <div className="container">
 
                         <div className="columns is-centered">
-                            <div className="column box is-12">
-                                <div className="columns is-centered laraContent">
-                                    <div className="column is-12">
-                                        {group &&
-                                            <p className="title is-2"><span className="subtitle is-3">grupo:</span> {group.level}{group.group}</p>
-                                        }
-                                        <hr />
-                                        <div className="columns">
-                                            <div className="column is-12">
-                                                <div className="buttons is-right">
-                                                    <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
-                                                        <span>Añadir Alumnos</span>
-                                                        <span className="icon is-small">
-                                                            <i className="fa fa-plus"></i>
-                                                        </span>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="table-wrapper">
-                                            <table className="table is-striped is-fullwidth">
-                                                <thead>
-                                                    <tr>
-                                                        <th></th>
-                                                        <th>Nombre</th>
-                                                        <th>Edad</th>
-                                                        <th>Género</th>
-                                                        <th>Status</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    {students && students.map((student, i) =>
-                                                        <tr key={i}>
-                                                            <td>{student.name} {student.lastname1} {student.name2}</td>
-                                                            <td>{student.age}</td>
-                                                            <td>{student.gender}</td>
+                            <div className="column box laraContent is-12">
 
-                                                            {/* {timesMeasure === 0 &&
-                                                                
-                                                            } */}
-                                                            <td><span className="tag is-warning">1ra medición</span></td>
-                                                            <td>
-                                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
-                                                            </td>
-                                                            <td>
-                                                                <div className="laraMore icon is-medium">
-                                                                    <i className="fa fa-ellipsis-h"></i>
-                                                                    <div className="laraMore-container">
-                                                                        <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
-                                                                            Editar datos
-                                                                        </Link>
-                                                                        <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
-                                                                            Eliminar Alumno
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    )}
-                                                </tbody>
-                                            </table>
+                                {group &&
+                                    <p className="title is-2"><span className="subtitle is-3">grupo:</span> {group.level}{group.group}</p>
+                                }
+                                <hr />
+                                <div className="columns">
+                                    <div className="column is-12">
+                                        <div className="buttons is-right">
+                                            <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
+                                                <span>Añadir Alumnos</span>
+                                                <span className="icon is-small">
+                                                    <i className="fa fa-plus"></i>
+                                                </span>
+                                            </Link>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="table-wrapper">
+                                    <table className="table is-striped is-fullwidth">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nombre</th>
+                                                <th>Edad</th>
+                                                <th>Género</th>
+                                                <th>Status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {students && students.map((student, i) =>
+                                                <tr key={i}>
+                                                    <td>{student.name} {student.lastname1} {student.name2}</td>
+                                                    <td>{student.age}</td>
+                                                    <td>{student.gender}</td>
+
+                                                    {/* {timesMeasure === 0 &&
+                                                                
+                                                            } */}
+                                                    <td><span className="tag is-warning">1ra medición</span></td>
+                                                    <td>
+                                                        <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
+                                                    </td>
+                                                    <td>
+                                                        <div className="laraMore icon is-medium">
+                                                            <i className="fa fa-ellipsis-h"></i>
+                                                            <div className="laraMore-container">
+                                                                <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                                    Editar datos
+                                                                        </Link>
+                                                                <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                                    Eliminar Alumno
+                                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

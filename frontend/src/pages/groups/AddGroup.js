@@ -45,11 +45,9 @@ export default class AddGroup extends Component {
             <Layout>
                 <section className="section">
                     <div className="container">
-
                         <div className="columns is-centered">
-
-                            <div className="column box is-12">
-                                <div className="columns is-centered laraContent">
+                            <div className="column box laraContent is-12">
+                                <div className="columns is-centered">
                                     <div className="column is-8">
                                         <div className="box">
                                             <h1 className="title is-1">Añadir nuevo grupo</h1>
@@ -80,7 +78,6 @@ export default class AddGroup extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div className="field">
                                                     <button className="button is-fullwidth is-primary" type='submit'>Añadir</button>
