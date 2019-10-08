@@ -15,6 +15,12 @@ export default class GroupDetail extends Component {
         this.context.setStudentId(studentId);
     }
 
+    goToDetail = (id) => {
+        this.props.history.push(`/students/students/${id}`)
+        console.log('clic');
+        
+    }
+
     getMeasurementsTimes = () => {
         const studentsStatus = this.state.group.students
         studentsStatus.map((student) => {
@@ -99,11 +105,13 @@ export default class GroupDetail extends Component {
                                                 <th>Género</th>
                                                 <th>Status</th>
                                                 <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {students && students.map((student, i) =>
-                                                <tr key={i}>
+                                                <tr key={i} onClick={() => this.goToDetail(student._id)}>
+                                                    <td>{i}</td>
                                                     <td>{student.name} {student.lastname1} {student.name2}</td>
                                                     <td>{student.age}</td>
                                                     <td>{student.gender}</td>

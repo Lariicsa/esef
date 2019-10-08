@@ -7,13 +7,22 @@ import Layout from '../../components/Layout';
 export default class AllStudents extends Component {
 
     state = {
-        students: undefined
+        students: undefined,
+        group: undefined
     }
 
     getStudents = async () => {
         const response = await axios.get('http://localhost:3000/api/students')
         this.setState({
             students: response.data.students
+        })
+    }
+
+    getGroups = async () => {
+        const { id } = this.props.match.params
+        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
+        this.setState({
+            group
         })
     }
 
@@ -33,14 +42,15 @@ export default class AllStudents extends Component {
     componentDidMount() {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         this.getStudents()
+        this.getGroups()
     }
     componentDidUpdate() {
         this.deleteStudent()
     }
 
     render() {
-        const { students } = this.state;
-        console.log(this.state);
+        const { students, group } = this.state;
+        console.log(group);
 
         return (
             <Layout>
@@ -48,6 +58,18 @@ export default class AllStudents extends Component {
                     <div className="container">
                         <div className="columns is-centered">
                             <div className="column box laraContent is-12">
+                                <div className="columns">
+                                    <div className="column is-12">
+                                        <div className="buttons is-right">
+                                            <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
+                                                <span>Añadir Alumnos</span>
+                                                <span className="icon is-small">
+                                                    <i className="fa fa-plus"></i>
+                                                </span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="table-wrapper">
                                     <table className="table is-fullwidth ">
                                         <thead>
@@ -56,7 +78,8 @@ export default class AllStudents extends Component {
                                                 <th>Nombre</th>
                                                 <th>Edad</th>
                                                 <th>Género</th>
-                                                <th><span className="button"> Editar </span></th>
+                                                <th>Status</th>
+                                                <th></th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -67,10 +90,27 @@ export default class AllStudents extends Component {
                                                     <td>{student.name} {student.lastname1} {student.name2}</td>
                                                     <td>{student.age}</td>
                                                     <td>{student.gender}</td>
+
+                                                    {/* {timesMeasure === 0 &&
+                                                                
+                                                            } */}
+                                                    <td><span className="tag is-warning">1ra medición</span></td>
                                                     <td>
-                                                        <p className="button is-danger" onClick={() => this.deleteStudent(student._id)}>Borrar</p>
+                                                        <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
                                                     </td>
-                                                    <td><Link className="button" to={`/students/students/${student._id}`}>Ver</Link></td>
+                                                    <td>
+                                                        <div className="laraMore icon is-medium">
+                                                            <i className="fa fa-ellipsis-h"></i>
+                                                            <div className="laraMore-container">
+                                                                <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                                    Editar datos
+                                                                        </Link>
+                                                                <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                                    Eliminar Alumno
+                                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             )}
                                         </tbody>
