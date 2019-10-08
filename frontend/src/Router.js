@@ -6,11 +6,11 @@ import AllStudents from './pages/students/AllStudents'
 import StudentDetail from './pages/students/StudentDetail'
 import Login from './components/Login'
 import Dashboard from './pages/Dashboard'
-import AllGroups from './pages/groups/Groups'
 import AddGroup from './pages/groups/AddGroup'
 import GroupDetail from './pages/groups/GroupDetail'
 import EditStudent from './pages/students/EditStudent'
 import AddMeasure from './pages/students/AddMeassure'
+import AllGroups from './pages/groups/AllGroups'
 
 const Router = () => (
   <section className="section">

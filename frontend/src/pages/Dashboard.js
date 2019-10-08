@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { MyContext } from '../context/index';
 import MAIN_SERVICE from '../services/main';
 import Layout from '../components/Layout';
+import Groups from './groups/Groups';
 
 export default class Dashboard extends Component {
 
@@ -70,21 +71,7 @@ export default class Dashboard extends Component {
                       <h3 className="title is-">Resumen de tu información </h3>
 
                       <h4 className="subtitle is-4">Tus grupos</h4>
-                      <ul className="laraContainer">
-                        {groups && groups.map((group, i) =>
-
-                          <li key={i} className="x">
-                            <Link to={`/groups/all/${group._id}`}>
-                              <div className="x">
-                                <p>
-                                  {group.level} <span>{group.group}</span>
-                                </p>
-                              </div>
-                            </Link>
-                          </li>
-
-                        )}
-                      </ul>
+                      <Groups />
                       <hr />
                       <h4 className="subtitle is-4">Total de Alumnos</h4>
                       <hr />

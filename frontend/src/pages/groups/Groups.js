@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 import Layout from '../../components/Layout';
 
-export default class AllGroups extends Component {
+export default class Groups extends Component {
 
     state = {
         user: {}
@@ -19,10 +19,6 @@ export default class AllGroups extends Component {
         )
     }
 
-    goBack(){
-        this.props.history.goBack();
-    }
-
     componentDidMount() {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         this.getUser()
@@ -34,51 +30,33 @@ export default class AllGroups extends Component {
 
         return (
             <Layout>
-                <section className="section">
-                    <div className="container">
-                        <div className="columns">
-                            <div className="column is-6">
-                                <Link to={'/dashboard'}>Regresar</Link>
-                            </div>
-                        </div>
-                        <div className="columns is-centered">
-                            <div className="column is-12">
-                                <div className="columns is-centered laraContent">
-                                    <div className="column is-12">
-                                        <h3 className="title is-3">Todos los grupos</h3>
-                                        <ul className="laraContainer" >
-                                            {groups && groups.map((group, i) =>
-                                                <li key={i} className="animated">
-                                                    <Link to={`/groups/all/${group._id}`}>
-                                                        <div className="laraCircle">
-                                                            <p>
-                                                                {group.level} <span>{group.group}</span>
-                                                            </p>
-                                                        </div>
-                                                        <em className="has-text-grey">{group.students.length} alumnos</em>
-                                                    </Link>
-                                                </li>
-                                            )}
-                                            <li className="animated">
-                                                <Link to={'/groups/addgroup'}>
-                                                    <div className="laraCircle">
-                                                        <p>
-                                                            Agregar grupo
-                                                    <span className="fa fa-plus-circle"></span>
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
+                <ul className="laraContainer" >
+                    {groups && groups.map((group, i) =>
+                        <li key={i} className="animated">
+                            <Link to={`/groups/all/${group._id}`}>
+                                <div className="laraCircle">
+                                    <p>
+                                        {group.level} <span>{group.group}</span>
+                                    </p>
                                 </div>
+                                <em className="has-text-grey">{group.students.length} alumnos</em>
+                            </Link>
+                        </li>
+                    )}
+                    <li className="animated">
+                        <Link to={'/groups/addgroup'}>
+                            <div className="laraCircle">
+                                <p>
+                                    Agregar grupo
+                                                    <span className="fa fa-plus-circle"></span>
+                                </p>
                             </div>
-                        </div>
-                    </div>
-                </section>
+                        </Link>
+                    </li>
+                </ul>
             </Layout>
         );
     }
 }
 
-AllGroups.contextType = MyContext;
+Groups.contextType = MyContext;

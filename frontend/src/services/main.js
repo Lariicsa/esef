@@ -5,10 +5,8 @@ const SERVICE = axios.create({ withCredentials: true, baseURL });
 
 const MAIN_SERVICE = {
   getUser: async (user) => {
-    //const id = user._id
     return await SERVICE.get('/user/', user)
   },
-
 
   update: async (student) => {
     const id = student._id
