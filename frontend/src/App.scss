@@ -1,5 +1,5 @@
 html {
-  background-color: $sky;
+  background-color: $clearBg;
 }
 
 .lara {
@@ -53,7 +53,7 @@ html {
   }
 
   &Content {
-    background-color: $sky;
+    background-color: $clearBg;
     padding-top: 4%;
     min-height: 100vh;
   }
@@ -73,10 +73,6 @@ html {
 
 hr {
   background-color: #e4e9eb;
-}
-
-.box {
-  box-shadow: 0 0 0 0;
 }
 
 .container {
