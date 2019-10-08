@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react';
 import AUTH_SERVICE from '../services/auth';
-
+import axios from 'axios'
 export const MyContext = createContext();
 
 class MyProvider extends Component {
@@ -9,9 +9,22 @@ class MyProvider extends Component {
     studentId: undefined
   };
 
+  componentDidMount(){
+    this.checkUser()
+  }
+
   logUser = (loggedUser) => {
     this.setState({ loggedUser });
   };
+
+  checkUser = async () => {
+    const response = await axios.get('http://localhost:3000/api/user')
+    console.log('current user: ', response);
+    
+    this.setState({
+      loggedUser: response
+    })
+  }
 
   logOut = () => {
     AUTH_SERVICE.logOut()

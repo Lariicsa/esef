@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { MyContext } from '../context/index';
-import axios from 'axios';
+import MAIN_SERVICE from '../services/main';
 import Layout from '../components/Layout';
 
 export default class Dashboard extends Component {
 
   state = {
     user: {},
-    addClass: false
+    addClass: false,
+    isLoading: true
   }
 
-  getUser = async () => {
-    const userData = this.context.state.loggedUser
-    const id = userData._id
-    const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+  getUser = async() => {
+    const response = await MAIN_SERVICE.getUser(this.context.state.loggedUser)
     this.setState(
-      { user: response.data.user }
-    )
+          { user: response.data.user, isLoading: false }
+        )
   }
+
+  // getUser = async () => {
+  //   const userData = this.context.state.loggedUser
+  //   const id = userData._id
+  //   const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+  //   this.setState(
+  //     { user: response.data.user }
+  //   )
+  // }
 
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login')
@@ -30,8 +38,8 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const user = this.state.user
-    const groups = this.state.user.groups
+    const {user, isLoading} = this.state 
+    const {groups} = user
     console.log(user);
 
 
@@ -51,6 +59,10 @@ export default class Dashboard extends Component {
                   <div className="column is-12">
                     <p className="button is-text burger" onClick={this.toggleMenu}> abre</p>
                     <div className="column">
+                    {isLoading &&   <div className="myloaderContainer">
+                      <span className="myloader"></span>
+                    </div>}
+                    
                       <h2 className="subtitle is-4">Hola, Prof. <span className="title is-3">{user.username} {user.lastname1}</span></h2>
 
                       <hr />

@@ -1,35 +1,21 @@
 import React, { Component } from 'react'
 import Sidebar from './Navbar'
 import { MyContext } from '../context';
-import axios from 'axios';
+
 
 export default class Layout extends Component {
 
-    state = {
-        user: {},
-        addClass: false
-      }
-    
-      getUser = async () => {
-        const userData = this.context.state.loggedUser
-        const id = userData._id
-        const response = await axios.get(`http://localhost:3000/api/user/${id}`)
-        this.setState(
-          { user: response.data.user }
-        )
-      }
-    
-      componentDidMount() {
-
-        this.getUser()
-      }
-
     render() {
+      
         return (
-            <>
-            <Sidebar history={this.props.history} profesorName={this.state.user.username + ' ' + this.state.user.lastname1} />
-            {this.props.children}
-            </>
+            <MyContext.Consumer>
+            {({state}) => (
+              <>
+                <Sidebar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username} />
+                {this.props.children}
+              </>
+              )}
+            </MyContext.Consumer>
         )
     }
 }

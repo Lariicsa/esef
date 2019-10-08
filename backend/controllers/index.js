@@ -21,6 +21,22 @@ exports.getUsers = async (req, res) => {
   }
 }
 
+exports.currentUser = async (req,res) => {
+  try {
+    const user = await User.findById(req.user._id).populate({
+      path: 'groups',
+      populate: {
+        path: 'students',
+        model: 'Student'
+      }
+    })
+    res.status(200).json({user, msg: 'Logged User'})
+  }
+  catch {
+    (err) => res.status(500).json({ err })
+  }
+}
+
 exports.getUserDetail = async (req, res) => {
   try {
     const { id } = req.params

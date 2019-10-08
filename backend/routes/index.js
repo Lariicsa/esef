@@ -7,6 +7,7 @@ const School = require('../models/School')
 const checkRole = require('../middlewares/checkRole')
 const passport = require('../config/passport')
 const { home,
+  currentUser,
   getUsers,
   getUserDetail,
   getStudents,
@@ -39,6 +40,7 @@ router.get('/logout', (req, res, next) => {
 });
 
 router.get('/', home)
+router.get('/user', currentUser)
 
 router.get('/users', getUsers)
 router.get('/user/:id', getUserDetail)

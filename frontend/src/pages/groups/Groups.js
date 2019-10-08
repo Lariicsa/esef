@@ -19,6 +19,10 @@ export default class AllGroups extends Component {
         )
     }
 
+    goBack(){
+        this.props.history.goBack();
+    }
+
     componentDidMount() {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         this.getUser()
@@ -32,6 +36,11 @@ export default class AllGroups extends Component {
             <Layout>
                 <section className="section">
                     <div className="container">
+                        <div className="columns">
+                            <div className="column is-6">
+                                <Link to={'/dashboard'}>Regresar</Link>
+                            </div>
+                        </div>
                         <div className="columns is-centered">
                             <div className="column is-12">
                                 <div className="columns is-centered laraContent">
@@ -55,7 +64,7 @@ export default class AllGroups extends Component {
                                                     <div className="laraCircle">
                                                         <p>
                                                             Agregar grupo
-                                                    <span class="fa fa-plus-circle"></span>
+                                                    <span className="fa fa-plus-circle"></span>
                                                         </p>
                                                     </div>
                                                 </Link>

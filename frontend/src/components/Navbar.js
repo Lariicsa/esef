@@ -4,15 +4,6 @@ import { MyContext } from '../context/index';
 
 export default class Sidebar extends Component {
 
-    state = {
-        user: {}
-    }
-
-    componentDidMount() {
-        const userData = this.context.state.loggedUser
-        this.setState(userData)
-    }
-
     render() {
         //console.log(this.props.history.location.pathname)
         return (
@@ -23,7 +14,7 @@ export default class Sidebar extends Component {
                         <div className="navbar-item has-dropdown is-hoverable">
                             <span className="navbar-link">
                                 <div className="laraTop-avatar fa fa-user-circle"></div>
-                                {this.props.profesorName}
+                                {JSON.stringify(this.props.profesorName)}
                                 <i>Profesor</i>
                             </span>
 
