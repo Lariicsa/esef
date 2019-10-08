@@ -17,6 +17,10 @@ const MAIN_SERVICE = {
     return await SERVICE.post(`/groups`, group);
   },
 
+  addMeasurement: async(measurement)  => {
+    return await SERVICE.post(`/measures`, measurement);
+  },
+
   update: async (student) => {
     const id = student._id
     return await SERVICE.put(`/editstudent/${id}`, student);

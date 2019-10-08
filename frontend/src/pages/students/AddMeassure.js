@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../../context';
-import axios from 'axios';
+//import axios from 'axios';
+import MAIN_SERVICE from '../../services/main';
 import Layout from '../../components/Layout';
 
 export default class AddMeasure extends Component {
@@ -29,21 +30,40 @@ export default class AddMeasure extends Component {
     response: undefined
   }
 
+  // addMeasurement = async e => {
+  //   e.preventDefault()
+  //   const { measurement, studentId } = this.state
+  //   const body1 = { measurement, studentId }
+  //   try {
+  //     const response = await axios.post('http://localhost:3000/api/measures', body1)
+  //     this.setState({
+  //       response: response.data.msg
+  //     })
+  //     console.log(response)
+  //   }
+  //   catch (e) {
+  //     console.log(e, e.response);
+  //   }
+  // }
+
   addMeasurement = async e => {
     e.preventDefault()
     const { measurement, studentId } = this.state
     const body1 = { measurement, studentId }
     try {
-      const response = await axios.post('http://localhost:3000/api/measures', body1)
-      this.setState({
-        response: response.data.msg
-      })
-      console.log(response)
+      const response = await MAIN_SERVICE.addMeasurement(body1)
+      this.setState(
+        { response: response.data.msg }
+      )
+      console.log(response.data.msg);
     }
     catch (e) {
       console.log(e, e.response);
     }
   }
+
+
+
   calculateValues = () => {
     const { measurement } = this.state
     const { weight, height, hip } = measurement
