@@ -31,6 +31,19 @@ export default class GroupDetail extends Component {
         })
     }
 
+    deleteStudent = (id) => {
+        axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
+            .then(({ data }) => {
+                this.setState(prevState => {
+                    return {
+                        ...prevState,
+                    }
+                })
+                this.componentDidMount()
+            })
+            .catch(err => console.log(err))
+    }
+
     componentDidMount = async () => {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         const { id } = this.props.match.params
@@ -39,6 +52,10 @@ export default class GroupDetail extends Component {
             group
         })
         this.getMeasurementsTimes()
+    }
+
+    componentDidUpdate() {
+        this.deleteStudent()
     }
 
     render() {
@@ -58,13 +75,18 @@ export default class GroupDetail extends Component {
                                 <div className="columns is-centered laraContent">
                                     <div className="column is-12">
                                         {group &&
-                                            <p className="title is-3">{group.level}{group.group}</p>
+                                            <p className="title is-2"><span className="subtitle is-3">grupo:</span> {group.level}{group.group}</p>
                                         }
                                         <hr />
                                         <div className="columns">
                                             <div className="column is-12">
                                                 <div className="buttons is-right">
-                                                    <Link className="button is-rounded is-primary" to={'/students/addstudent'}>Añadir Alumnos</Link>
+                                                    <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
+                                                        <span>Añadir Alumnos</span>
+                                                        <span className="icon is-small">
+                                                            <i className="fa fa-plus"></i>
+                                                        </span>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -72,11 +94,11 @@ export default class GroupDetail extends Component {
                                             <table className="table is-striped is-fullwidth">
                                                 <thead>
                                                     <tr>
+                                                        <th></th>
                                                         <th>Nombre</th>
                                                         <th>Edad</th>
                                                         <th>Género</th>
                                                         <th>Status</th>
-                                                        <th></th>
                                                         <th></th>
                                                     </tr>
                                                 </thead>
@@ -87,15 +109,26 @@ export default class GroupDetail extends Component {
                                                             <td>{student.age}</td>
                                                             <td>{student.gender}</td>
 
-                                                            {timesMeasure === 0 &&
-                                                                <td><span className="tag is-warning">1ra medición</span></td>
-                                                            }
-
-
-                                                            <td><Link to={`/students/students/edit/${student._id}`}>edit</Link></td>
+                                                            {/* {timesMeasure === 0 &&
+                                                                
+                                                            } */}
+                                                            <td><span className="tag is-warning">1ra medición</span></td>
                                                             <td>
-                                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones
-                                                    </Link></td>
+                                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
+                                                            </td>
+                                                            <td>
+                                                                <div className="laraMore icon is-medium">
+                                                                    <i className="fa fa-ellipsis-h"></i>
+                                                                    <div className="laraMore-container">
+                                                                        <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                                            Editar datos
+                                                                        </Link>
+                                                                        <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                                            Eliminar Alumno
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
                                                         </tr>
                                                     )}
                                                 </tbody>

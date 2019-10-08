@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from './Sidebar'
+import Sidebar from './Navbar'
 import { MyContext } from '../context';
 import axios from 'axios';
 
@@ -27,7 +27,7 @@ export default class Layout extends Component {
     render() {
         return (
             <>
-            <Sidebar history={this.props.history} profesorName={this.state.user.username} />
+            <Sidebar history={this.props.history} profesorName={this.state.user.username + ' ' + this.state.user.lastname1} />
             {this.props.children}
             </>
         )

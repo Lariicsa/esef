@@ -11,13 +11,11 @@ import AddGroup from './pages/groups/AddGroup'
 import GroupDetail from './pages/groups/GroupDetail'
 import EditStudent from './pages/students/EditStudent'
 import AddMeasure from './pages/students/AddMeassure'
-import Layout from './components/Layout'
 
 const Router = () => (
   <section className="section">
     <BrowserRouter>
     <Switch>
-    <Route exact path="/" component={Layout}/>
     <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
