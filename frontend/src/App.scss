@@ -2,6 +2,11 @@ html {
   background-color: $clearBg;
 }
 
+body {
+  background-color: $gradBgAux;
+  background: $gradBg;
+}
+
 .lara {
   &Circle {
     background-color: $lite-orange;
@@ -145,8 +150,11 @@ hr {
   background-color: #e4e9eb;
 }
 
+.button {
+  font-size: $font-text-size-md;
+}
+
 .container {
-  background-color: $clearBg;
   margin: 0 auto;
   position: relative;
   width: 100%;

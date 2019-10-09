@@ -9,6 +9,8 @@ $sky2: #DBEFFC;
 $lite-orange: #FFE9DD;
 $deep-orange: #ED915E;
 $clearBg: white;
+$gradBgAux: rgb(47,75,199);
+$gradBg: linear-gradient(90deg, rgba(47,75,199,1) 0%, rgba(62,140,219,1) 100%);
 
 // Update Bulma's global variables
 $family-sans-serif: 'Nunito', sans-serif;
@@ -21,7 +23,7 @@ $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
 $body-background-color: $sky;
-$control-border-width: 2px;
+
 
 $input-shadow: none;
 
@@ -39,14 +41,3 @@ $font-text-size-xlg: 24px;
 
 //---- Bulma Variables -----
 
-// The container horizontal gap, which acts as the offset for breakpoints
-$gap: 64px !default;
-
-// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
-$tablet: 769px !default;
-
-// 960px container + 4rem
-$desktop: 1200px  !default;
-
-
-$variable-columns: true !default;

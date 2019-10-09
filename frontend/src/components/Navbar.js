@@ -15,7 +15,6 @@ export default class Navbar extends Component {
                                 <div className="laraUser">
                                     <span className="laraUser-item"><strong className="laraTop-avatar fa fa-user-circle"></strong>
                                         <strong>{this.props.profesorName}</strong></span>
-                                    <div className="laraUser-subitem">{'Profesor'}</div>
                                 </div>
                             </span>
 
