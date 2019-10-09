@@ -22,6 +22,16 @@ html {
       }
     }
   }
+
+  &Boy {
+    background-image: url(/assets/mono.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 60vh;
+    width: 100%;
+  }
+
   &Container {
     border-radius: 4px;
     display: flex;
@@ -96,6 +106,10 @@ html {
     }
   }
 
+  &Padd {
+    padding: 4%;
+  }
+
   &Top {
     background-color: $clearBg;
     border-bottom: 1px solid $grey-lite;
@@ -104,6 +118,24 @@ html {
     width: 100%;
     position: relative;
     z-index: 100;
+  }
+  &User {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    &-item {
+      font-size: $font-text-size-xlg;
+      strong {
+        font-size: inherit;
+        &:last-child {
+          margin-left: 4px;
+        }
+      }
+    }
+    &-subitem {
+      font-size: $font-text-size;
+    }
   }
 }
 

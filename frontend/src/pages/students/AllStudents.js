@@ -3,6 +3,7 @@ import { MyContext } from '../../context';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import Layout from '../../components/Layout';
+import MAIN_SERVICE from '../../services/main';
 
 export default class AllStudents extends Component {
 
@@ -12,7 +13,7 @@ export default class AllStudents extends Component {
     }
 
     getStudents = async () => {
-        const response = await axios.get('http://localhost:3000/api/students')
+        const response = await MAIN_SERVICE.getStudents()
         this.setState({
             students: response.data.students
         })
@@ -26,8 +27,9 @@ export default class AllStudents extends Component {
         })
     }
 
-    deleteStudent = (id) => {
-        axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
+    deleteStudent = async (id) => {
+        // axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
+        await MAIN_SERVICE.deleteStudent(id)
             .then(({ data }) => {
                 this.setState(prevState => {
                     return {

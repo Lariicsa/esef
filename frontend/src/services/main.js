@@ -13,6 +13,10 @@ const MAIN_SERVICE = {
     return await SERVICE.get(`/groups/${id}`, group)
   },
 
+  getStudents: async (students) => {
+    return await SERVICE.get('/students', students)
+  },
+
   addStudent: async (student) => {
     return await SERVICE.post(`/students`, student);
   },
@@ -30,9 +34,11 @@ const MAIN_SERVICE = {
     return await SERVICE.put(`/editstudent/${id}`, student);
   },
 
-  delete: async (student) => {
-    const id = student._id
-    return await SERVICE.delete(`/students/${id}/delete`, student);
+  deleteStudent: async (student) => {
+    console.log('pizza',student);
+    
+    const id = student
+    return await SERVICE.delete(`/students/${id}`, {data : {id}});
   }
   
 }

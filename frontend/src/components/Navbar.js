@@ -5,17 +5,18 @@ import { MyContext } from '../context/index';
 export default class Navbar extends Component {
 
     render() {
-        //console.log(this.props.history.location.pathname)
         return (
             <>
                 <div className="laraTop">
-                    <NavLink activeClassName="is-active" className="navbar-item" to={'/dashboard'}>MonitorEF</NavLink>
+                    <NavLink className="navbar-item" to={'/dashboard'}>MonitorEF</NavLink>
                     <div className="navbar-item laraTop-user">
                         <div className="navbar-item has-dropdown is-hoverable">
                             <span className="navbar-link">
-                                <div className="laraTop-avatar fa fa-user-circle"></div>
-                                {this.props.profesorName}
-                                <i>Profesor</i>
+                                <div className="laraUser">
+                                    <span className="laraUser-item"><strong className="laraTop-avatar fa fa-user-circle"></strong>
+                                        <strong>{this.props.profesorName}</strong></span>
+                                    <div className="laraUser-subitem">{'Profesor'}</div>
+                                </div>
                             </span>
 
                             <div className="navbar-dropdown">
@@ -41,7 +42,7 @@ export default class Navbar extends Component {
 
                     <div id="laraBurger" className="navbar-menu">
                         <div className="navbar-end">
-                        <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
+                            <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
                             <div className="navbar-item has-dropdown is-hoverable">
                                 <span className="navbar-link">
                                     Grupos

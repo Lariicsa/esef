@@ -5,13 +5,12 @@ import { MyContext } from '../context';
 
 export default class Layout extends Component {
 
-    render() {
-      
+    render() {      
         return (
             <MyContext.Consumer>
             {({state}) => (
               <>
-                <Navbar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username} />
+                <Navbar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username}/>
                 {this.props.children}
               </>
               )}
