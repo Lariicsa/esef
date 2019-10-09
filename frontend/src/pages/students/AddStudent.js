@@ -35,6 +35,10 @@ export default class AddStudent extends Component {
   //   }
   // }
 
+  getStudentId = (studentId) => {
+    this.context.setStudentId(studentId);
+  }
+
 
   addStudent = async e => {
     e.preventDefault()
@@ -50,6 +54,14 @@ export default class AddStudent extends Component {
     }
   }
 
+  // getGroup = async () => {
+  //   const userData = this.context.state.loggedUser
+  //   const id = userData._id
+  //   const response = await MAIN_SERVICE.getGroup(id)
+  //   this.setState(
+  //     { user: response.data.user }
+  //   )
+  // }
 
   getGroup = async () => {
     const userData = this.context.state.loggedUser
@@ -84,8 +96,8 @@ export default class AddStudent extends Component {
         <section className="section">
           <div className="container">
             <div className="columns is-centered">
-              <div className="column box is-12">
-                <div className="columns is-centered laraContent">
+              <div className="column box laraContent is-12">
+                <div className="columns is-centered">
                   <div className="column is-8">
                     <form className="box" onSubmit={this.addStudent}>
                       <div className="field">

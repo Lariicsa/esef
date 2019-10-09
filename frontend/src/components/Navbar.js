@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import React, { Component } from 'react';
 import { MyContext } from '../context/index';
 
-export default class Sidebar extends Component {
+export default class Navbar extends Component {
 
     render() {
         //console.log(this.props.history.location.pathname)
@@ -14,7 +14,7 @@ export default class Sidebar extends Component {
                         <div className="navbar-item has-dropdown is-hoverable">
                             <span className="navbar-link">
                                 <div className="laraTop-avatar fa fa-user-circle"></div>
-                                {JSON.stringify(this.props.profesorName)}
+                                {this.props.profesorName}
                                 <i>Profesor</i>
                             </span>
 
@@ -26,15 +26,12 @@ export default class Sidebar extends Component {
                                 <form className="navbar-item">
                                     <input className="button is-text" onClick={this.context.logOut} type="submit" value="Cerrar sesión" />
                                 </form>
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <nav className="navbar" role="navigation" aria-label="main navigation">
-
                     <div className="navbar-brand">
-
                         <p role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
@@ -42,11 +39,30 @@ export default class Sidebar extends Component {
                         </p>
                     </div>
 
-                    <div id="navbarBasicExample" className="navbar-menu">
+                    <div id="laraBurger" className="navbar-menu">
                         <div className="navbar-end">
-                            <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
-                            <NavLink to={'/groups/all'} className="navbar-item" activeClassName="is-active">Grupos</NavLink>
-                            <NavLink to={'/students/all'} className="navbar-item" activeClassName="is-active">Alumnos</NavLink>
+                        <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
+                            <div className="navbar-item has-dropdown is-hoverable">
+                                <span className="navbar-link">
+                                    Grupos
+                                </span>
+                                <div className="navbar-dropdown is-right">
+                                    <NavLink to={'/groups/all'} className="navbar-item" activeClassName="is-active">Ver Grupos</NavLink>
+                                    <hr className="navbar-divider" />
+                                    <NavLink to={'/groups/addgroup'} className="navbar-item" activeClassName="is-active">Agregar Grupo</NavLink>
+                                </div>
+                            </div>
+                            <div className="navbar-item has-dropdown is-hoverable">
+                                <span className="navbar-link">
+                                    Alumnos
+                                </span>
+                                <div className="navbar-dropdown is-right">
+                                    <NavLink to={'/students/all'} className="navbar-item" activeClassName="is-active">Ver Alumnos</NavLink>
+                                    <hr className="navbar-divider" />
+                                    <NavLink to={'/students/addstudent'} className="navbar-item" activeClassName="is-active">Agregar Alumno</NavLink>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </nav>
@@ -55,4 +71,4 @@ export default class Sidebar extends Component {
     }
 }
 
-Sidebar.contextType = MyContext;
+Navbar.contextType = MyContext;

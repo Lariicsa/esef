@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Sidebar from './Navbar'
+import Navbar from './Navbar'
 import { MyContext } from '../context';
 
 
@@ -11,7 +11,7 @@ export default class Layout extends Component {
             <MyContext.Consumer>
             {({state}) => (
               <>
-                <Sidebar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username} />
+                <Navbar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username} />
                 {this.props.children}
               </>
               )}

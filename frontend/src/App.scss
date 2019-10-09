@@ -194,6 +194,18 @@ hr {
 
 .navbar {
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  &-link {
+    font-size: 20px;
+  }
+  &-dropdown {
+    .navbar-item {
+      font-size: 18px;
+      &.is-active {
+        color: $purple;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 a.navbar {
