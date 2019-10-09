@@ -31,19 +31,17 @@ export default class Dashboard extends Component {
     const { user, isLoading } = this.state
     console.log(user);
 
-    let openClass = ["column laraBar"];
+    let openClass = ["laraBar"];
     if (this.state.addClass) {
       openClass.push('open');
     }
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="columns is-centered">
+            <div className="columns is-centered is-desktop">
               {/* <div className={openClass.join(' ')}></div> */}
               <div className="column box laraContent is-12">
 
-                <p className="button is-text burger" onClick={this.toggleMenu}> abre</p>
+                {/* <p className="button is-text burger" onClick={this.toggleMenu}> abre</p> */}
                 <div className="column">
                   {isLoading && <div className="myloaderContainer">
                     <span className="myloader"></span>
@@ -67,8 +65,6 @@ export default class Dashboard extends Component {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
       </Layout>
     );
   }

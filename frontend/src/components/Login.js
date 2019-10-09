@@ -5,7 +5,7 @@ import { MyContext } from '../context';
 
 class Login extends Component {
   state = {
-    user: {username: "lara", password: "123"}
+    user: { username: "lara", password: "123" }
   }
 
   handleInput = (e) => {
@@ -29,29 +29,31 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="columns is-centered is-vcentered hv">
-        <div className="column box animated is-4">
-          <p className="mesaage is-success"></p>
-          <form className="columns" onSubmit={this.onSubmit}>
-            <div className="column is-12">
-              <h1 className="title is-2">Ingresar</h1>
-              <div className="field">
-                <label className="label">Nombre de usuario:</label>
-                <input className="input ironInput" onChange={this.handleInput} type="text" name="username" />
-              </div>
-              <div className="field">
-                <label className="label">Contraseña:</label>
-                <input className="input ironInput" onChange={this.handleInput} type="password" name="password" />
-              </div>
-              <div className="field">
-                <p>Si aún no tiene registro de cuenta en el sistema, puede hacerlo <Link to={"/signup"}>aquí</Link></p>
-              </div>
+      <div className="container">
+        <div className="columns is-centered is-vcentered hv is-mobile">
+          <div className="column box animated is-6">
+            <p className="mesaage is-success"></p>
+            <form className="columns is-desktop " onSubmit={this.onSubmit}>
+              <div className="column is-12">
+                <h1 className="title is-2">Ingresar</h1>
+                <div className="field">
+                  <label className="label">Nombre de usuario:</label>
+                  <input className="input ironInput" onChange={this.handleInput} type="text" name="username" />
+                </div>
+                <div className="field">
+                  <label className="label">Contraseña:</label>
+                  <input className="input ironInput" onChange={this.handleInput} type="password" name="password" />
+                </div>
+                <div className="field">
+                  <p>Si aún no tiene registro de cuenta en el sistema, puede hacerlo <Link to={"/signup"}>aquí</Link></p>
+                </div>
 
-              <div className="field">
-              <input className="button is-primary is-fullwidth" type="submit" value="Login" />
+                <div className="field">
+                  <input className="button is-primary is-fullwidth" type="submit" value="Login" />
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     );

@@ -41,7 +41,7 @@ export default class Navbar extends Component {
                     </div>
 
                     <div id="laraBurger" className="navbar-menu">
-                        <div className="navbar-end">
+                        <div className="navbar-start">
                             <NavLink className="navbar-item" activeClassName="is-active" to={'/dashboard'}>Resumen</NavLink>
                             <div className="navbar-item has-dropdown is-hoverable">
                                 <span className="navbar-link">

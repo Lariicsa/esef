@@ -13,7 +13,6 @@ import AddMeasure from './pages/students/AddMeassure'
 import AllGroups from './pages/groups/AllGroups'
 
 const Router = () => (
-  <section className="section">
     <BrowserRouter>
     <Switch>
     <Route exact path="/dashboard" component={Dashboard} />
@@ -29,7 +28,6 @@ const Router = () => (
       <Route exact path="/students/addmeasurement" component={AddMeasure} />
     </Switch>
   </BrowserRouter>
-  </section>
 )
 
 export default Router;

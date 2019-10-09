@@ -49,7 +49,7 @@ exports.getUserDetail = async (req, res) => {
     })
     res.status(200).json({ user })
   } catch {
-    (err) => res.status(500).json({ err })
+    (err) => res.status(500).json({ err, msg: 'Welcome to your dash' })
   }
 }
 

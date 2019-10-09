@@ -58,7 +58,7 @@ export default class AllStudents extends Component {
             <Layout>
                 <section className="section">
                     <div className="container">
-                        <div className="columns is-centered">
+                        <div className="columns is-centered is-desktop">
                             <div className="column box laraContent is-12">
                                 <div className="columns">
                                     <div className="column is-12">
