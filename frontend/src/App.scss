@@ -1,11 +1,13 @@
-// html {
-//   background-color: $clearBg;
-// }
+html {
+  background-color: $gradBgAux;
+  background: $gradBg;
+  height: 100vh;
+}
 
-// body {
-//   background-color: $gradBgAux;
-//   background: $gradBg;
-// }
+body {
+  height: 100%;
+  font-family: $font-main;
+}
 
 // .lara {
 //   &Circle {
@@ -191,13 +193,9 @@
 //   }
 // }
 
-// .columns.profile {
-//   flex-wrap: wrap;
-// }
-
-// .is-vcentered.hv {
-//   height: 100vh;
-// }
+.is-vcentered.hv {
+  height: 100vh;
+}
 
 .lara {
   &Boy {
@@ -228,31 +226,45 @@
   }
 }
 
-// .navbar {
-//   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-//   &-link {
-//     font-size: 20px;
-//   }
-//   &-dropdown {
-//     .navbar-item {
-//       font-size: 18px;
-//       &.is-active {
-//         color: $purple;
-//         font-weight: bold;
-//       }
-//     }
-//   }
-// }
+.navbar {
+  background-color: transparent;
+  border: none;
+  &-brand {
+    margin-right: 4%;
+  }
+  &-link {
+    color: $purple;
+    font-size: 22px;
+  }
+  &-dropdown {
+    .navbar-item {
+      font-size: 20px;
+      &.is-active {
+        color: $clearBg;
+        font-weight: bold;
+      }
+    }
+  }
+}
 
-// a.navbar {
-//   &-item {
-//     font-size: 20px;
-//     &.is-active {
-//       color: $purple;
-//       font-weight: bold;
-//     }
-//   }
-// }
+.navbar-link:not(.is-arrowless)::after {
+  border-color: $purple;
+  color: $purple;
+}
+
+a.navbar {
+
+  &-item {
+    font-size: 22px;
+    img{
+      max-height: 1.6em;
+    }
+    &.is-active {
+      color: $clearBg;
+      font-weight: bold;
+    }
+  }
+}
 
 // .burger {
 //   display: none;
