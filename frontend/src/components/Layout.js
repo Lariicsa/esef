@@ -20,7 +20,7 @@ export default class Layout extends Component {
             <footer className="footer">
               <div className="columns is-centeredentered is-vc">
                 <div className="column is-12">
-                <p className="has-text-centered">Made with love, tears & fun in Ironhack by Larissa Avila</p>
+                <p className="has-text-centered has-text-black-bis is-size-5">Made with love, tears & fun in Ironhack by Larissa Avila</p>
                 </div>
               </div>
             </footer>
