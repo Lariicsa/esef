@@ -44,6 +44,8 @@ export default class AddMeasure extends Component {
     catch (e) {
       console.log(e, e.response);
     }
+    return this.props.history.push(`/students/students/${studentId}`)
+
   }
 
 
@@ -81,14 +83,12 @@ export default class AddMeasure extends Component {
 
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login')
-    if (!this.context.state.studentId) return this.props.history.goBack() // maybe nunca se ocupa, revisar documentación
     this.setState({
       studentId: this.context.state.studentId
     })
   }
 
   render() {
-    console.log(this.state)
     const { measurement } = this.state
 
     return (
@@ -254,7 +254,7 @@ export default class AddMeasure extends Component {
                       {measurement.imc > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">IMC</h3>
-                          <strong className="has-text-centered">{measurement.imc}</strong></>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.imc)}</div></>
                       }
                     </div>
                   </div>
@@ -263,7 +263,7 @@ export default class AddMeasure extends Component {
                       {measurement.power > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
-                          <strong className="has-text-centered">{measurement.power}</strong>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.power)}</div>
                         </>
                       }
                     </div>
@@ -273,7 +273,7 @@ export default class AddMeasure extends Component {
                       {measurement.ica > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
-                          <strong className="has-text-centered">{measurement.ica}</strong>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.ica)}</div>
                         </>
                       }
                     </div>

@@ -28,7 +28,6 @@ export default class AllStudents extends Component {
     }
 
     deleteStudent = async (id) => {
-        // axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
         await MAIN_SERVICE.deleteStudent(id)
             .then(({ data }) => {
                 this.setState(prevState => {
