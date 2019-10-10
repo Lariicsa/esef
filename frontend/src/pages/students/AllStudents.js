@@ -63,7 +63,7 @@ export default class AllStudents extends Component {
                             </div>
                         </div>
                         <div className="columns is-right">
-                        <div className="column is-12">
+                            <div className="column is-12">
                                 <div className="buttons is-right">
                                     <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
                                         <span>Añadir Alumnos</span>
@@ -100,20 +100,16 @@ export default class AllStudents extends Component {
                                                             } */}
                                             <td><span className="tag is-warning">1ra medición</span></td>
                                             <td>
-                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
+
+                                                <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                    Editar datos
+                                                         </Link>
+                                                <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                    Eliminar Alumno
+                                                         </span>
                                             </td>
                                             <td>
-                                                <div className="laraMore icon is-medium">
-                                                    <i className="fa fa-ellipsis-h"></i>
-                                                    <div className="laraMore-container">
-                                                        <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
-                                                            Editar datos
-                                                                </Link>
-                                                        <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
-                                                            Eliminar Alumno
-                                                                        </span>
-                                                    </div>
-                                                </div>
+                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
                                             </td>
                                         </tr>
                                     )}

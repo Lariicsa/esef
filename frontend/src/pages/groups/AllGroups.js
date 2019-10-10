@@ -56,7 +56,7 @@ export default class AllGroups extends Component {
                                     </li>
                                 )}
                                 <li>
-                                <Link to={'/groups/all'} className="box add animated"><i class="fa fa-plus-circle"></i></Link>
+                                <Link to={'/groups/addgroup'} className="box add animated"><i class="fa fa-plus-circle"></i></Link>
                                 </li>
                             </ul>
                         </div>

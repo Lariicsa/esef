@@ -72,12 +72,6 @@ export default class Dashboard extends Component {
                 )}
               </ul>
             </div>
-            <div className="box">
-              <h2 className="title is-3">Información de grupos</h2>
-
-              <p className="subtitle is-3">Total de grupos:<strong></strong></p>
-              <p className="subtitle is-4">Total de grupos:<strong></strong></p>
-            </div>
           </div>
         </div>
       </Layout>
