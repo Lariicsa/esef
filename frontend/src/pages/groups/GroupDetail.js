@@ -124,7 +124,7 @@ export default class GroupDetail extends Component {
                                         </thead>
                                         <tbody>
                                             {students && students.map((student, i) =>
-                                                <tr key={i} onClick={() => this.goToDetail(student._id)}>
+                                                <tr key={i}>
                                                     <td>{i}</td>
                                                     <td>{student.name} {student.lastname1} {student.name2}</td>
                                                     <td>{student.age}</td>
@@ -146,7 +146,8 @@ export default class GroupDetail extends Component {
                                                                         </Link>
                                                                 <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
                                                                     Eliminar Alumno
-                                                                        </span>
+                                                                </span>
+                                                                <Link to={`/students/students/${student._id}`}>Ver Alumno</Link>
                                                             </div>
                                                         </div>
                                                     </td>

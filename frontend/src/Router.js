@@ -11,6 +11,7 @@ import GroupDetail from './pages/groups/GroupDetail'
 import EditStudent from './pages/students/EditStudent'
 import AddMeasure from './pages/students/AddMeassure'
 import AllGroups from './pages/groups/AllGroups'
+import Profile from './pages/teacher/Profile'
 
 const Router = () => (
     <BrowserRouter>
@@ -26,6 +27,7 @@ const Router = () => (
       <Route exact path="/students/students/:id" component={StudentDetail} />
       <Route exact path="/students/students/edit/:id" component={EditStudent} />
       <Route exact path="/students/addmeasurement" component={AddMeasure} />
+      <Route exact path="/teacher/profile" component={Profile} />
     </Switch>
   </BrowserRouter>
 )

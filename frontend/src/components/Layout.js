@@ -12,16 +12,16 @@ export default class Layout extends Component {
         {({ state }) => (
           <>
             <Navbar history={this.props.history} profesorName={state.loggedUser && state.loggedUser.username} />
-            <section className="section">
-              <div className="container">
-              {this.props.children}
-                </div>
+            <div className="container">
+              <section className="section">
+                {this.props.children}
               </section>
+            </div>
           </>
-    )
-  }
-          </MyContext.Consumer>
-       
+        )
+        }
+      </MyContext.Consumer>
+
     )
   }
 }

@@ -106,7 +106,7 @@ export default class AllStudents extends Component {
                                                             <div className="laraMore-container">
                                                                 <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
                                                                     Editar datos
-                                                                        </Link>
+                                                                </Link>
                                                                 <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
                                                                     Eliminar Alumno
                                                                         </span>

@@ -7,7 +7,8 @@ import Layout from '../../components/Layout';
 export default class AllGroups extends Component {
 
     state = {
-        user: {}
+        user: {},
+        isLoading: true
     }
 
     getUser = async () => {
@@ -15,7 +16,7 @@ export default class AllGroups extends Component {
         const id = userData._id
         const response = await axios.get(`http://localhost:3000/api/user/${id}`)
         this.setState(
-            { user: response.data.user }
+            { user: response.data.user, isLoading: false }
         )
     }
 
@@ -30,7 +31,7 @@ export default class AllGroups extends Component {
 
     render() {
         console.log(this.state.user.groups);
-        const groups = this.state.user.groups
+        const {groups, isLoading} = this.state.user
 
         return (
             <Layout>
@@ -46,11 +47,14 @@ export default class AllGroups extends Component {
 
                                 <div className="columns is-centered">
                                     <div className="column is-6">
-                                    <h3 className="title is-3">Todos los grupos</h3>
+                                        <h3 className="title is-3">Todos los grupos</h3>
                                     </div>
                                 </div>
-                                
+
                                 <ul className="laraContainer" >
+                                    {isLoading && <div className="myloaderContainer">
+                                        <span className="myloader"></span>
+                                    </div>}
                                     {groups && groups.map((group, i) =>
                                         <li key={i} className="animated">
                                             <Link to={`/groups/all/${group._id}`}>
