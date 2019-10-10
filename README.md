@@ -18,7 +18,9 @@ A partir de estos datos se pueden obtener:
 
 ## Usuario de pruebas para acceder
 
-Se puede acceder con el usuario: lara, contraseña: 123
+Se puede acceder con el
+usuario: lara, 
+contraseña: 123
 de igual manera, se puede dar de alta un nuevo usuario desde el link de [Signup](https://confident-murdock-342154.netlify.com/signup)
 
 ## Flujo
