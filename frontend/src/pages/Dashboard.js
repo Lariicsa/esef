@@ -60,16 +60,13 @@ export default class Dashboard extends Component {
             </div>
             <div className="box">
               <h2 className="title is-3">Grupos</h2>
-              <ul>
+              <ul className="columns laraGroups">
                 {groups && groups.map((group, i) =>
-                  <li key={i} className="animated">
+                  <li key={i} className="column box animated">
                     <Link to={`/groups/all/${group._id}`}>
                       <div className="laraCircle">
-                        <p>
-                          {group.level} <span>{group.group}</span>
-                        </p>
+                          {group.level} {group.group}
                       </div>
-                      <em className="has-text-grey"> {} alumnos</em>
                     </Link>
                   </li>
                 )}

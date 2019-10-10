@@ -255,6 +255,7 @@ body {
 a.navbar {
 
   &-item {
+    color: $purple;
     font-size: 22px;
     img{
       max-height: 1.6em;
@@ -266,33 +267,29 @@ a.navbar {
   }
 }
 
-// .burger {
-//   display: none;
-// }
+@media screen and (max-width: 1199px) {
+  .laraBar.open {
+    display: flex;
+    transition: transform 0.5s;
+    transform: translate(0px, 0);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: beige;
+    width: 240px;
+  }
 
-// @media screen and (max-width: 1199px) {
-//   .laraBar.open {
-//     display: flex;
-//     transition: transform 0.5s;
-//     transform: translate(0px, 0);
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     z-index: 1;
-//     background-color: beige;
-//     width: 240px;
-//   }
+  .burger {
+    display: block;
+  }
 
-//   .burger {
-//     display: block;
-//   }
-
-//   .laraBar {
-//     display: none;
-//     transition: transform 0.5s;
-//     transform: translate(-250px, 0);
-//   }
-// }
+  .laraBar {
+    display: none;
+    transition: transform 0.5s;
+    transform: translate(-250px, 0);
+  }
+}
 
 .footer {
   background-color: transparent;

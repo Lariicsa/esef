@@ -18,16 +18,6 @@ export default class AddGroup extends Component {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
     }
 
-    // addGroup = async e => {
-    //     e.preventDefault()
-    //     const body = this.state
-    //     const response = await axios.post('http://localhost:3000/api/groups', body)
-    //     this.setState({
-    //         response: response.data.msg
-    //     })
-    //     console.log(response.data.msg);
-    // }
-
     addGroup = async e => {
         e.preventDefault()
         const body = this.state
