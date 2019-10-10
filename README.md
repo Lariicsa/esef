@@ -12,7 +12,7 @@ Esta webapp está hecha para monitorear a niños de primaria en la materia de Ed
 A partir de estos datos se pueden obtener:
 
 - Potencia,
-- IMC (Índice de masa corporar)
+- IMC (Índice de masa corporal)
 - ICA (Índice de capacidad aeróbica)
 
 
@@ -28,3 +28,4 @@ de igual manera, se puede dar de alta un nuevo usuario desde el link de [Signup]
 - Se pueden añadir grupos,
 - y dentro de los grupos alumnos(se pueden añadir, editar, borrar y ver alumnos),
 - cada alumno tiene sus mediciones y se podrán hacer hasta 2 medicones por año
+- cada usuario podrá ver solo sus grupos y respectivos alumnos de su perfil 
