@@ -39,7 +39,6 @@ export default class AddMeasure extends Component {
       this.setState(
         { response: response.data.msg }
       )
-      console.log(response.data.msg);
     }
     catch (e) {
       console.log(e, e.response);
@@ -47,9 +46,6 @@ export default class AddMeasure extends Component {
     return this.props.history.push(`/students/students/${studentId}`)
 
   }
-
-
-
   calculateValues = () => {
     const { measurement } = this.state
     const { weight, height, hip } = measurement
@@ -243,10 +239,6 @@ export default class AddMeasure extends Component {
                     <p className="button is-fullwidth" onClick={() => this.calculateValues()}>Calcular resultados</p>
                   </div>
 
-                  <div className="field">
-                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
-                  </div>
-
                 </div>
                 <div className="column is-5">
                   <div className="columns is-centered">
@@ -278,6 +270,13 @@ export default class AddMeasure extends Component {
                       }
                     </div>
                   </div>
+                  { measurement.ica >0 && measurement.power >0 && measurement.imc >0 &&
+                  <>
+                  <div className="field">
+                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
+                  </div>
+                  </>
+                  }
                 </div>
               </div>
 
