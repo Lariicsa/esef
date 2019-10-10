@@ -30,22 +30,6 @@ export default class AddMeasure extends Component {
     response: undefined
   }
 
-  // addMeasurement = async e => {
-  //   e.preventDefault()
-  //   const { measurement, studentId } = this.state
-  //   const body1 = { measurement, studentId }
-  //   try {
-  //     const response = await axios.post('http://localhost:3000/api/measures', body1)
-  //     this.setState({
-  //       response: response.data.msg
-  //     })
-  //     console.log(response)
-  //   }
-  //   catch (e) {
-  //     console.log(e, e.response);
-  //   }
-  // }
-
   addMeasurement = async e => {
     e.preventDefault()
     const { measurement, studentId } = this.state
@@ -109,166 +93,198 @@ export default class AddMeasure extends Component {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="columns is-centered">
-              <div className="column box is-12">
-                <div className="columns is-centered laraContent">
-                  <div className="column is-8">
-                    <form className="box" onSubmit={this.addMeasurement}>
+        <div className="columns box is-centered">
+          <div className="column is-12">
+            <div className="columns is-right">
+              <div className="column is-12">
+                <h2 className="title is-1 has-text-right">Añadir Medición</h2>
+              </div>
+            </div>
+            <form className="box" onSubmit={this.addMeasurement}>
+              <div className="columns is-centered is-vcentered">
+                <div className="column is-7">
+                  <div className="field">
+                    <label className="label">Peso:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.weight}
+                      type='number'
+                      name='weight'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Peso:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.weight}
-                          type='number'
-                          name='weight'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">Estatura:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.height}
+                      type='number'
+                      name='height'
+                    />
 
-                      <div className="field">
-                        <label className="label">Estatura:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.height}
-                          type='number'
-                          name='height'
-                        />
-                        <label className="label">Potencia: {measurement.power}</label>
-                        <label className="label">IMC: {measurement.imc}</label>
-                      </div>
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Cintura:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.hip}
-                          type='number'
-                          name='hip'
-                        />
-                        <label className="label">% Grasa abdominal: {measurement.abdominalFat}</label>
-                      </div>
+                  <div className="field">
+                    <label className="label">Cintura:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.hip}
+                      type='number'
+                      name='hip'
+                    />
+                    <label className="label">% Grasa abdominal: {measurement.abdominalFat}</label>
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Velocidad:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.velocity}
-                          type='number'
-                          name='velocity'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">Velocidad:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.velocity}
+                      type='number'
+                      name='velocity'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Flexibilidad:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.flexibility}
-                          type='number'
-                          name='flexibility'
-                        />
-                      </div>
-
-
-                      <div className="field">
-                        <label className="label">M.Inferior:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.lowerMass}
-                          type='number'
-                          name='lowerMass'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">Flexibilidad:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.flexibility}
+                      type='number'
+                      name='flexibility'
+                    />
+                  </div>
 
 
-                      <div className="field">
-                        <label className="label">Abdome:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.abdomen}
-                          type='number'
-                          name='abdomen'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">M.Inferior:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.lowerMass}
+                      type='number'
+                      name='lowerMass'
+                    />
+                  </div>
 
 
-                      <div className="field">
-                        <label className="label">M.Superior:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.upperMass}
-                          type='number'
-                          name='upperMass'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">Abdomen:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.abdomen}
+                      type='number'
+                      name='abdomen'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Frecuencia cardiaca en reposo:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.restingHeartRate}
-                          type='number'
-                          name='restingHeartRate'
-                        />
-                      </div>
 
-                      <div className="field">
-                        <label className="label">Frecuencia cardiaca de esfuerzo:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.stressHeartRate}
-                          type='number'
-                          name='stressHeartRate'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">M.Superior:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.upperMass}
+                      type='number'
+                      name='upperMass'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Freccuencia cardiaca en recuperación:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.heartRateRecovery}
-                          type='number'
-                          name='heartRateRecovery'
-                        />
-                      </div>
+                  <div className="field">
+                    <label className="label">Frecuencia cardiaca en reposo:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.restingHeartRate}
+                      type='number'
+                      name='restingHeartRate'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <label className="label">Metros recorridos:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={measurement.meters}
-                          type='number'
-                          name='meters'
-                        />
-                        <label className="label">ICA: {measurement.ica}</label>
-                      </div>
-                      <div className="field">
-                        <p className="button is-fullwidth" onClick={() => this.calculateValues()}>Calcular resultados</p>
-                      </div>
+                  <div className="field">
+                    <label className="label">Frecuencia cardiaca de esfuerzo:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.stressHeartRate}
+                      type='number'
+                      name='stressHeartRate'
+                    />
+                  </div>
 
-                      <div className="field">
-                        <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
-                      </div>
-                    </form>
+                  <div className="field">
+                    <label className="label">Freccuencia cardiaca en recuperación:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.heartRateRecovery}
+                      type='number'
+                      name='heartRateRecovery'
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label className="label">Metros recorridos:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={measurement.meters}
+                      type='number'
+                      name='meters'
+                    />
+                  </div>
+                  <div className="field">
+                    <p className="button is-fullwidth" onClick={() => this.calculateValues()}>Calcular resultados</p>
+                  </div>
+
+                  <div className="field">
+                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
+                  </div>
+
+                </div>
+                <div className="column is-5">
+                  <div className="columns is-centered">
+                    <div className="column is-12">
+                      {measurement.imc > 0 &&
+                        <>
+                          <h3 className="title is-3 has-text-centered has-color-primary">IMC</h3>
+                          <strong className="has-text-centered">{measurement.imc}</strong></>
+                      }
+                    </div>
+                  </div>
+                  <div className="columns is-centered">
+                    <div className="column is-12">
+                      {measurement.power > 0 &&
+                        <>
+                          <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
+                          <strong className="has-text-centered">{measurement.power}</strong>
+                        </>
+                      }
+                    </div>
+                  </div>
+                  <div className="columns is-centered">
+                    <div className="column is-12">
+                      {measurement.ica > 0 &&
+                        <>
+                          <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
+                          <strong className="has-text-centered">{measurement.ica}</strong>
+                        </>
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+
+            </form>
+
           </div>
-        </section>
+        </div>
       </Layout>
     );
   }
