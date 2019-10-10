@@ -20,21 +20,6 @@ export default class AddStudent extends Component {
     response: undefined
   }
 
-  // addStudent = async e => {
-  //   e.preventDefault()
-  //   const { student } = this.state
-  //   try {
-  //     const response = await axios.post('http://localhost:3000/api/students', student)
-  //     this.setState({
-  //       response: response.data.msg
-  //     })
-  //     console.log(response)
-  //   }
-  //   catch (e) {
-  //     console.log(e, e.response);
-  //   }
-  // }
-
   getStudentId = (studentId) => {
     this.context.setStudentId(studentId);
   }
@@ -54,14 +39,6 @@ export default class AddStudent extends Component {
     }
   }
 
-  // getGroup = async () => {
-  //   const userData = this.context.state.loggedUser
-  //   const id = userData._id
-  //   const response = await MAIN_SERVICE.getGroup(id)
-  //   this.setState(
-  //     { user: response.data.user }
-  //   )
-  // }
 
   getGroup = async () => {
     const userData = this.context.state.loggedUser

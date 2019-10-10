@@ -25,15 +25,6 @@ export default class GroupDetail extends Component {
         )
     }
 
-    // getGroupDetail = async () => {
-    //     const { id } = this.props.match.params
-    //     const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
-    //     this.setState({
-    //         group
-    //     })
-    //   }
-
-
     goToDetail = (id) => {
         this.props.history.push(`/students/students/${id}`)
         console.log('clic');

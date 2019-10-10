@@ -7,7 +7,15 @@ import Layout from '../../components/Layout';
 export default class EditStudent extends Component {
 
     state = {
-        student: {},
+        student: {
+            level: '',
+            group: '',
+            name: '',
+            lastname1: '',
+            lastname2: '',
+            age: 0,
+            gender: '',
+        },
 
     }
 
@@ -46,105 +54,101 @@ export default class EditStudent extends Component {
 
         return (
             <Layout>
-                <section className="section">
-                    <div className="container">
-                        <div className="columns is-centered">
-                            <div className="column box is-12">
-                                <div className="columns is-centered laraContent">
-                                    <div className="column is-12">
-                                        <div className="columns is-centered">
-                                            <div className="column box is-8">
-                                                <form onSubmit={this.updateStudent}>
-                                                    <div className="field">
-                                                        <label className="label">Grado</label>
-                                                        <div className="select">
-                                                            <select name="level" value={student.level} onChange={this.handleInput} >
-                                                                <option disabled ></option>
-                                                                <option value="1ro">1ro</option>
-                                                                <option value="2do">2do</option>
-                                                                <option value="3ro">3ro</option>
-                                                                <option value="4to">4to</option>
-                                                                <option value="5to">5to</option>
-                                                                <option value="6to">6to</option>
-                                                            </select>
-                                                        </div>
+                <div className="columns box is-centered">
+                    <div className="column is-12">
+                        <div className="columns is-right">
+                            <div className="column is-12">
+                                <h2 className="title is-1 has-text-right">Editar Estudiante</h2>
+                            </div>
+                        </div>
+                        <form className="box" onSubmit={this.updateStudent}>
+                            <div className="field">
+                                <label className="label">Grado</label>
+                                <div className="select">
+                                    <select name="level" value={student.level} onChange={this.handleInput} >
+                                        <option value="1ro">1ro</option>
+                                        <option value="2do">2do</option>
+                                        <option value="3ro">3ro</option>
+                                        <option value="4to">4to</option>
+                                        <option value="5to">5to</option>
+                                        <option value="6to">6to</option>
+                                    </select>
+                                </div>
 
-                                                        <div className="select">
-                                                            <select name="group" value={student.group} onChange={this.handleInput} >
-                                                                <option disabled ></option>
-                                                                <option value="A">A</option>
-                                                                <option value="B">B</option>
-                                                                <option value="C">C</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                <div className="select">
+                                    <select name="group" value={student.group} onChange={this.handleInput} >
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                                                    <div className="field">
-                                                        <label className="label">Nombre(s):</label>
-                                                        <input className="input"
+                            <div className="field">
+                                <label className="label">Nombre(s):</label>
+                                <input className="input"
 
-                                                            onChange={this.handleInput}
-                                                            value={student.name}
-                                                            type='text'
-                                                            name='name'
-                                                        />
-                                                    </div>
-                                                    <div className="field">
-                                                        <label className="label">Apellido paterno:</label>
-                                                        <input className="input"
+                                    onChange={this.handleInput}
+                                    value={student.name}
+                                    type='text'
+                                    name='name'
+                                />
+                            </div>
+                            <div className="field">
+                                <label className="label">Apellido paterno:</label>
+                                <input className="input"
 
-                                                            onChange={this.handleInput}
-                                                            value={student.lastname1}
-                                                            type='text'
-                                                            name='lastname1'
-                                                        />
-                                                    </div>
+                                    onChange={this.handleInput}
+                                    value={student.lastname1}
+                                    type='text'
+                                    name='lastname1'
+                                />
+                            </div>
 
-                                                    <div className="field">
-                                                        <label className="label">Apellido materno:</label>
-                                                        <input className="input"
+                            <div className="field">
+                                <label className="label">Apellido materno:</label>
+                                <input className="input"
 
-                                                            onChange={this.handleInput}
-                                                            value={student.lastname2}
-                                                            type='text'
-                                                            name='lastname2'
-                                                        />
-                                                    </div>
+                                    onChange={this.handleInput}
+                                    value={student.lastname2}
+                                    type='text'
+                                    name='lastname2'
+                                />
+                            </div>
 
-                                                    <div className="field">
-                                                        <label className="label">Edad:</label>
-                                                        <input className="input"
+                            <div className="field">
+                                <label className="label">Edad:</label>
+                                <input className="input"
 
-                                                            onChange={this.handleInput}
-                                                            value={student.age}
-                                                            type='number'
-                                                            name='age'
-                                                        />
-                                                    </div>
+                                    onChange={this.handleInput}
+                                    value={student.age}
+                                    type='number'
+                                    name='age'
+                                />
+                            </div>
 
-                                                    <div className="field">
-                                                        <label className="label">Género:</label>
-                                                        <div className="select">
-                                                            <select name="gender" value={student.gender} onChange={this.handleInput} >
-                                                                <option disabled ></option>
-                                                                <option value="Femenino">Femenino</option>
-                                                                <option value="Masculino">Masculino</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div className="field">
-                                                        <button className="button is-fullwidth is-primary" type='submit'>Actualizar datos</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                            <div className="field">
+                                <label className="label">Género:</label>
+                                <div className="select">
+                                    <select name="gender" value={student.gender} onChange={this.handleInput} >
+                                        <option disabled ></option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Masculino">Masculino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="columns is-right">
+                                <div className="column is-6 is-offset-6">
+                                    <div className="field">
+                                        <button className="button is-fullwidth is-primary" type='submit'>Actualizar datos</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+
+
                     </div>
-                </section>
+                </div>
             </Layout>
         );
     }

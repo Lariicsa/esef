@@ -91,7 +91,6 @@ export default class StudentDetail extends Component {
 
                                                 <VictoryBar key={i}
                                                     data={[{ x: i + 1, y: ms.ica }]}
-
                                                 />
 
                                             ))}
