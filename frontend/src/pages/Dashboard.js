@@ -20,7 +20,7 @@ export default class Dashboard extends Component {
   }
 
   getGroupsLength = async () => {
-    const {groups} = this.state.user
+    const { groups } = this.state.user
   }
 
   componentDidMount() {
@@ -77,7 +77,7 @@ export default class Dashboard extends Component {
             </div>
             <div className="box">
               <h2 className="title is-3">Información de grupos</h2>
-              
+
               <p className="subtitle is-3">Total de grupos:<strong></strong></p>
               <p className="subtitle is-4">Total de grupos:<strong></strong></p>
             </div>
