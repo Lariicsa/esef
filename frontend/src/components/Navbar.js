@@ -40,9 +40,9 @@ export default class Navbar extends Component {
 
                     <div className="navbar-end">
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <span className="navbar-link">Alumnos</span>
+                            <span className="navbar-link">{this.props.profesorName}</span>
                             <div className="navbar-dropdown is-right">
-                                <NavLink to={'/students/all'} className="navbar-item" activeClassName="is-active">{this.props.profesorName}</NavLink>
+                                <NavLink to={'/teacher/profile'} className="navbar-item" activeClassName="is-active">Perfil</NavLink>
                                 <hr className="navbar-divider" />
                                 <form className="navbar-item">
                                     <input className="button is-text" onClick={this.context.logOut} type="submit" value="Cerrar sesión" />
