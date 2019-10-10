@@ -26,6 +26,7 @@ export default class AddGroup extends Component {
             { group: response.data.msg }
         )
         console.log(response.data.msg);
+        return this.props.history.push('/groups/all')
     }
 
     handleInput = e => {

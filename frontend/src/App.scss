@@ -9,190 +9,6 @@ body {
   font-family: $font-main;
 }
 
-// .lara {
-//   &Circle {
-//     background-color: $lite-orange;
-//     border-radius: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     margin: 4% auto;
-//     height: 18vh;
-//     width: 18vh;
-//     p {
-//       font-size: 40px;
-//       font-weight: bold;
-//       color: $deep-orange;
-//       span {
-//         font-weight: normal;
-//       }
-//     }
-//   }
-
-//
-
-//   &Container {
-//     border-radius: 4px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin: 2% auto;
-//     list-style-type: none;
-//     width: 100%;
-//     flex-wrap: wrap;
-//     li {
-//       background-color: $clearBg;
-//       box-shadow: 0 4px 8px rgba(10, 10, 10, 0.2), 0 0 0 0px rgba(10, 10, 10, 0.8);
-//       border-radius: 4px;
-//       margin: 4% 0;
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: space-evenly;
-//       align-items: center;
-//       width: 30%;
-//       position: relative;
-//       &:hover {
-//         box-shadow: 0 1px 1px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-//       }
-//       a {
-//         padding: 2%;
-//         width: 100%;
-//       }
-//     }
-//   }
-
-//   &Content {
-//     background-color: $clearBg;
-//     margin-top: 8%;
-//     padding-top: 2%;
-//     min-height: 100vh;
-//   }
-
-//   &More {
-//     background-color: $grey-lite;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     border-radius: 100%;
-//     width: 20px;
-//     height: 20px;
-//     position: relative;
-//     &:hover {
-//       background-color: $grey-blue;
-//       color: $grey-lite;
-//       cursor: pointer;
-//     }
-//     &:hover &-container {
-//       display: flex;
-//     }
-//     &-container {
-//       background-color: $clearBg;
-//       border-radius: 4px;
-//       border: 1px solid $grey-lite;
-//       padding: 16%;
-//       display: none;
-//       flex-direction: column;
-//       justify-content: space-evenly;
-//       align-items: center;
-//       width: auto;
-//       height: auto;
-//       position: absolute;
-//       left: -158px;
-//       top: -51px;
-//       z-index: 200;
-//     }
-//   }
-
-//   &Padd {
-//     padding: 4%;
-//   }
-
-//   &Top {
-//     background-color: $clearBg;
-//     border-bottom: 1px solid $grey-lite;
-//     display: flex;
-//     justify-content: space-between;
-//     width: 100%;
-//     position: relative;
-//     z-index: 100;
-//   }
-//   &User {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-evenly;
-//     align-items: flex-start;
-//     &-item {
-//       font-size: $font-text-size-xlg;
-//       strong {
-//         font-size: inherit;
-//         &:last-child {
-//           margin-left: 4px;
-//         }
-//       }
-//     }
-//     &-subitem {
-//       font-size: $font-text-size;
-//     }
-//   }
-// }
-
-// //BS
-
-// hr {
-//   background-color: #e4e9eb;
-// }
-
-// .button {
-//   font-size: $font-text-size-md;
-// }
-
-// .container {
-//   margin: 0 auto;
-//   position: relative;
-//   width: 100%;
-//   max-width: 1200px;
-// }
-
-// .section {
-//   padding: 0;
-// }
-
-// .table {
-//   background-color: transparent;
-//   &-wrapper {
-//     padding: 0;
-//     border-radius: 4px;
-//     display: block;
-//     max-width: 100%;
-//     overflow: scroll;
-//   }
-//   border-collapse: collapse;
-//   border-radius: 8px;
-//   overflow: hidden;
-
-//   thead tr {
-//     background-color: transparent;
-//   }
-
-//   tr {
-//     background-color: $clearBg;
-//     border-bottom: 3px solid $grey-lite;
-//     border-radius: 4px;
-//     padding: 16px 0;
-
-//     td {
-//       vertical-align: middle;
-//       padding: 16px 16px;
-//       text-align: center;
-//       &.right {
-//         text-align: right;
-//       }
-//     }
-//   }
-// }
-
 .is-vcentered.hv {
   height: 100vh;
 }
@@ -205,6 +21,50 @@ body {
     background-size: contain;
     height: 60vh;
     width: 100%;
+  }
+  &Circle {
+    background-color: rgba($sky2, 0.32);
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    height: 96px;
+    width: 96px;
+  }
+  &Groups {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 28%;
+      margin: 0 2%;
+      &:hover a {
+        color: $blue-king;
+      }
+      a.add {
+        border: 1px dashed $grey-lite;
+        font-size: 56px;
+        color: $grey-lite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0 2%;
+        opacity: 0.7;
+        padding: 35px;
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
 
@@ -253,11 +113,10 @@ body {
 }
 
 a.navbar {
-
   &-item {
     color: $purple;
     font-size: 22px;
-    img{
+    img {
       max-height: 1.6em;
     }
     &.is-active {
