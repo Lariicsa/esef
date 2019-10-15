@@ -21,7 +21,7 @@ export default class AllStudents extends Component {
 
     getGroups = async () => {
         const { id } = this.props.match.params
-        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
+        const { data: { group } } = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/groups/${id}`)
         this.setState({
             group
         })

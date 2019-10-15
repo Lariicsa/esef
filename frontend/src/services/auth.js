@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://morning-mountain-24878.herokuapp.com/api';
 
 const SERVICE = axios.create({ withCredentials: true, baseURL });
 

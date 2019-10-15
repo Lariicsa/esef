@@ -18,7 +18,7 @@ class MyProvider extends Component {
   };
 
   // checkUser = async () => {
-  //   const response = await axios.get('http://localhost:3000/api/user')
+  //   const response = await axios.get('https://morning-mountain-24878.herokuapp.com/api/user')
   //   console.log('current user: ', response);
     
   //   this.setState({

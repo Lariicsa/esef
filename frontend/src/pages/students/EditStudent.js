@@ -43,7 +43,7 @@ export default class EditStudent extends Component {
     componentDidMount = async () => {
         if (!this.context.state.loggedUser) return this.props.history.push('/login')
         const { id } = this.props.match.params
-        const { data: { student } } = await axios.get(`http://localhost:3000/api/students/${id}`)
+        const { data: { student } } = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/students/${id}`)
         this.setState({
             student
         })

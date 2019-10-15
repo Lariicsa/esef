@@ -43,7 +43,7 @@ export default class AddStudent extends Component {
   getGroup = async () => {
     const userData = this.context.state.loggedUser
     const id = userData._id
-    const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+    const response = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/user/${id}`)
     this.setState(
       { user: response.data.user }
     )
