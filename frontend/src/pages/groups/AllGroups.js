@@ -14,7 +14,7 @@ export default class AllGroups extends Component {
     getUser = async () => {
         const userData = this.context.state.loggedUser
         const id = userData._id
-        const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+        const response = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/user/${id}`)
         this.setState(
             { user: response.data.user, isLoading: false }
         )
@@ -31,57 +31,38 @@ export default class AllGroups extends Component {
 
     render() {
         console.log(this.state.user.groups);
-        const {groups, isLoading} = this.state.user
+        const { groups, isLoading } = this.state.user
 
         return (
             <Layout>
-                <section className="section">
-                    <div className="container">
-                        <div className="columns is-centered is-desktop">
-                            <div className="column box laraContent is-12">
-                                <div className="columns">
-                                    <div className="column is-12">
-                                        <Link to={'/dashboard'}>Regresar</Link>
-                                    </div>
-                                </div>
+                <div className="columns box is-centered">
+                    <div className="column is-12">
+                        <div className="columns is-right">
+                            <div className="column is-12">
+                                <h2 className="title is-1 has-text-right">Todos los grupos</h2>
+                            </div>
+                        </div>
 
-                                <div className="columns is-centered">
-                                    <div className="column is-6">
-                                        <h3 className="title is-3">Todos los grupos</h3>
-                                    </div>
-                                </div>
-
-                                <ul className="laraContainer" >
-                                    {isLoading && <div className="myloaderContainer">
-                                        <span className="myloader"></span>
-                                    </div>}
-                                    {groups && groups.map((group, i) =>
-                                        <li key={i} className="animated">
-                                            <Link to={`/groups/all/${group._id}`}>
-                                                <div className="laraCircle">
-                                                    <p>
-                                                        {group.level} <span>{group.group}</span>
-                                                    </p>
-                                                </div>
-                                                <em className="has-text-grey">{group.students.length} alumnos</em>
-                                            </Link>
-                                        </li>
-                                    )}
-                                    <li className="animated">
-                                        <Link to={'/groups/addgroup'}>
+                        <div className="box">
+                            <h2 className="title is-3">Grupos</h2>
+                            <ul className="laraGroups">
+                                {groups && groups.map((group, i) =>
+                                    <li key={i} className="box animated">
+                                        <Link to={`/groups/all/${group._id}`}>
                                             <div className="laraCircle">
-                                                <p>
-                                                    Agregar grupo
-                                                    <span className="fa fa-plus-circle"></span>
-                                                </p>
+                                                {group.level} {group.group}
                                             </div>
                                         </Link>
                                     </li>
-                                </ul>
-                            </div>
+                                )}
+                                <li>
+                                <Link to={'/groups/addgroup'} className="box add animated"><i class="fa fa-plus-circle"></i></Link>
+                                </li>
+                            </ul>
                         </div>
+
                     </div>
-                </section>
+                </div>
             </Layout>
         );
     }

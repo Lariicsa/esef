@@ -21,7 +21,7 @@ export default class AddSchool extends Component {
     addSchool = async e => {
         e.preventDefault()
         const body = this.state
-        const response = await axios.post('http://localhost:3000/api/schools', body)
+        const response = await axios.post('https://morning-mountain-24878.herokuapp.com/api/schools', body)
         this.setState({
             response: response.data.msg
         })

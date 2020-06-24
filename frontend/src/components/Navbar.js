@@ -9,7 +9,7 @@ export default class Navbar extends Component {
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <NavLink className="navbar-item" to={'/dashboard'}>
-                        <img src="fatov.png" height="28" alt="fatov" />
+                        <img src="/assets/logoMonitorEf.svg" height="28" alt="fatov" />
                     </NavLink>
 
                     <NavLink to={'/'} role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

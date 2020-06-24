@@ -21,14 +21,13 @@ export default class AllStudents extends Component {
 
     getGroups = async () => {
         const { id } = this.props.match.params
-        const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
+        const { data: { group } } = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/groups/${id}`)
         this.setState({
             group
         })
     }
 
     deleteStudent = async (id) => {
-        // axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
         await MAIN_SERVICE.deleteStudent(id)
             .then(({ data }) => {
                 this.setState(prevState => {
@@ -64,7 +63,7 @@ export default class AllStudents extends Component {
                             </div>
                         </div>
                         <div className="columns is-right">
-                        <div className="column is-12">
+                            <div className="column is-12">
                                 <div className="buttons is-right">
                                     <Link className="button is-rounded is-primary" to={'/students/addstudent'}>
                                         <span>Añadir Alumnos</span>
@@ -101,20 +100,16 @@ export default class AllStudents extends Component {
                                                             } */}
                                             <td><span className="tag is-warning">1ra medición</span></td>
                                             <td>
-                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
+
+                                                <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                    Editar datos
+                                                         </Link>
+                                                <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                    Eliminar Alumno
+                                                         </span>
                                             </td>
                                             <td>
-                                                <div className="laraMore icon is-medium">
-                                                    <i className="fa fa-ellipsis-h"></i>
-                                                    <div className="laraMore-container">
-                                                        <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
-                                                            Editar datos
-                                                                </Link>
-                                                        <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
-                                                            Eliminar Alumno
-                                                                        </span>
-                                                    </div>
-                                                </div>
+                                                <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
                                             </td>
                                         </tr>
                                     )}

@@ -20,25 +20,9 @@ export default class AddStudent extends Component {
     response: undefined
   }
 
-  // addStudent = async e => {
-  //   e.preventDefault()
-  //   const { student } = this.state
-  //   try {
-  //     const response = await axios.post('http://localhost:3000/api/students', student)
-  //     this.setState({
-  //       response: response.data.msg
-  //     })
-  //     console.log(response)
-  //   }
-  //   catch (e) {
-  //     console.log(e, e.response);
-  //   }
-  // }
-
   getStudentId = (studentId) => {
     this.context.setStudentId(studentId);
   }
-
 
   addStudent = async e => {
     e.preventDefault()
@@ -52,21 +36,14 @@ export default class AddStudent extends Component {
     } catch (e) {
       console.log(e, e.response);
     }
+    return this.props.history.push('/students/all')
   }
 
-  // getGroup = async () => {
-  //   const userData = this.context.state.loggedUser
-  //   const id = userData._id
-  //   const response = await MAIN_SERVICE.getGroup(id)
-  //   this.setState(
-  //     { user: response.data.user }
-  //   )
-  // }
 
   getGroup = async () => {
     const userData = this.context.state.loggedUser
     const id = userData._id
-    const response = await axios.get(`http://localhost:3000/api/user/${id}`)
+    const response = await axios.get(`https://morning-mountain-24878.herokuapp.com/api/user/${id}`)
     this.setState(
       { user: response.data.user }
     )
@@ -93,96 +70,99 @@ export default class AddStudent extends Component {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="columns is-centered">
-              <div className="column box laraContent is-12">
-                <div className="columns is-centered">
-                  <div className="column is-8">
-                    <form className="box" onSubmit={this.addStudent}>
-                      <div className="field">
-                        <label className="label">Grado</label>
-                        <div className="select">
-                          <select name="level" value={student.level} onChange={this.handleInput} >
-                            <option disabled ></option>
-                            {currentGroups && currentGroups.map((group, i) =>
-                              <option key={i} value={group.level}>{group.level}</option>
-                            )}
-                          </select>
-                        </div>
-                        <div className="select">
-                          <select name="group" value={student.group} onChange={this.handleInput} >
-                            <option disabled ></option>
-                            {currentGroups && currentGroups.map((group, i) =>
-                              <option key={i} value={group.group}>{group.group}</option>
-                            )}
-                          </select>
-                        </div>
-                      </div>
+        <div className="columns box is-centered">
 
-                      <div className="field">
-                        <label className="label">Nombre(s):</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={student.name}
-                          type='text'
-                          name='name'
-                        />
-                      </div>
-                      <div className="field">
-                        <label className="label">Apellido paterno:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={student.lastname1}
-                          type='text'
-                          name='lastname1'
-                        />
-                      </div>
-
-                      <div className="field">
-                        <label className="label">Apellido materno:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={student.lastname2}
-                          type='text'
-                          name='lastname2'
-                        />
-                      </div>
-
-                      <div className="field">
-                        <label className="label">Edad:</label>
-                        <input className="input"
-                          required
-                          onChange={this.handleInput}
-                          value={student.age}
-                          type='number'
-                          name='age'
-                        />
-                      </div>
-
-                      <div className="field">
-                        <label className="label">Género:</label>
-                        <div className="select">
-                          <select name="gender" value={student.gender} onChange={this.handleInput} >
-                            <option disabled ></option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div className="field">
-                        <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
+          <div className="column is-12">
+            <div className="columns is-center">
+              <div className="column is-12">
+                <h2 className="title is-1 has-text-right">Agregar alumno</h2>
               </div>
             </div>
+            <div className="box columns is-center">
+              <div className="column is-8">
+                <form className="box" onSubmit={this.addStudent}>
+                  <div className="field">
+                    <label className="label">Grado</label>
+                    <div className="select">
+                      <select name="level" value={student.level} onChange={this.handleInput} >
+                        <option disabled ></option>
+                        {currentGroups && currentGroups.map((group, i) =>
+                          <option key={i} value={group.level}>{group.level}</option>
+                        )}
+                      </select>
+                    </div>
+                    <div className="select">
+                      <select name="group" value={student.group} onChange={this.handleInput} >
+                        <option disabled ></option>
+                        {currentGroups && currentGroups.map((group, i) =>
+                          <option key={i} value={group.group}>{group.group}</option>
+                        )}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label className="label">Nombre(s):</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={student.name}
+                      type='text'
+                      name='name'
+                    />
+                  </div>
+                  <div className="field">
+                    <label className="label">Apellido paterno:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={student.lastname1}
+                      type='text'
+                      name='lastname1'
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label className="label">Apellido materno:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={student.lastname2}
+                      type='text'
+                      name='lastname2'
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label className="label">Edad:</label>
+                    <input className="input"
+                      required
+                      onChange={this.handleInput}
+                      value={student.age}
+                      type='number'
+                      name='age'
+                    />
+                  </div>
+
+                  <div className="field">
+                    <label className="label">Género:</label>
+                    <div className="select">
+                      <select name="gender" value={student.gender} onChange={this.handleInput} >
+                        <option disabled ></option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="field">
+                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
           </div>
-        </section>
+        </div>
       </Layout>
     );
   }

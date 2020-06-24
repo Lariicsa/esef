@@ -32,8 +32,8 @@ class Login extends Component {
       <div className="container">
         <div className="columns is-centered is-vcentered hv is-mobile">
           <div className="column box animated is-6">
-            <p className="mesaage is-success"></p>
-            <form className="columns is-desktop " onSubmit={this.onSubmit}>
+          
+            <form className="columns" onSubmit={this.onSubmit}>
               <div className="column is-12">
                 <h1 className="title is-2">Ingresar</h1>
                 <div className="field">

@@ -25,15 +25,6 @@ export default class GroupDetail extends Component {
         )
     }
 
-    // getGroupDetail = async () => {
-    //     const { id } = this.props.match.params
-    //     const { data: { group } } = await axios.get(`http://localhost:3000/api/groups/${id}`)
-    //     this.setState({
-    //         group
-    //     })
-    //   }
-
-
     goToDetail = (id) => {
         this.props.history.push(`/students/students/${id}`)
         console.log('clic');
@@ -57,7 +48,7 @@ export default class GroupDetail extends Component {
     }
 
     deleteStudent = (id) => {
-        axios.delete(`http://localhost:3000/api/students/${id}`, { data: { id } })
+        axios.delete(`https://morning-mountain-24878.herokuapp.com/api/students/${id}`, { data: { id } })
             .then(({ data }) => {
                 this.setState(prevState => {
                     return {
@@ -138,18 +129,16 @@ export default class GroupDetail extends Component {
                                                         <Link to={'/students/addmeasurement'} onClick={() => this.getStudentId(student._id)}>Agregar mediciones</Link>
                                                     </td>
                                                     <td>
-                                                        <div className="laraMore icon is-medium">
-                                                            <i className="fa fa-ellipsis-h"></i>
-                                                            <div className="laraMore-container">
-                                                                <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
-                                                                    Editar datos
+                                                    <Link className="button is-text" to={`/students/students/edit/${student._id}`}>
+                                                            Editar datos
                                                                         </Link>
-                                                                <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
-                                                                    Eliminar Alumno
+                                                        <span className="button is-text" onClick={() => this.deleteStudent(student._id)}>
+                                                            Eliminar Alumno
                                                                 </span>
-                                                                <Link to={`/students/students/${student._id}`}>Ver Alumno</Link>
-                                                            </div>
-                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <Link to={`/students/students/${student._id}`}>Ver Alumno</Link>
+
                                                     </td>
                                                 </tr>
                                             )}

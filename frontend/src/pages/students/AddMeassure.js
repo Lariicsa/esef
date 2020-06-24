@@ -39,15 +39,13 @@ export default class AddMeasure extends Component {
       this.setState(
         { response: response.data.msg }
       )
-      console.log(response.data.msg);
     }
     catch (e) {
       console.log(e, e.response);
     }
+    return this.props.history.push(`/students/students/${studentId}`)
+
   }
-
-
-
   calculateValues = () => {
     const { measurement } = this.state
     const { weight, height, hip } = measurement
@@ -81,14 +79,12 @@ export default class AddMeasure extends Component {
 
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login')
-    if (!this.context.state.studentId) return this.props.history.goBack() // maybe nunca se ocupa, revisar documentación
     this.setState({
       studentId: this.context.state.studentId
     })
   }
 
   render() {
-    console.log(this.state)
     const { measurement } = this.state
 
     return (
@@ -243,10 +239,6 @@ export default class AddMeasure extends Component {
                     <p className="button is-fullwidth" onClick={() => this.calculateValues()}>Calcular resultados</p>
                   </div>
 
-                  <div className="field">
-                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
-                  </div>
-
                 </div>
                 <div className="column is-5">
                   <div className="columns is-centered">
@@ -254,7 +246,7 @@ export default class AddMeasure extends Component {
                       {measurement.imc > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">IMC</h3>
-                          <strong className="has-text-centered">{measurement.imc}</strong></>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.imc)}</div></>
                       }
                     </div>
                   </div>
@@ -263,7 +255,7 @@ export default class AddMeasure extends Component {
                       {measurement.power > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
-                          <strong className="has-text-centered">{measurement.power}</strong>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.power)}</div>
                         </>
                       }
                     </div>
@@ -273,11 +265,18 @@ export default class AddMeasure extends Component {
                       {measurement.ica > 0 &&
                         <>
                           <h3 className="title is-3 has-text-centered has-color-primary">Potencia:</h3>
-                          <strong className="has-text-centered">{measurement.ica}</strong>
+                          <div className="title is-3 has-text-centered">{Math.round(measurement.ica)}</div>
                         </>
                       }
                     </div>
                   </div>
+                  { measurement.ica >0 && measurement.power >0 && measurement.imc >0 &&
+                  <>
+                  <div className="field">
+                    <button className="button is-fullwidth is-primary" type='submit'>Agregar Alumno</button>
+                  </div>
+                  </>
+                  }
                 </div>
               </div>
 

@@ -60,26 +60,17 @@ export default class Dashboard extends Component {
             </div>
             <div className="box">
               <h2 className="title is-3">Grupos</h2>
-              <ul>
+              <ul className="laraGroups">
                 {groups && groups.map((group, i) =>
-                  <li key={i} className="animated">
+                  <li key={i} className="box animated">
                     <Link to={`/groups/all/${group._id}`}>
                       <div className="laraCircle">
-                        <p>
-                          {group.level} <span>{group.group}</span>
-                        </p>
+                          {group.level} {group.group}
                       </div>
-                      <em className="has-text-grey"> {} alumnos</em>
                     </Link>
                   </li>
                 )}
               </ul>
-            </div>
-            <div className="box">
-              <h2 className="title is-3">Información de grupos</h2>
-
-              <p className="subtitle is-3">Total de grupos:<strong></strong></p>
-              <p className="subtitle is-4">Total de grupos:<strong></strong></p>
             </div>
           </div>
         </div>
